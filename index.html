@@ -1,4 +1,4 @@
-<title>El Libro Contable PR–EE.UU.</title>
+<title>Economía de Puerto Rico — Investigación</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
@@ -524,6 +524,92 @@ section { padding-top: 72px }
 }
 .flow-diagram h3 { font-size: 1.15rem; margin-bottom: 20px }
 .flow-svg { width: 100%; max-width: 960px; margin: 0 auto; display: block }
+
+/* ── Tab navigation ── */
+.tab-bar {
+  display: flex; gap: 0; border-bottom: 2px solid var(--line);
+  margin-bottom: 0; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 3px);
+  background: var(--bg); z-index: 90; padding-top: 8px;
+}
+.tab-btn {
+  padding: 12px 24px; font-family: var(--sans); font-size: 14px; font-weight: 600;
+  color: var(--muted); background: none; border: none; border-bottom: 3px solid transparent;
+  cursor: pointer; transition: all .2s; margin-bottom: -2px; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--ink) }
+.tab-btn.active { color: var(--green); border-bottom-color: var(--green) }
+@media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
+
+/* ── Phase 2 styles ── */
+.gov-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px; box-shadow: var(--shadow-sm); margin-bottom: 20px;
+  border-left: 4px solid var(--line); transition: border-color .2s;
+}
+.gov-card:hover { border-left-color: var(--green) }
+.gov-card.negative { border-left-color: var(--red) }
+.gov-card.positive { border-left-color: var(--green) }
+.gov-card.mixed { border-left-color: var(--gold) }
+.gov-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px }
+.gov-name { font-family: var(--serif); font-size: 1.35rem }
+.gov-period { font-size: 13px; color: var(--muted); font-weight: 600 }
+.gov-party { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: .04em }
+.gov-party.pnp { background: #dbeafe; color: #1e40af }
+.gov-party.ppd { background: #fef3c7; color: #92400e }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .gov-party.pnp { background: #1e3a5f; color: #93c5fd }
+  :root:not([data-theme="light"]) .gov-party.ppd { background: #422006; color: #fcd34d }
+}
+:root[data-theme="dark"] .gov-party.pnp { background: #1e3a5f; color: #93c5fd }
+:root[data-theme="dark"] .gov-party.ppd { background: #422006; color: #fcd34d }
+.gov-detail { margin-top: 12px }
+.gov-detail summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--green); list-style: none; display: flex; align-items: center; gap: 6px }
+.gov-detail summary::before { content: '\25B8'; transition: transform .2s }
+.gov-detail[open] summary::before { transform: rotate(90deg) }
+.gov-detail-body { padding-top: 12px; font-size: 15px; line-height: 1.7; color: var(--ink-soft) }
+.gov-detail-body ul { padding-left: 20px; margin-bottom: 12px }
+.gov-detail-body li { margin-bottom: 6px }
+.gov-stat { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 6px; margin-right: 8px; margin-bottom: 6px }
+.gov-stat.up { background: var(--red-bg); color: var(--red) }
+.gov-stat.down { background: var(--green-bg); color: var(--green) }
+.gov-stat.neutral { background: var(--tag-bg); color: var(--tag-ink) }
+.law-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow-sm) }
+.law-year { display: inline-block; font-size: 12px; font-weight: 700; color: var(--surface); background: var(--ink); padding: 2px 10px; border-radius: 4px; margin-bottom: 10px }
+.law-name { font-family: var(--serif); font-size: 1.15rem; margin-bottom: 6px }
+.law-impact { font-size: 14px; color: var(--ink-soft); line-height: 1.6 }
+.law-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px }
+.corr-table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line) }
+.corr-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 }
+.corr-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--line) }
+.corr-table td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top }
+.corr-table tr:hover td { background: var(--bg-deep) }
+.chain { display: flex; flex-direction: column; gap: 0; margin: 24px 0 }
+.chain-step { display: flex; gap: 16px; align-items: flex-start; position: relative; padding-bottom: 24px }
+.chain-step::before { content: ''; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--line) }
+.chain-step:last-child::before { display: none }
+.chain-num { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1rem; font-weight: 700; background: var(--green-bg); color: var(--green); border: 2px solid var(--green) }
+.chain-step.crisis .chain-num { background: var(--red-bg); color: var(--red); border-color: var(--red) }
+.chain-body { flex: 1 }
+.chain-body h4 { font-family: var(--serif); font-size: 1rem; margin-bottom: 4px }
+.chain-body p { font-size: 14px; color: var(--ink-soft); margin: 0 }
+.big-num-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0 }
+.big-num-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; text-align: center; box-shadow: var(--shadow-sm) }
+.big-num { font-family: var(--serif); font-size: 2rem; line-height: 1.1 }
+.big-num-label { font-size: 13px; color: var(--muted); margin-top: 4px }
+.note-box { background: var(--gold-bg); border: 1px solid var(--gold); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; font-size: 14px; line-height: 1.7; color: var(--ink-soft) }
+.note-box strong { color: var(--ink) }
+.timeline2 { position: relative; padding-left: 32px; margin-top: 16px }
+.timeline2::before { content: ''; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--line) }
+.tl2-item { position: relative; padding-bottom: 28px }
+.tl2-item::before { content: ''; position: absolute; left: -25px; top: 6px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--green); background: var(--bg) }
+.tl2-item.crisis::before { border-color: var(--red) }
+.tl2-item.warning::before { border-color: var(--gold) }
+.tl2-year { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: .04em }
+.tl2-item.crisis .tl2-year { color: var(--red) }
+.tl2-item.warning .tl2-year { color: var(--gold) }
+.tl2-text { font-size: 15px; color: var(--ink-soft); line-height: 1.6 }
+.tl2-text strong { color: var(--ink) }
+.card-grid2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-bottom: 24px }
 </style>
 
 <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
@@ -546,6 +632,13 @@ section { padding-top: 72px }
 
 <div class="container">
 
+  <!-- ═══ TAB BAR ═══ -->
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-flujos">Flujos Económicos PR–EE.UU.</button>
+    <button class="tab-btn" data-tab="tab-historia">¿Qué Nos Trajo Aquí?</button>
+  </nav>
+
+  <div id="tab-flujos">
   <!-- ═══ HERO ═══ -->
   <header class="hero" id="hero">
     <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
@@ -1423,6 +1516,306 @@ section { padding-top: 72px }
     <p><strong>Nota metodológica.</strong> Las cifras se reportan tal como las presentan sus fuentes; los distintos estudios usan años, definiciones y métodos diferentes. Las afirmaciones en disputa se señalan en la sección 05; las preguntas abiertas, en la sección 06. Investigación compilada el 30 de septiembre de 2026. Una foto del momento, no una base de datos en vivo.</p>
   </footer>
 
+  </div><!-- /tab-flujos -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 2: ¿QUÉ NOS TRAJO AQUÍ? -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-historia" hidden>
+
+  <header class="hero" id="hero2">
+    <div class="hero-kicker" style="color:var(--gold)"><span style="display:inline-block;width:32px;height:2px;background:var(--gold);margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase II</div>
+    <h1>¿Qué llevó a Puerto Rico a la situación en la que se encuentra hoy?</h1>
+    <p class="hero-lede">Un recorrido documentado por los gobernantes, las leyes, la corrupción y las decisiones políticas que construyeron — y destruyeron — la economía de la isla, desde 1898 hasta 2025.</p>
+    <p class="hero-meta">Este análisis cubre <strong>13 gobernadores</strong>, <strong>más de 20 leyes clave</strong> federales y estatales, <strong>docenas de casos de corrupción</strong> con nombres, montos y sentencias, y la cadena causal completa que llevó a una deuda de <strong>$72.000 millones</strong> y una tasa de pobreza del <strong>45%</strong>.</p>
+
+    <div class="counters" style="grid-template-columns:repeat(4,1fr)">
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="72" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Deuda pública acumulada</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num gold" data-target="13">0</div>
+        <div class="counter-label">Gobernadores analizados</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="40" data-suffix="+">0</div>
+        <div class="counter-label">Funcionarios convictos</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num green" data-target="500" data-suffix="K+">0</div>
+        <div class="counter-label">Emigrantes desde 2010</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="note-box">
+    <strong>Nota editorial:</strong> Este documento busca ser una herramienta de referencia objetiva. Incluye datos positivos y negativos de administraciones de ambos partidos (PNP y PPD), leyes federales y locales, y el rol de actores externos como Wall Street. Cada dato está respaldado por fuentes documentadas al final.
+  </div>
+
+  <!-- GOBERNADORES -->
+  <section id="gobernadores">
+    <div class="sec-label">01 · Gobernadores</div>
+    <h2 class="sec-title">Los que gobernaron la economía</h2>
+    <p class="sec-intro">Desde 1949, trece gobernadores han moldeado — para bien o para mal — la trayectoria económica de Puerto Rico. Sus políticas clave, impacto medible y escándalos.</p>
+
+    <div class="gov-card positive">
+      <div class="gov-header"><div><div class="gov-name">Luis Muñoz Marín</div><div class="gov-period">1949–1965</div></div><span class="gov-party ppd">PPD</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat down">PIB per cápita: $342 → $1.466</span><span class="gov-stat down">600+ fábricas nuevas</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Arquitecto del Estado Libre Asociado y de la Operación Manos a la Obra. Transformó PR de economía agrícola a industrial.</p>
+      <details class="gov-detail"><summary>Ver análisis completo</summary><div class="gov-detail-body">
+        <p><strong>Positivo:</strong></p><ul><li>Ingreso per cápita creció de $342 (1950) a $1.466 (1965) — crecimiento anual del 7,3%</li><li>Alfabetización subió de 68% a 90%</li><li>Mortalidad infantil reducida dramáticamente</li></ul>
+        <p><strong>Negativo:</strong></p><ul><li>Destruyó la agricultura local: de 35% del PIB a menos de 5%</li><li>Creó dependencia estructural de capital externo y exenciones fiscales</li><li>Emigración masiva de 500.000+ puertorriqueños («Gran Migración»)</li><li>Modelo basado en salarios bajos</li></ul>
+        <p><strong>Corrupción:</strong> No hubo casos significativos documentados.</p>
+      </div></details>
+    </div>
+
+    <div class="gov-card mixed">
+      <div class="gov-header"><div><div class="gov-name">Rafael Hernández Colón</div><div class="gov-period">1973–1977, 1985–1993</div></div><span class="gov-party ppd">PPD</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat down">165.000 empleos manufactureros</span><span class="gov-stat up">$35.000M+ repatriados/año</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Impulsó la Sección 936 y convirtió a PR en el mayor centro farmacéutico per cápita del mundo.</p>
+      <details class="gov-detail"><summary>Ver análisis completo</summary><div class="gov-detail-body">
+        <p><strong>Positivo:</strong></p><ul><li>Manufactura llegó a representar 42% del PIB</li><li>165.000 empleos directos en su pico</li><li>16 de los 20 medicamentos más vendidos se producían en PR</li></ul>
+        <p><strong>Negativo:</strong></p><ul><li>Ganancias repatriadas: $35.000M+ anuales salían de PR</li><li>Dependencia total de un incentivo fiscal vulnerable a cambios en Washington</li></ul>
+      </div></details>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Pedro Rosselló González</div><div class="gov-period">1993–2001</div></div><span class="gov-party pnp">PNP</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">+$10.000M a la deuda</span><span class="gov-stat up">40+ funcionarios acusados</span><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Corrupción masiva</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Privatizaciones controversiales, mega-proyectos sobrecostosos y la mayor ola de corrupción gubernamental en la historia de PR.</p>
+      <details class="gov-detail"><summary>Ver análisis completo</summary><div class="gov-detail-body">
+        <p><strong>Políticas clave:</strong></p><ul><li>Privatizó la PRTC a GTE por $2.000M — eliminó miles de empleos sindicalizados</li><li>Superacueducto: presupuestado en $250M, costó $685M</li><li>Tren Urbano: presupuestado en $1.250M, costó $2.250M</li></ul>
+        <p><strong>Corrupción — más de 40 funcionarios acusados:</strong></p><ul><li><strong>Edison Misla Aldarondo</strong> (presidente de la Cámara): conspiración, extorsión, lavado de dinero</li><li><strong>Víctor Fajardo</strong> (Secretario de Educación): $4,2M en sobornos</li><li><strong>René Vázquez Botet</strong> (director de campaña): extorsión por contratos del Superacueducto</li><li><strong>Freddy Valentín</strong> (senador PNP): conspiración y extorsión</li></ul>
+      </div></details>
+    </div>
+
+    <div class="gov-card mixed">
+      <div class="gov-header"><div><div class="gov-name">Sila María Calderón</div><div class="gov-period">2001–2005</div></div><span class="gov-party ppd">PPD</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat neutral">Deuda: ~$27.160M al inicio</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Primera gobernadora. Creó programas de comunidades especiales sin reformas estructurales. Período de transición entre el fin de la 936 y la crisis plena.</p>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Aníbal Acevedo Vilá</div><div class="gov-period">2005–2009</div></div><span class="gov-party ppd">PPD</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">Deuda: $40.000M → $55.000M</span><span class="gov-stat up">-40% empleos manufactura</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Gobernó durante la expiración final de la Sección 936 (2006). Implementó el primer IVU (7%). Cerró el gobierno dos semanas por crisis fiscal. Primer gobernador acusado federalmente (absuelto de felonías).</p>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Luis Fortuño</div><div class="gov-period">2009–2013</div></div><span class="gov-party pnp">PNP</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">30.000+ empleados despedidos</span><span class="gov-stat up">+$8.000M a la deuda</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Aprobó la Ley 7 en solo 4 días — la austeridad más agresiva en la historia de PR. Creó Leyes 20/22 de incentivos a inversionistas externos.</p>
+      <details class="gov-detail"><summary>Ver análisis completo</summary><div class="gov-detail-body">
+        <p><strong>Ley 7 de 2009:</strong></p><ul><li>30.000+ empleados públicos despedidos</li><li>45.000+ empleos indirectos perdidos</li><li>Desempleo subió entre 1,41% y 2,26% puntos</li><li>Aceleró emigración masiva (50.000-80.000 personas/año)</li></ul>
+        <p><strong>Paradoja:</strong> A pesar de la austeridad, la deuda creció de ~$55.000M a ~$63.000M. La contracción redujo recaudos — círculo vicioso.</p>
+      </div></details>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Alejandro García Padilla</div><div class="gov-period">2013–2017</div></div><span class="gov-party ppd">PPD</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">IVU 7% → 11,5%</span><span class="gov-stat up">Deuda declarada impagable</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">El 28 de junio de 2015 declaró que la deuda de $72.000M era «impagable». Su crisis forzó al Congreso a aprobar PROMESA. Aumentó IVU al más alto de todo EE.UU.</p>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Ricardo Rosselló Nevares</div><div class="gov-period">2017–2019</div></div><span class="gov-party pnp">PNP</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">2.975 muertos (María)</span><span class="gov-stat up">$90.000M en daños</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Gobernó durante María. Forzado a renunciar tras filtración de 889 páginas de chats de Telegram (#RickyRenuncia). Julia Keleher (Sec. de Educación) convicta por robo de $15,5M en fondos federales.</p>
+    </div>
+
+    <div class="gov-card negative">
+      <div class="gov-header"><div><div class="gov-name">Wanda Vázquez Garced</div><div class="gov-period">2019–2021</div></div><span class="gov-party pnp">PNP</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat up">$300.000+ en sobornos</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Primera gobernadora convicta. Arrestada por el FBI por esquema de soborno con banquero venezolano-italiano. Se declaró culpable en 2025. Indultada por Trump en 2026 después de que un familiar de los co-conspiradores donara $2,5M a un PAC pro-Trump.</p>
+    </div>
+
+    <div class="gov-card mixed">
+      <div class="gov-header"><div><div class="gov-name">Pedro Pierluisi</div><div class="gov-period">2021–2025</div></div><span class="gov-party pnp">PNP</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px"><span class="gov-stat down">Deuda: $63.000M → $28.100M</span><span class="gov-stat neutral">LUMA: apagones crónicos</span></div>
+      <p style="font-size:15px;color:var(--ink-soft)">Completó la reestructuración bajo Título III. Primer presupuesto balanceado en junio 2025. Pero LUMA trajo apagones crónicos, tarifas elevadas y controversia por conflicto de interés previo como abogado de la Junta Fiscal.</p>
+    </div>
+  </section>
+
+  <!-- LEYES FEDERALES -->
+  <section id="leyes-federales">
+    <div class="sec-label">02 · Leyes federales</div>
+    <h2 class="sec-title">Las imposiciones de Washington</h2>
+    <p class="sec-intro">Las decisiones tomadas en el Congreso — donde PR no tiene voto — han definido los límites de la economía isleña durante más de un siglo.</p>
+
+    <div class="law-card"><span class="law-year">1900</span><div class="law-name">Ley Foraker</div><p class="law-impact">Estableció gobierno civil bajo jurisdicción federal. Impuso aranceles del 15% entre PR y EE.UU. Eximió de impuesto federal sobre ingresos pero estableció control colonial sobre comercio, aduanas y moneda.</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Negativa</span></div></div>
+
+    <div class="law-card"><span class="law-year">1917</span><div class="law-name">Ley Jones-Shafroth</div><p class="law-impact">Otorgó ciudadanía y estableció la <strong>triple exención contributiva</strong> sobre bonos de PR — exentos de impuestos federales, estatales y locales. Más de 180 fondos mutuos tenían 5%+ en bonos de PR. Facilitó cuatro décadas de endeudamiento excesivo.</p><div class="law-tags"><span class="badge badge-gold" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--gold-bg);color:var(--gold)">Doble filo</span></div></div>
+
+    <div class="law-card"><span class="law-year">1920</span><div class="law-name">Jones Act — Ley de Cabotaje</div><p class="law-impact">Todo transporte marítimo entre puertos de EE.UU. debe usar barcos estadounidenses. Costo: <strong>$1.400M anuales</strong>. Fletes 2,5x más caros ($3.027 vs. $1.206 por contenedor). Equivale a un arancel del 30,6%. Elimina ~13.250 empleos potenciales. PR importa 85% de sus alimentos.</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Negativa</span></div></div>
+
+    <div class="law-card"><span class="law-year">1976–2006</span><div class="law-name">Sección 936 del IRC</div><p class="law-impact">Eliminó impuestos federales a subsidiarias en PR. Generó hasta <strong>300.000 empleos</strong>. El Congreso la eliminó en 1996 (Clinton); terminó en 2006. Resultado: éxodo de empresas, pérdida de <strong>50% de empleos manufactureros</strong>, recesión de 15 años. El catalizador principal de la crisis.</p><div class="law-tags"><span class="badge badge-gold" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--gold-bg);color:var(--gold)">Doble filo</span></div></div>
+
+    <div class="law-card"><span class="law-year">2016</span><div class="law-name">PROMESA</div><p class="law-impact">Creó la Junta de Control Fiscal — 7 miembros no electos con poder absoluto sobre el presupuesto. Reestructuró <strong>$76.000M</strong> en deuda. Redujo servicio de deuda de $4.200M a $1.150M anuales. Recortes a salud, pensiones, educación. Stiglitz la llamó «premisas peligrosas».</p><div class="law-tags"><span class="badge badge-gold" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--gold-bg);color:var(--gold)">Doble filo</span></div></div>
+
+    <div class="law-card"><span class="law-year">2017</span><div class="law-name">Título III — Mayor quiebra pública en la historia de EE.UU.</div><p class="law-impact">Jueza Taylor Swain confirmó en 2022 el Plan de Ajuste: de $33.000M en deuda + $55.000M en pensiones a $7.000M. Cada dólar ahora dedica <strong>7¢ a deuda vs. 25¢ antes</strong>.</p><div class="law-tags"><span class="badge badge-green" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--green-bg);color:var(--green)">Alivio parcial</span></div></div>
+
+    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
+      <strong>Exclusión de programas federales:</strong> PR recibe una fracción per cápita de Medicaid, SNAP, SSI y EITC comparado con los estados. Esta exclusión sistemática perpetúa la pobreza del 45%.
+    </div>
+  </section>
+
+  <!-- LEYES LOCALES -->
+  <section id="leyes-locales">
+    <div class="sec-label">03 · Leyes locales</div>
+    <h2 class="sec-title">Decisiones desde la isla</h2>
+    <p class="sec-intro">Las leyes aprobadas por la Legislatura de Puerto Rico también jugaron un papel central.</p>
+
+    <div class="law-card"><span class="law-year">2009</span><div class="law-name">Ley 7 — Emergencia Fiscal</div><p class="law-impact">Aprobada en <strong>4 días laborables</strong> bajo Fortuño. Despidió 30.000+ empleados públicos, 45.000+ empleos indirectos perdidos. PIB cayó 4,0% (2009) y 3,8% (2010). «La medicina fue tan amarga que mató al paciente.»</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Devastadora</span></div></div>
+
+    <div class="law-card"><span class="law-year">2012</span><div class="law-name">Leyes 20/22 → Ley 60 (2019)</div><p class="law-impact">Exención total sobre ganancias de capital para inversionistas que se muden a PR. 4% corporativo para empresas exportadoras. Generan empleos pero provocan <strong>gentrificación y desplazamiento</strong>. Harvard: «un asunto de derechos humanos.»</p><div class="law-tags"><span class="badge badge-gold" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--gold-bg);color:var(--gold)">Controversial</span></div></div>
+
+    <div class="law-card"><span class="law-year">2006</span><div class="law-name">COFINA</div><p class="law-impact">Corporación para financiar deuda vieja con bonos nuevos respaldados por el IVU. Emitió <strong>$17.000M adicionales</strong> que «no contaban» contra el límite constitucional. «Scoop and toss» que multiplicaba la deuda.</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Tóxica</span></div></div>
+
+    <div class="law-card"><span class="law-year">2017–2018</span><div class="law-name">Cierre masivo de escuelas</div><p class="law-impact"><strong>428 escuelas cerradas</strong> por la Junta Fiscal para ahorrar ~$300M. Más de la mitad seguían abandonadas 5 años después. Comunidades rurales devastadas.</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Devastadora</span></div></div>
+
+    <div class="law-card"><span class="law-year">2020</span><div class="law-name">LUMA Energy — Privatización eléctrica</div><p class="law-impact">Contrato de 15 años a consorcio extranjero. <strong>No penaliza</strong> por no generar ahorros. Solo 1.300 de 4.000 empleos cubiertos por exempleados de PREPA. Tarifas al alza, apagones constantes.</p><div class="law-tags"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red)">Fallida</span></div></div>
+  </section>
+
+  <!-- CORRUPCIÓN -->
+  <section id="corrupcion">
+    <div class="sec-label">04 · Corrupción</div>
+    <h2 class="sec-title">Los que robaron a Puerto Rico</h2>
+    <p class="sec-intro">La corrupción gubernamental ha desviado miles de millones. Nombres, montos y sentencias.</p>
+
+    <h3 style="font-size:1.15rem;margin-bottom:16px;color:var(--red)">Senadores y representantes convictos</h3>
+    <div class="corr-table-wrap"><table class="corr-table"><thead><tr><th>Nombre</th><th>Cargo</th><th>Delito</th><th>Sentencia</th></tr></thead><tbody>
+      <tr><td><strong>Jorge de Castro Font</strong></td><td>Senador (PNP)</td><td>20 cargos de fraude y conspiración para extorsión</td><td>60 meses</td></tr>
+      <tr><td><strong>Héctor Martínez Maldonado</strong></td><td>Senador (PNP)</td><td>Soborno de programas federales</td><td>48 meses</td></tr>
+      <tr><td><strong>Edison Misla Aldarondo</strong></td><td>Pres. Cámara (PNP)</td><td>Conspiración, extorsión, lavado de dinero</td><td>Prisión federal</td></tr>
+      <tr><td><strong>Freddy Valentín</strong></td><td>Senador (PNP)</td><td>Conspiración, extorsión, lavado</td><td>Prisión federal</td></tr>
+      <tr><td><strong>Abel Nazario</strong></td><td>Senador / Alcalde Yauco</td><td>Soborno y malversación</td><td>Prisión federal</td></tr>
+    </tbody></table></div>
+
+    <h3 style="font-size:1.15rem;margin:28px 0 16px;color:var(--red)">Alcaldes convictos (ola 2020–2024)</h3>
+    <div class="corr-table-wrap"><table class="corr-table"><thead><tr><th>Nombre</th><th>Municipio</th><th>Delito</th><th>Sentencia</th></tr></thead><tbody>
+      <tr><td><strong>Ángel Pérez Otero</strong></td><td>Guaynabo (PNP)</td><td>Conspiración, soborno, extorsión</td><td>5 años 3 meses</td></tr>
+      <tr><td><strong>Félix «El Cano» Delgado</strong></td><td>Cataño</td><td>$10M en 50 contratos de asfalto</td><td>1 año</td></tr>
+      <tr><td><strong>Reinaldo «Rey» Vargas</strong></td><td>Humacao</td><td>Sobornos con JR Asphalt</td><td>37 meses</td></tr>
+      <tr><td><strong>José Luis Cruz Cruz</strong></td><td>Trujillo Alto</td><td>Esquema de soborno</td><td>Convicto</td></tr>
+      <tr><td><strong>Eduardo Cintrón Suárez</strong></td><td>Guayama</td><td>Esquema de soborno</td><td>Convicto</td></tr>
+    </tbody></table></div>
+    <p style="font-size:14px;color:var(--muted);margin-top:8px">Pérez Otero fue el <strong>10mo alcalde</strong> acusado de corrupción en apenas dos años.</p>
+
+    <h3 style="font-size:1.15rem;margin:28px 0 16px;color:var(--red)">Otros casos emblemáticos</h3>
+    <div class="card-grid2">
+      <div class="card"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red);margin-bottom:10px">FEMA / Post-María</span><h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:6px">Fraude de $1.800 millones</h3><p style="font-size:14px;color:var(--ink-soft)">Dos exfuncionarios de FEMA y expresidente de contratista arrestados por esquema de soborno en reconstrucción de la red eléctrica post-María.</p></div>
+      <div class="card"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red);margin-bottom:10px">Educación</span><h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:6px">Julia Keleher — $15,5M</h3><p style="font-size:14px;color:var(--ink-soft)">Secretaria de Educación de Rosselló. Desvió $15,5M en fondos federales a contratistas políticamente conectados. Sentencia: 6 meses.</p></div>
+      <div class="card"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red);margin-bottom:10px">FBI</span><h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:6px">Operación Guard Shack</h3><p style="font-size:14px;color:var(--ink-soft)">Mayor operativo anticorrupción del FBI: <strong>133 arrestos</strong> — policías, correccionales, Guardia Nacional. 131 culpables.</p></div>
+      <div class="card"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red);margin-bottom:10px">Gobernadora</span><h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:6px">Wanda Vázquez — Indulto</h3><p style="font-size:14px;color:var(--ink-soft)">Primera gobernadora convicta. Indultada por Trump en 2026 tras donación de $2,5M a PAC por familiar de co-conspiradores.</p></div>
+    </div>
+  </section>
+
+  <!-- CRISIS DE DEUDA -->
+  <section id="deuda">
+    <div class="sec-label">05 · La deuda</div>
+    <h2 class="sec-title">Cómo se acumularon $72.000 millones</h2>
+    <p class="sec-intro">Se construyó durante décadas de gasto deficitario, instrumentos tóxicos y complicidad de Wall Street.</p>
+
+    <div class="big-num-row">
+      <div class="big-num-card"><div class="big-num" style="color:var(--red)">$25.000M</div><div class="big-num-label">Deuda en 2000</div></div>
+      <div class="big-num-card"><div class="big-num" style="color:var(--red)">$72.000M</div><div class="big-num-label">Deuda en 2016</div></div>
+      <div class="big-num-card"><div class="big-num" style="color:var(--red)">$50.000M+</div><div class="big-num-label">Pensiones sin fondear</div></div>
+      <div class="big-num-card"><div class="big-num" style="color:var(--green)">$28.100M</div><div class="big-num-label">Reestructurada (2022)</div></div>
+    </div>
+
+    <h3 style="margin:24px 0 16px">Cronología</h3>
+    <div class="timeline2">
+      <div class="tl2-item warning"><span class="tl2-year">2012–2013</span><div class="tl2-text">Agencias empiezan a bajar calificación</div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Febrero 2014</span><div class="tl2-text"><strong>S&P, Moody's y Fitch</strong> degradan bonos a «chatarra»</div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Junio 2015</span><div class="tl2-text">García Padilla: <strong>«La deuda es impagable»</strong></div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Enero 2016</span><div class="tl2-text"><strong>Default en $174 millones</strong></div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Mayo 2016</span><div class="tl2-text"><strong>GDB entra en default</strong></div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Junio 2016</span><div class="tl2-text"><strong>PROMESA firmada</strong> — Junta de Control Fiscal impuesta</div></div>
+      <div class="tl2-item crisis"><span class="tl2-year">Mayo 2017</span><div class="tl2-text"><strong>Título III</strong> — mayor quiebra pública en historia de EE.UU.</div></div>
+      <div class="tl2-item"><span class="tl2-year">Enero 2022</span><div class="tl2-text">Plan de Ajuste: deuda reducida a <strong>$7.000M</strong></div></div>
+      <div class="tl2-item"><span class="tl2-year">Junio 2025</span><div class="tl2-text"><strong>Primer presupuesto balanceado</strong></div></div>
+    </div>
+
+    <h3 style="margin:32px 0 16px">El rol de Wall Street</h3>
+    <div class="card"><p style="font-size:15px;color:var(--ink-soft);line-height:1.7"><strong>UBS, Barclays, Goldman Sachs y Citigroup</strong> lucraron con comisiones por suscribir bonos de PR. Continuaron prestando sabiendo que la capacidad de pago se deterioraba. Los bonos triple-exentos eran enormemente populares — más del 20% de todos los fondos de bonos municipales contenían deuda puertorriqueña. ProMarket (U. of Chicago): la triple exención «financió el estatus territorial y ayudó a detonar la crisis.»</p></div>
+
+    <h3 style="margin:32px 0 16px">Pensiones: la bomba de tiempo</h3>
+    <div class="card"><p style="font-size:15px;color:var(--ink-soft);line-height:1.7">El sistema ERS tiene un déficit de <strong>$55.000M</strong>. En 22 años fiscales, la contribución completa se hizo <strong>una sola vez</strong> — cuando se vendió la Telefónica. En 2017 todos los beneficiarios fueron movidos a contribución definida. Las pensiones fueron recortadas bajo PROMESA.</p></div>
+  </section>
+
+  <!-- CADENA CAUSAL -->
+  <section id="cadena">
+    <div class="sec-label">06 · Cadena causal</div>
+    <h2 class="sec-title">Cómo llegamos hasta aquí</h2>
+    <p class="sec-intro">Una secuencia de decisiones construyó la trampa económica en la que Puerto Rico vive hoy.</p>
+
+    <div class="chain">
+      <div class="chain-step"><div class="chain-num">1</div><div class="chain-body"><h4>1947–1976: Dependencia por diseño</h4><p>Operation Bootstrap crea economía basada en exenciones fiscales y capital externo. Agricultura destruida. Dependencia de un modelo que solo funciona mientras Washington lo permita.</p></div></div>
+      <div class="chain-step"><div class="chain-num">2</div><div class="chain-body"><h4>1976–1996: La ilusión de la 936</h4><p>Sección 936 infla PIB artificialmente. $35.000M+ anuales salen de la isla. La economía no se diversifica. Cuando el Congreso vota eliminarla (1996), ya es tarde.</p></div></div>
+      <div class="chain-step crisis"><div class="chain-num">3</div><div class="chain-body"><h4>1996–2006: Empieza el colapso</h4><p>Manufactura se desploma. Gobierno compensa con deuda masiva. Wall Street sigue prestando con entusiasmo. Deuda de $25.000M a $43.000M.</p></div></div>
+      <div class="chain-step crisis"><div class="chain-num">4</div><div class="chain-body"><h4>2006–2009: Expiración + Ley 7</h4><p>936 expira. Fortuño despide 30.000+ y destruye 75.000+ empleos — la contracción reduce recaudos y genera más deuda. Círculo vicioso.</p></div></div>
+      <div class="chain-step crisis"><div class="chain-num">5</div><div class="chain-body"><h4>2009–2015: COFINA y el «scoop and toss»</h4><p>Instrumentos tóxicos financian deuda vieja con nueva. Deuda se triplica a $72.000M. Población emigra masivamente.</p></div></div>
+      <div class="chain-step crisis"><div class="chain-num">6</div><div class="chain-body"><h4>2015–2017: «Impagable» + PROMESA + María</h4><p>Deuda declarada impagable. Junta Fiscal impuesta. María destruye $90.000M y mata 2.975 personas. Mayor quiebra pública en historia de EE.UU.</p></div></div>
+      <div class="chain-step"><div class="chain-num">7</div><div class="chain-body"><h4>2022–2025: Reestructuración bajo austeridad</h4><p>Deuda reducida a $28.100M bajo condiciones severas. 428 escuelas cerradas, pensiones recortadas, red eléctrica privatizada. PR sigue bajo control fiscal no electo.</p></div></div>
+    </div>
+  </section>
+
+  <!-- NOTA EDITORIAL FINAL -->
+  <section id="editorial">
+    <div class="sec-label">07 · Nota editorial</div>
+    <h2 class="sec-title">La doble trampa: flujos y poder</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p><strong>Los números hablan con claridad.</strong></p>
+      <p>Como documentamos en la primera pestaña de esta investigación, entre 2008 y 2017 Puerto Rico vio salir <strong>$334.000 millones en ganancias corporativas repatriadas</strong> — un flujo que equivale a más de cuatro veces la deuda pública acumulada. La isla genera más de $35.000 millones anuales en valor corporativo que no se queda en su territorio. Al mismo tiempo, el Jones Act le cuesta <strong>$1.400 millones cada año</strong> en sobrecostos de transporte sobre alimentos, combustible y materiales que la isla debe importar por ser una economía isleña sin soberanía comercial.</p>
+      <p>Estos flujos económicos no ocurren en un vacío. Ocurren dentro de un sistema político donde Puerto Rico <strong>no tiene voto en el Congreso</strong> que aprueba las leyes que definen su economía. La Sección 936 se creó y se eliminó en Washington. PROMESA se impuso desde Washington. El Jones Act lleva más de un siglo vigente sin que Puerto Rico haya podido votar sobre él. La triple exención contributiva de 1917 que hizo los bonos de PR irresistibles para Wall Street fue una decisión federal.</p>
+      <p>Pero la responsabilidad no es exclusivamente federal. Como demuestra esta segunda pestaña, administraciones locales de <strong>ambos partidos</strong> incurrieron en endeudamiento irresponsable, corrupción documentada por docenas de convicciones federales, privatizaciones fallidas, y políticas de austeridad que empeoraron la crisis que pretendían resolver. Más de <strong>40 funcionarios</strong> de una sola administración (Rosselló padre) fueron acusados. La Ley 7 destruyó 75.000+ empleos y aun así la deuda siguió creciendo. COFINA emitió $17.000M en bonos tóxicos. Y la ola de alcaldes convictos de 2020–2024 demuestra que la corrupción no es un problema del pasado.</p>
+      <p>El resultado es una economía que en 2025 tiene <strong>45% de pobreza</strong>, ha perdido <strong>más de medio millón de residentes</strong> desde 2010, paga el impuesto sobre ventas más alto de EE.UU. (11,5%), sufre apagones crónicos bajo una empresa privada extranjera sin penalidades, y sigue bajo el control de una Junta Fiscal no electa — todo mientras genera decenas de miles de millones en riqueza que fluye hacia afuera.</p>
+      <p><strong>Puerto Rico no es pobre porque no genera riqueza. Puerto Rico es pobre porque la riqueza que genera no se queda en Puerto Rico.</strong> Y las decisiones políticas — federales y locales — que crearon esa realidad están documentadas, con nombres, cifras y fechas, en estas páginas.</p>
+    </div>
+  </section>
+
+  <!-- FUENTES FASE 2 -->
+  <section id="fuentes2">
+    <div class="sec-label">08 · Fuentes</div>
+    <h2 class="sec-title">Bibliografía — Fase II</h2>
+
+    <h3 style="margin:16px 0 12px">Instituciones y reportes oficiales</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Congressional Research Service. Report R46788: «Puerto Rico's Public Debts.»</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Government Accountability Office. GAO-13-260 (2013).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Department of Justice — Comunicados sobre convicciones por corrupción en PR.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">FBI — «Operation Guard Shack» (2010).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Jubilee USA Network — «Puerto Rico Debt Crisis Timeline.»</li>
+    </ul>
+
+    <h3 style="margin:24px 0 12px">Análisis académicos</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Council on Foreign Relations — «Puerto Rico: A U.S. Territory in Crisis.»</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">IEEFA — «Long History of Debt and Corruption.»</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Harvard Political Review — «An Unfulfilled Promise.»</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Cato Institute — «Effect of the Jones Act on Puerto Rico» (2019).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">ProMarket (University of Chicago) — Análisis de triple exención.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Stiglitz, J. E. y Guzmán, M. — «PROMESA's Dangerous Premises.» <em>Project Syndicate</em>, 2017.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">AS/COA — «Explainer: Puerto Rico's Debt Crisis.»</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Espacios Abiertos — Diccionario COFINA y análisis fiscal.</li>
+    </ul>
+
+    <h3 style="margin:24px 0 12px">Medios</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">El Nuevo Día — Recuento gestión económica de 10 gobernadores.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Centro de Periodismo Investigativo — Análisis de Ley 7 y efectos.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Associated Press / Reuters — Cobertura de arrestos y crisis de deuda.</li>
+    </ul>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Todas las cifras provienen de fuentes oficiales, académicas o periodísticas documentadas. Las convicciones y sentencias se basan en comunicados del DOJ y FBI. Investigación compilada el 30 de septiembre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-historia -->
+
 </div>
 
 <script>
@@ -1636,5 +2029,96 @@ section { padding-top: 72px }
     svg.appendChild(txt(120, 38, 'ENTRA', { size: '12', weight: '700', fill: tok('--green') }));
     svg.appendChild(txt(w - 120, 38, 'SALE', { size: '12', weight: '700', fill: tok('--gold') }));
   })();
+
+  // ── Tab switching ──
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia')];
+  var sideNav = document.getElementById('side-nav');
+
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = btn.getAttribute('data-tab');
+      tabBtns.forEach(function(b){ b.classList.remove('active') });
+      btn.classList.add('active');
+      tabPanels.forEach(function(p){ p.hidden = (p.id !== target) });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // Update side nav for the active tab
+      if(target === 'tab-historia'){
+        sideNav.innerHTML = [
+          ['#gobernadores','Gobernadores'],['#leyes-federales','Leyes federales'],
+          ['#leyes-locales','Leyes locales'],['#corrupcion','Corrupción'],
+          ['#deuda','Crisis de deuda'],['#cadena','Cadena causal'],['#editorial','Editorial']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+        // Re-init fade-in for phase 2
+        var fadeEls2 = document.querySelectorAll('#tab-historia .gov-card, #tab-historia .law-card, #tab-historia .card, #tab-historia .chain-step');
+        fadeEls2.forEach(function(el){
+          el.classList.add('fade-in');
+          el.classList.remove('hidden');
+        });
+        // Re-init counters for phase 2
+        document.querySelectorAll('#tab-historia .counters').forEach(function(block){
+          var done2 = false;
+          var cObs2 = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting && !done2){
+                done2 = true;
+                e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
+                  var tgt = parseInt(el.getAttribute('data-target'));
+                  var pfx = el.getAttribute('data-prefix') || '';
+                  var sfx = el.getAttribute('data-suffix') || '';
+                  var dur = 1500, st = performance.now();
+                  function tick(now){
+                    var p = Math.min((now - st) / dur, 1);
+                    var ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = pfx + Math.round(tgt * ease).toLocaleString('es') + sfx;
+                    if(p < 1) requestAnimationFrame(tick);
+                  }
+                  requestAnimationFrame(tick);
+                });
+                cObs2.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          cObs2.observe(block);
+        });
+      } else {
+        sideNav.innerHTML = origNavHTML;
+        initSideNavObs();
+      }
+
+      try { localStorage.setItem('activeTab', target) } catch(e){}
+    });
+  });
+
+  var origNavHTML = sideNav.innerHTML;
+
+  function initSideNavObs(){
+    var secs = document.querySelectorAll('section[id]:not([hidden] section)');
+    var links = document.querySelectorAll('.side-nav a');
+    if(window._sideObs) window._sideObs.disconnect();
+    window._sideObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active') });
+          var link = document.querySelector('.side-nav a[href="#'+e.target.id+'"]');
+          if(link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -70% 0px' });
+    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden])');
+    if(activePanel) activePanel.querySelectorAll('section[id]').forEach(function(s){ window._sideObs.observe(s) });
+  }
+
+  // Restore saved tab
+  try {
+    var savedTab = localStorage.getItem('activeTab');
+    if(savedTab === 'tab-historia'){
+      var btn2 = document.querySelector('.tab-btn[data-tab="tab-historia"]');
+      if(btn2) btn2.click();
+    }
+  } catch(e){}
+
 })();
 </script>
