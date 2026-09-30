@@ -142,12 +142,17 @@ p { margin-block-end: 1em }
 .hero-cinematic {
   position: relative; padding: 0;
   width: 100vw; margin-left: calc(-50vw + 50%);
-  background: url('https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?w=1920&q=80') center/cover no-repeat;
+  background: #0C1B2A;
   min-height: 420px; display: flex; align-items: flex-end;
+  overflow: hidden;
 }
-.hero-cinematic::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,27,42,.35) 0%, rgba(12,27,42,.82) 60%, rgba(12,27,42,.97) 100%);
+.hero-cinematic .hero-island-svg {
+  position: absolute; top: 50%; right: 5%; transform: translateY(-50%);
+  width: 45%; max-width: 520px; opacity: .08;
+  pointer-events: none;
+}
+@media (max-width: 800px) {
+  .hero-cinematic .hero-island-svg { width: 70%; right: -5%; opacity: .06 }
 }
 .hero-cinematic .hero-inner {
   position: relative; z-index: 1; padding: 60px 40px 48px; max-width: 1100px; width: 100%;
@@ -743,6 +748,26 @@ section { padding-top: 72px }
   <div id="tab-flujos">
   <!-- ═══ HERO ═══ -->
   <div class="hero-cinematic" id="hero">
+    <!-- Stylized PR island silhouette — geometric contour lines -->
+    <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Topographic contour lines of Puerto Rico island -->
+      <path d="M120,240 C140,235 165,220 200,215 C230,210 260,195 300,188 C330,183 355,178 390,175 C420,172 445,168 480,172 C510,176 535,182 560,190 C585,198 605,210 625,225 C640,235 650,245 660,250 C670,255 675,252 680,245 C685,238 678,228 665,218 C650,208 630,195 610,185 C585,173 555,162 520,155 C485,148 445,145 410,148 C370,151 330,160 295,170 C260,180 225,192 195,205 C165,218 140,232 120,240Z" stroke="#8FD4C0" stroke-width="1.5" opacity=".6"/>
+      <path d="M140,255 C158,248 185,233 218,226 C248,220 278,207 315,199 C345,193 372,187 405,184 C435,181 458,178 490,182 C520,186 543,193 568,202 C590,210 610,222 628,235 C640,243 648,250 654,253" stroke="#8FD4C0" stroke-width="1" opacity=".35"/>
+      <path d="M105,228 C128,222 155,208 190,200 C222,193 252,180 290,172 C322,165 350,158 385,155 C418,152 443,150 478,155 C512,160 538,168 565,178 C592,188 614,202 635,218 C650,228 660,238 668,244 C676,250 682,248 688,240 C694,230 686,218 670,206 C652,194 632,180 608,168 C580,155 548,143 512,137 C475,131 435,130 398,134 C358,138 318,148 282,160 C248,172 215,186 185,200 C155,214 130,230 105,228Z" stroke="#8FD4C0" stroke-width="1.5" opacity=".5"/>
+      <path d="M92,218 C118,210 148,194 185,184 C218,176 250,162 290,153 C325,145 358,138 395,134 C432,130 460,128 498,133 C535,138 562,148 590,160 C618,172 640,188 658,205 C672,218 680,230 686,238" stroke="#8FD4C0" stroke-width="1" opacity=".25"/>
+      <!-- Inner elevation lines -->
+      <path d="M220,210 C255,200 295,190 340,185 C380,180 415,178 455,182 C490,186 520,195 545,208 C560,216 572,226 578,232" stroke="#8FD4C0" stroke-width=".8" opacity=".2"/>
+      <path d="M260,198 C290,192 325,186 365,183 C400,180 430,182 460,190 C485,197 505,208 518,218" stroke="#8FD4C0" stroke-width=".6" opacity=".15"/>
+      <!-- Vieques + Culebra suggestions -->
+      <ellipse cx="710" cy="225" rx="28" ry="12" stroke="#8FD4C0" stroke-width="1" opacity=".3"/>
+      <ellipse cx="735" cy="200" rx="14" ry="7" stroke="#8FD4C0" stroke-width=".8" opacity=".2"/>
+      <!-- Subtle grid dots -->
+      <g fill="#8FD4C0" opacity=".08">
+        <circle cx="100" cy="150" r="1.5"/><circle cx="200" cy="150" r="1.5"/><circle cx="300" cy="150" r="1.5"/><circle cx="400" cy="150" r="1.5"/><circle cx="500" cy="150" r="1.5"/><circle cx="600" cy="150" r="1.5"/><circle cx="700" cy="150" r="1.5"/>
+        <circle cx="100" cy="250" r="1.5"/><circle cx="200" cy="250" r="1.5"/><circle cx="300" cy="250" r="1.5"/><circle cx="400" cy="250" r="1.5"/><circle cx="500" cy="250" r="1.5"/><circle cx="600" cy="250" r="1.5"/><circle cx="700" cy="250" r="1.5"/>
+        <circle cx="100" cy="350" r="1.5"/><circle cx="200" cy="350" r="1.5"/><circle cx="300" cy="350" r="1.5"/><circle cx="400" cy="350" r="1.5"/><circle cx="500" cy="350" r="1.5"/><circle cx="600" cy="350" r="1.5"/><circle cx="700" cy="350" r="1.5"/>
+      </g>
+    </svg>
     <div class="hero-inner">
       <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
       <h1>El libro contable del dinero entre Puerto Rico y EE.&thinsp;UU.</h1>
@@ -1676,11 +1701,25 @@ section { padding-top: 72px }
   <!-- ═══════════════════════════════════════════════════════════════════ -->
   <div id="tab-historia" hidden>
 
-  <header class="hero" id="hero2">
-    <div class="hero-kicker" style="color:var(--gold)"><span style="display:inline-block;width:32px;height:2px;background:var(--gold);margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase II</div>
-    <h1>¿Qué llevó a Puerto Rico a la situación en la que se encuentra hoy?</h1>
-    <p class="hero-lede">Un recorrido documentado por los gobernantes, las leyes, la corrupción y las decisiones políticas que construyeron — y destruyeron — la economía de la isla, desde 1898 hasta 2025.</p>
-    <p class="hero-meta">Este análisis cubre <strong>13 gobernadores</strong>, <strong>más de 20 leyes clave</strong> federales y estatales, <strong>docenas de casos de corrupción</strong> con nombres, montos y sentencias, y la cadena causal completa que llevó a una deuda de <strong>$72.000 millones</strong> y una tasa de pobreza del <strong>45%</strong>.</p>
+  <header class="hero-cinematic" id="hero2" style="min-height:380px">
+    <!-- Geometric pattern: broken chain links -->
+    <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:.06;right:3%;width:50%">
+      <path d="M200,120 C200,80 240,60 280,60 L420,60 C460,60 500,80 500,120 C500,160 460,180 420,180 L280,180 C240,180 200,160 200,120Z" stroke="#F0A830" stroke-width="3" fill="none"/>
+      <path d="M350,220 C350,180 390,160 430,160 L570,160 C610,160 650,180 650,220 C650,260 610,280 570,280 L430,280 C390,280 350,260 350,220Z" stroke="#F0A830" stroke-width="3" fill="none"/>
+      <line x1="420" y1="180" x2="430" y2="160" stroke="#F0A830" stroke-width="2" stroke-dasharray="8,6"/>
+      <line x1="380" y1="180" x2="470" y2="160" stroke="#F0A830" stroke-width="1.5" stroke-dasharray="6,8"/>
+      <!-- Descending stairs / debt accumulation metaphor -->
+      <rect x="100" y="300" width="80" height="40" stroke="#F0A830" stroke-width="1.5" fill="none" opacity=".4"/>
+      <rect x="190" y="270" width="80" height="70" stroke="#F0A830" stroke-width="1.5" fill="none" opacity=".4"/>
+      <rect x="280" y="230" width="80" height="110" stroke="#F0A830" stroke-width="1.5" fill="none" opacity=".4"/>
+      <rect x="370" y="180" width="80" height="160" stroke="#F0A830" stroke-width="1.5" fill="none" opacity=".4"/>
+      <rect x="460" y="130" width="80" height="210" stroke="#F0A830" stroke-width="1.5" fill="none" opacity=".4"/>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-kicker" style="color:#F0A830"><span style="display:inline-block;width:32px;height:2px;background:#F0A830;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase II</div>
+      <h1>¿Qué llevó a Puerto Rico a la situación en la que se encuentra hoy?</h1>
+      <p class="hero-lede" style="color:rgba(255,255,255,.88)">Un recorrido documentado por los gobernantes, las leyes, la corrupción y las decisiones políticas que construyeron — y destruyeron — la economía de la isla, desde 1898 hasta 2025.</p>
+      <p class="hero-meta">Este análisis cubre <strong>13 gobernadores</strong>, <strong>más de 20 leyes clave</strong> federales y estatales, <strong>docenas de casos de corrupción</strong> con nombres, montos y sentencias, y la cadena causal completa que llevó a una deuda de <strong>$72.000 millones</strong> y una tasa de pobreza del <strong>45%</strong>.</p>
 
     <div class="counters" style="grid-template-columns:repeat(4,1fr)">
       <div class="counter-cell">
@@ -1789,6 +1828,43 @@ section { padding-top: 72px }
       <p style="font-size:15px;color:var(--ink-soft)">Completó la reestructuración bajo Título III. Primer presupuesto balanceado en junio 2025. Pero LUMA trajo apagones crónicos, tarifas elevadas y controversia por conflicto de interés previo como abogado de la Junta Fiscal.</p>
     </div>
   </section>
+
+  <!-- ── Governor Debt Contribution Bar Chart ── -->
+  <div class="viz-chart reveal" id="viz-gov-debt" style="position:relative">
+    <h3>Deuda añadida por gobernador</h3>
+    <p class="viz-subtitle">Contribución neta de cada administración a la deuda pública de Puerto Rico (1993–2017). Fortuño añadió más que las dos administraciones anteriores combinadas.</p>
+    <svg viewBox="0 0 720 260" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico de barras: deuda añadida por cada gobernador">
+      <!-- Y axis labels -->
+      <text x="168" y="40" font-size="12.5" fill="var(--ink)" text-anchor="end" font-weight="600">Fortuño (PNP)</text>
+      <text x="168" y="80" font-size="12.5" fill="var(--ink)" text-anchor="end" font-weight="600">Calderón (PPD)</text>
+      <text x="168" y="120" font-size="12.5" fill="var(--ink)" text-anchor="end" font-weight="600">Acevedo V. (PPD)</text>
+      <text x="168" y="160" font-size="12.5" fill="var(--ink)" text-anchor="end" font-weight="600">Rosselló (PNP)</text>
+      <text x="168" y="200" font-size="12.5" fill="var(--ink)" text-anchor="end" font-weight="600">García P. (PPD)</text>
+      <!-- Grid lines -->
+      <line x1="180" y1="28" x2="180" y2="218" stroke="var(--line)" stroke-width="1"/>
+      <line x1="390" y1="28" x2="390" y2="218" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+      <line x1="600" y1="28" x2="600" y2="218" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+      <!-- Grid labels -->
+      <text x="180" y="238" font-size="10.5" fill="var(--muted)" text-anchor="middle">$0</text>
+      <text x="390" y="238" font-size="10.5" fill="var(--muted)" text-anchor="middle">$12.000M</text>
+      <text x="600" y="238" font-size="10.5" fill="var(--muted)" text-anchor="middle">$24.000M</text>
+      <!-- Bars — data-w = (value / 24000) * 420 -->
+      <rect x="182" y="28" width="0" height="18" rx="3" ry="3" fill="var(--red)" class="viz-bar" data-w="409"/>
+      <text x="596" y="42" font-size="12" fill="var(--ink)" font-weight="700" class="viz-bar-label" opacity="0">+$23.400M</text>
+      <rect x="182" y="68" width="0" height="18" rx="3" ry="3" fill="var(--gold)" class="viz-bar" data-w="233"/>
+      <text x="419" y="82" font-size="12" fill="var(--ink)" font-weight="700" class="viz-bar-label" opacity="0">+$13.300M</text>
+      <rect x="182" y="108" width="0" height="18" rx="3" ry="3" fill="var(--gold)" class="viz-bar" data-w="177"/>
+      <text x="363" y="122" font-size="12" fill="var(--ink)" font-weight="700" class="viz-bar-label" opacity="0">+$10.100M</text>
+      <rect x="182" y="148" width="0" height="18" rx="3" ry="3" fill="var(--red)" opacity=".75" class="viz-bar" data-w="175"/>
+      <text x="361" y="162" font-size="12" fill="var(--ink)" font-weight="700" class="viz-bar-label" opacity="0">+$10.000M</text>
+      <rect x="182" y="188" width="0" height="18" rx="3" ry="3" fill="var(--muted)" class="viz-bar" data-w="35"/>
+      <text x="222" y="202" font-size="12" fill="var(--ink)" font-weight="700" class="viz-bar-label" opacity="0">+$2.000M</text>
+    </svg>
+    <div class="viz-legend">
+      <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--red)"></span> PNP</div>
+      <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--gold)"></span> PPD</div>
+    </div>
+  </div>
 
   <!-- EMISIÓN DE DEUDA POR GOBERNADOR Y LÍDERES LEGISLATIVOS -->
   <section id="deuda-emision">
@@ -1936,6 +2012,33 @@ section { padding-top: 72px }
       <div class="card"><span class="badge badge-red" style="display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;background:var(--red-bg);color:var(--red);margin-bottom:10px">Gobernadora</span><h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:6px">Wanda Vázquez — Indulto</h3><p style="font-size:14px;color:var(--ink-soft)">Primera gobernadora convicta. Indultada por Trump en 2026 tras donación de $2,5M a PAC por familiar de co-conspiradores.</p></div>
     </div>
   </section>
+
+  <!-- ── Corruption Amounts Proportional Chart ── -->
+  <div class="viz-chart reveal" id="viz-corruption" style="position:relative">
+    <h3>Magnitud de los casos de corrupción</h3>
+    <p class="viz-subtitle">Los montos documentados varían por órdenes de magnitud — desde miles hasta miles de millones. Círculos proporcionales al monto.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:center;padding:20px 0 10px">
+      <div style="text-align:center">
+        <svg width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="68" fill="var(--red)" opacity=".18" stroke="var(--red)" stroke-width="1.5"/><text x="70" y="65" text-anchor="middle" font-size="15" font-weight="700" fill="var(--red)" font-family="var(--sans)">$1.800M</text><text x="70" y="82" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="var(--sans)">FEMA/Red eléctrica</text></svg>
+      </div>
+      <div style="text-align:center">
+        <svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="var(--red)" opacity=".18" stroke="var(--red)" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="var(--red)" font-family="var(--sans)">$15,5M</text><text x="30" y="40" text-anchor="middle" font-size="8.5" fill="var(--muted)" font-family="var(--sans)">Keleher</text></svg>
+      </div>
+      <div style="text-align:center">
+        <svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="var(--red)" opacity=".18" stroke="var(--red)" stroke-width="1.5"/><text x="26" y="24" text-anchor="middle" font-size="10" font-weight="700" fill="var(--red)" font-family="var(--sans)">$10M</text><text x="26" y="35" text-anchor="middle" font-size="8" fill="var(--muted)" font-family="var(--sans)">Delgado</text></svg>
+      </div>
+      <div style="text-align:center">
+        <svg width="42" height="42" viewBox="0 0 42 42"><circle cx="21" cy="21" r="19" fill="var(--red)" opacity=".18" stroke="var(--red)" stroke-width="1.5"/><text x="21" y="19" text-anchor="middle" font-size="9" font-weight="700" fill="var(--red)" font-family="var(--sans)">$4,2M</text><text x="21" y="29" text-anchor="middle" font-size="7.5" fill="var(--muted)" font-family="var(--sans)">Fajardo</text></svg>
+      </div>
+      <div style="text-align:center">
+        <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="var(--gold)" opacity=".22" stroke="var(--gold)" stroke-width="1.5"/><text x="18" y="16" text-anchor="middle" font-size="8" font-weight="700" fill="var(--gold)" font-family="var(--sans)">$2,5M</text><text x="18" y="26" text-anchor="middle" font-size="7" fill="var(--muted)" font-family="var(--sans)">PAC Trump</text></svg>
+      </div>
+      <div style="text-align:center">
+        <svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="var(--red)" opacity=".18" stroke="var(--red)" stroke-width="1.5"/><text x="15" y="13" text-anchor="middle" font-size="7.5" font-weight="700" fill="var(--red)" font-family="var(--sans)">$300K</text><text x="15" y="22" text-anchor="middle" font-size="6.5" fill="var(--muted)" font-family="var(--sans)">Vázquez</text></svg>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:4px">+ 133 arrestos en Operación Guard Shack (FBI) · 40+ funcionarios convictos bajo Rosselló padre</p>
+  </div>
 
   <!-- CRISIS DE DEUDA -->
   <section id="deuda">
@@ -2107,11 +2210,32 @@ section { padding-top: 72px }
   <!-- TAB 3: FUTURO (placeholder - will be filled with research) -->
   <!-- ═══════════════════════════════════════════════════════════════════ -->
   <div id="tab-futuro" hidden>
-    <header class="hero">
-      <div class="hero-kicker" style="color:#00C853"><span style="display:inline-block;width:32px;height:2px;background:#00C853;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase III</div>
-      <h1>¿Cuáles son nuestras opciones de futuro?</h1>
-      <p class="hero-lede">Tres opciones de estatus político. Cuatro modelos económicos internacionales. Un movimiento político que rompió 55 años de bipartidismo. Y estrategias concretas para energía, agricultura, tecnología y anticorrupción. Esta investigación examina las vías reales que Puerto Rico tiene para salir de la crisis — con datos, no con promesas.</p>
-      <p class="hero-meta">Basado en proyecciones del <strong>CBO</strong>, <strong>GAO</strong>, <strong>Centro de Estudios Puertorriqueños (CUNY)</strong>, <strong>NREL</strong>, <strong>Fraser Institute</strong>, y datos electorales oficiales de 2024.</p>
+    <header class="hero-cinematic" id="hero3" style="min-height:380px">
+      <!-- Geometric: rising bars + sun/horizon -->
+      <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:.07;right:2%;width:48%">
+        <!-- Rising bars — growth metaphor -->
+        <rect x="100" y="300" width="50" height="60" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="170" y="260" width="50" height="100" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="240" y="210" width="50" height="150" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="310" y="150" width="50" height="210" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="380" y="100" width="50" height="260" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="450" y="60" width="50" height="300" stroke="#00E676" stroke-width="2" fill="none"/>
+        <!-- Horizon line -->
+        <line x1="60" y1="360" x2="740" y2="360" stroke="#00E676" stroke-width="1.5" opacity=".5"/>
+        <!-- Sun arc -->
+        <path d="M550,360 A120,120 0 0,1 670,240" stroke="#00E676" stroke-width="1.5" fill="none" opacity=".4"/>
+        <circle cx="670" cy="240" r="4" fill="#00E676" opacity=".6"/>
+        <!-- Radiating lines from sun -->
+        <line x1="670" y1="240" x2="720" y2="200" stroke="#00E676" stroke-width="1" opacity=".3"/>
+        <line x1="670" y1="240" x2="730" y2="230" stroke="#00E676" stroke-width="1" opacity=".3"/>
+        <line x1="670" y1="240" x2="720" y2="260" stroke="#00E676" stroke-width="1" opacity=".3"/>
+      </svg>
+      <div class="hero-inner">
+        <div class="hero-kicker" style="color:#66FFA6"><span style="display:inline-block;width:32px;height:2px;background:#66FFA6;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase III</div>
+        <h1>¿Cuáles son nuestras opciones de futuro?</h1>
+        <p class="hero-lede" style="color:rgba(255,255,255,.88)">Tres opciones de estatus político. Cuatro modelos económicos internacionales. Un movimiento político que rompió 55 años de bipartidismo. Y estrategias concretas para energía, agricultura, tecnología y anticorrupción. Esta investigación examina las vías reales que Puerto Rico tiene para salir de la crisis — con datos, no con promesas.</p>
+        <p class="hero-meta">Basado en proyecciones del <strong>CBO</strong>, <strong>GAO</strong>, <strong>Centro de Estudios Puertorriqueños (CUNY)</strong>, <strong>NREL</strong>, <strong>Fraser Institute</strong>, y datos electorales oficiales de 2024.</p>
+      </div>
     </header>
 
   <!-- ESTATUS POLÍTICO -->
@@ -2155,6 +2279,50 @@ section { padding-top: 72px }
     <div class="note-box">
       <strong>Cualquier opción requiere acción del Congreso</strong> — donde PR no tiene voto. Las tres opciones tienen costos y beneficios reales. Lo que no es opción es seguir en el limbo colonial actual: un territorio sin representación, sin soberanía fiscal, sin acceso pleno a programas federales y bajo control de una Junta no electa.
     </div>
+
+    <!-- ── Status Options Comparison Chart ── -->
+    <div class="viz-chart reveal" id="viz-status" style="position:relative">
+      <h3>Comparación de las tres opciones</h3>
+      <p class="viz-subtitle">Cada opción tiene fortalezas y sacrificios diferentes. Barras más largas = mayor beneficio en esa dimensión.</p>
+      <svg viewBox="0 0 720 340" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico comparativo: estadidad vs república vs libre asociación">
+        <!-- Dimension labels -->
+        <text x="136" y="32" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Fondos federales</text>
+        <text x="136" y="92" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Soberanía fiscal</text>
+        <text x="136" y="152" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Comercio libre</text>
+        <text x="136" y="212" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Representación</text>
+        <text x="136" y="272" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Viabilidad política</text>
+        <!-- Grid -->
+        <line x1="148" y1="15" x2="148" y2="290" stroke="var(--line)" stroke-width="1"/>
+        <!-- Estadidad (blue) -->
+        <rect x="150" y="18" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="78" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="80"/>
+        <rect x="150" y="138" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="100"/>
+        <rect x="150" y="198" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="258" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="150"/>
+        <!-- República (green) -->
+        <rect x="150" y="34" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="50"/>
+        <rect x="150" y="94" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="154" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="214" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="274" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="100"/>
+        <!-- Libre asociación (gold) -->
+        <rect x="150" y="50" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="250"/>
+        <rect x="150" y="110" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
+        <rect x="150" y="170" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
+        <rect x="150" y="230" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="300"/>
+        <rect x="150" y="290" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="200"/>
+        <!-- Separator lines -->
+        <line x1="148" y1="65" x2="680" y2="65" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="125" x2="680" y2="125" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="185" x2="680" y2="185" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="245" x2="680" y2="245" stroke="var(--line)" stroke-width=".5"/>
+      </svg>
+      <div class="viz-legend">
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--blue)"></span> Estadidad</div>
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--green)"></span> República</div>
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--gold)"></span> Libre asociación</div>
+      </div>
+    </div>
   </section>
 
   <!-- MODELOS ECONÓMICOS -->
@@ -2188,6 +2356,54 @@ section { padding-top: 72px }
         <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Se independizó de la Corona Británica en noviembre 2021. Mantuvo estabilidad económica, turismo y servicios financieros durante la transición.</p>
         <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
       </div>
+    </div>
+
+    <!-- ── International Models Dot Plot ── -->
+    <div class="viz-chart reveal" id="viz-models" style="position:relative">
+      <h3>PR vs. modelos internacionales — indicadores clave</h3>
+      <p class="viz-subtitle">Comparación de PIB per cápita actual (USD). Todas empezaron con desafíos similares a los de Puerto Rico.</p>
+      <svg viewBox="0 0 720 220" style="width:100%;height:auto;display:block" role="img" aria-label="Dot plot: PIB per cápita de PR vs Singapur, Irlanda, Estonia, Barbados">
+        <!-- Grid -->
+        <line x1="110" y1="30" x2="110" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <line x1="110" y1="190" x2="690" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <!-- X axis labels ($0 - $80K) -->
+        <text x="110" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$0</text>
+        <text x="255" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$20K</text>
+        <text x="400" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$40K</text>
+        <text x="545" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$60K</text>
+        <text x="690" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$80K</text>
+        <!-- Grid lines vertical -->
+        <line x1="255" y1="30" x2="255" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="400" y1="30" x2="400" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="545" y1="30" x2="545" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="690" y1="30" x2="690" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <!-- Country labels -->
+        <text x="106" y="50" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Singapur</text>
+        <text x="106" y="82" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Irlanda</text>
+        <text x="106" y="114" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Estonia</text>
+        <text x="106" y="146" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Barbados</text>
+        <text x="106" y="178" font-size="11.5" fill="var(--red)" text-anchor="end" font-weight="700">Puerto Rico</text>
+        <!-- Connecting lines (lollipop style) -->
+        <line x1="112" y1="46" x2="581" y2="46" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="78" x2="680" y2="78" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="110" x2="290" y2="110" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="142" x2="228" y2="142" stroke="var(--gold)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="174" x2="254" y2="174" stroke="var(--red)" stroke-width="2" opacity=".3"/>
+        <!-- Dots: Singapore $65K, Ireland $77K (GNI*~$55K but nominal high), Estonia $28K, Barbados $16K, PR $21K -->
+        <!-- x = 110 + (value/80000)*580 -->
+        <circle cx="581" cy="46" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="596" y="50" font-size="11" fill="var(--ink)" font-weight="600">$65.000</text>
+        <circle cx="680" cy="78" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="642" y="72" font-size="11" fill="var(--ink)" font-weight="600">$78.700*</text>
+        <circle cx="290" cy="110" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="304" y="114" font-size="11" fill="var(--ink)" font-weight="600">$28.000</text>
+        <circle cx="228" cy="142" r="6" fill="var(--gold)" opacity=".85"/>
+        <text x="242" y="146" font-size="11" fill="var(--ink)" font-weight="600">$16.000</text>
+        <circle cx="254" cy="174" r="8" fill="var(--red)"/>
+        <text x="268" y="178" font-size="11" fill="var(--red)" font-weight="700">$21.000</text>
+        <text x="690" y="72" font-size="8.5" fill="var(--muted)" text-anchor="end">*PIB nominal; GNI* ≈$55K</text>
+      </svg>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px">Fuentes: Banco Mundial, FMI, BEA. PR usa ingreso per cápita real (~$21K), no PIB ($37K) que está inflado por repatriación corporativa.</p>
     </div>
   </section>
 
@@ -2585,6 +2801,28 @@ section { padding-top: 72px }
           el.classList.add('fade-in');
           el.classList.remove('hidden');
         });
+        // Re-init bar charts for phase 2
+        ['viz-gov-debt'].forEach(function(id){
+          var el = document.getElementById(id);
+          if(!el) return;
+          el.querySelectorAll('.viz-bar').forEach(function(b){ b.setAttribute('width', '0') });
+          el.querySelectorAll('.viz-bar-label').forEach(function(l){ l.setAttribute('opacity', '0') });
+          var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting){
+                e.target.querySelectorAll('.viz-bar').forEach(function(b, i){
+                  setTimeout(function(){
+                    animateValue(0, parseFloat(b.dataset.w), 800, function(v){ b.setAttribute('width', v) });
+                    var lbl = e.target.querySelectorAll('.viz-bar-label')[i];
+                    if(lbl) setTimeout(function(){ lbl.setAttribute('opacity', '1') }, 500);
+                  }, i * 80);
+                });
+                obs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          obs.observe(el);
+        });
         // Re-init counters for phase 2
         document.querySelectorAll('#tab-historia .counters').forEach(function(block){
           var done2 = false;
@@ -2619,6 +2857,25 @@ section { padding-top: 72px }
         initSideNavObs();
         var fadeEls3 = document.querySelectorAll('#tab-futuro .card, #tab-futuro .note-box');
         fadeEls3.forEach(function(el){ el.classList.add('fade-in'); el.classList.remove('hidden'); });
+        // Re-init bar charts for phase 3
+        ['viz-status'].forEach(function(id){
+          var el = document.getElementById(id);
+          if(!el) return;
+          el.querySelectorAll('.viz-bar').forEach(function(b){ b.setAttribute('width', '0') });
+          var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting){
+                e.target.querySelectorAll('.viz-bar').forEach(function(b, i){
+                  setTimeout(function(){
+                    animateValue(0, parseFloat(b.dataset.w), 800, function(v){ b.setAttribute('width', v) });
+                  }, i * 60);
+                });
+                obs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          obs.observe(el);
+        });
         document.querySelectorAll('#tab-futuro .counters').forEach(function(block){
           var done3 = false;
           var cObs3 = new IntersectionObserver(function(entries){
@@ -2780,6 +3037,29 @@ section { padding-top: 72px }
       });
     });
   }
+
+  // Animate bar charts in Tab 2 and Tab 3
+  ['viz-gov-debt', 'viz-status'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var bars = el.querySelectorAll('.viz-bar');
+          var labels = el.querySelectorAll('.viz-bar-label');
+          bars.forEach(function(b, i){
+            setTimeout(function(){
+              var target = parseFloat(b.dataset.w);
+              animateValue(0, target, 800, function(v){ b.setAttribute('width', v) });
+              if(labels[i]) setTimeout(function(){ labels[i].setAttribute('opacity', '1') }, 500);
+            }, i * 80);
+          });
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
 
   // Restore saved tab
   try {
