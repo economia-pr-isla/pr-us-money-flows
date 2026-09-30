@@ -573,6 +573,21 @@ section { padding-top: 72px }
   50% { box-shadow: 0 0 20px rgba(0,200,83,.6) }
 }
 @media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
+.tab-hint {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px; margin: 0;
+  font-size: 12px; color: var(--ink-soft);
+  background: var(--card-bg); border-bottom: 1px solid var(--line);
+  animation: hint-fade 6s ease-in-out forwards;
+  text-align: center; justify-content: center;
+}
+.tab-hint .hint-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--green); color: #fff; font-size: 11px; font-weight: 700;
+  flex-shrink: 0;
+}
+@keyframes hint-fade { 0%,70% { opacity: 1 } 100% { opacity: 0; pointer-events: none } }
 
 /* ── Phase 2 styles ── */
 .gov-card {
@@ -667,6 +682,7 @@ section { padding-top: 72px }
 <div class="container">
 
   <!-- ═══ TAB BAR ═══ -->
+  <div class="tab-hint" id="tabHint"><span class="hint-icon">i</span> Pulsa los botones de colores para navegar entre las tres investigaciones</div>
   <nav class="tab-bar" id="tabBar">
     <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 Flujos Económicos</button>
     <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
