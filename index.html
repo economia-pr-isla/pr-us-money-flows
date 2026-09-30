@@ -1,0 +1,1640 @@
+<title>El Libro Contable PR–EE.UU.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #F2EDE3;
+  --bg-deep: #E8E1D4;
+  --surface: #FFFFFF;
+  --ink: #0C1B2A;
+  --ink-soft: #2E3E4E;
+  --muted: #6B7D8D;
+  --line: #D2CBBD;
+  --green: #00856A;
+  --green-deep: #006B55;
+  --green-bg: #E6F5F0;
+  --gold: #D4820A;
+  --gold-deep: #A86700;
+  --gold-bg: #FDF3E0;
+  --red: #BE3A2A;
+  --red-bg: #FAEAE7;
+  --blue: #2566A8;
+  --tag-bg: #E8E1D4;
+  --tag-ink: #4A5568;
+  --shadow-sm: 0 1px 3px rgba(12,27,42,.06);
+  --shadow-md: 0 4px 16px -4px rgba(12,27,42,.1);
+  --shadow-lg: 0 8px 30px -8px rgba(12,27,42,.14);
+  --radius: 10px;
+  --serif: "Young Serif", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1B2A;
+    --bg-deep: #081420;
+    --surface: #12243A;
+    --ink: #E8E1D4;
+    --ink-soft: #B8C4D0;
+    --muted: #7B8D9E;
+    --line: #1E3348;
+    --green: #3DBFA0;
+    --green-deep: #3DBFA0;
+    --green-bg: #0D2E26;
+    --gold: #F0A830;
+    --gold-deep: #F0A830;
+    --gold-bg: #2A2010;
+    --red: #E87060;
+    --red-bg: #2B1510;
+    --blue: #6FA9D8;
+    --tag-bg: #1A2E42;
+    --tag-ink: #9AABB8;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.3);
+    --shadow-md: 0 4px 16px -4px rgba(0,0,0,.4);
+    --shadow-lg: 0 8px 30px -8px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1B2A;
+  --bg-deep: #081420;
+  --surface: #12243A;
+  --ink: #E8E1D4;
+  --ink-soft: #B8C4D0;
+  --muted: #7B8D9E;
+  --line: #1E3348;
+  --green: #3DBFA0;
+  --green-deep: #3DBFA0;
+  --green-bg: #0D2E26;
+  --gold: #F0A830;
+  --gold-deep: #F0A830;
+  --gold-bg: #2A2010;
+  --red: #E87060;
+  --red-bg: #2B1510;
+  --blue: #6FA9D8;
+  --tag-bg: #1A2E42;
+  --tag-ink: #9AABB8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.3);
+  --shadow-md: 0 4px 16px -4px rgba(0,0,0,.4);
+  --shadow-lg: 0 8px 30px -8px rgba(0,0,0,.5);
+}
+
+* { box-sizing: border-box; margin: 0 }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-inline: 20px;
+}
+h1, h2, h3, .serif { font-family: var(--serif); font-weight: 400 }
+a { color: var(--green); text-decoration: underline; text-underline-offset: 3px }
+a:hover { color: var(--green-deep) }
+p { margin-block-end: 1em }
+
+/* ── Progress bar ── */
+.progress-track {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 3px;
+  background: var(--line); z-index: 100;
+}
+.progress-fill {
+  height: 100%; width: 0%; background: linear-gradient(90deg, var(--green), var(--gold));
+  transition: width .15s linear;
+}
+
+/* ── Theme toggle ── */
+.theme-toggle {
+  position: fixed; top: calc(env(safe-area-inset-top, 0px) + 14px); right: 20px;
+  z-index: 99; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); transition: background .2s, border-color .2s;
+}
+.theme-toggle:hover { border-color: var(--green); color: var(--green) }
+.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2 }
+
+/* ── Nav ── */
+.side-nav {
+  position: fixed; left: 28px; top: 50%; transform: translateY(-50%);
+  z-index: 50; display: flex; flex-direction: column; gap: 2px;
+}
+.side-nav a {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 600;
+  letter-spacing: .04em; padding: 6px 0; transition: color .2s;
+}
+.side-nav a .dot {
+  width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--line);
+  transition: all .25s; flex-shrink: 0;
+}
+.side-nav a .label { opacity: 0; transition: opacity .2s; white-space: nowrap }
+.side-nav:hover a .label { opacity: 1 }
+.side-nav a.active { color: var(--green) }
+.side-nav a.active .dot { background: var(--green); border-color: var(--green); transform: scale(1.3) }
+@media (max-width: 1200px) { .side-nav { display: none } }
+
+/* ── Container ── */
+.container { max-width: 1060px; margin: 0 auto }
+
+/* ── Hero ── */
+.hero { padding: 80px 0 48px; position: relative }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 24px;
+}
+.hero-kicker::before {
+  content: ''; width: 32px; height: 2px; background: var(--green);
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05;
+  margin-bottom: 20px; text-wrap: balance; max-width: 900px;
+}
+.hero-lede {
+  font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.5; color: var(--ink-soft); max-width: 740px; margin-bottom: 12px;
+}
+.hero-meta {
+  font-size: 14px; color: var(--muted); max-width: 700px; line-height: 1.6;
+}
+.hero-meta strong { color: var(--ink-soft) }
+
+/* ── Animated counters row ── */
+.counters {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--line); border-radius: var(--radius); overflow: hidden;
+  margin: 40px 0 0; box-shadow: var(--shadow-md);
+}
+@media (max-width: 640px) { .counters { grid-template-columns: 1fr } }
+.counter-cell {
+  background: var(--surface); padding: 28px 24px; text-align: center;
+}
+.counter-num {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.1; margin-bottom: 6px;
+}
+.counter-num.green { color: var(--green) }
+.counter-num.gold { color: var(--gold) }
+.counter-num.red { color: var(--red) }
+.counter-label { font-size: 13px; color: var(--muted); font-weight: 500 }
+
+/* ── Notice ── */
+.notice {
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--gold); border-radius: var(--radius);
+  padding: 20px 24px; margin: 32px 0; box-shadow: var(--shadow-sm);
+}
+.notice.green-border { border-left-color: var(--green) }
+.notice.red-border { border-left-color: var(--red) }
+.notice h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; margin-bottom: 10px }
+.notice ul { margin: 0; padding-left: 20px }
+.notice li { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-soft) }
+.notice li:last-child { margin-bottom: 0 }
+.notice li strong { color: var(--ink) }
+.notice p:last-child { margin-bottom: 0 }
+
+/* ── Sections ── */
+section { padding-top: 72px }
+.sec-label {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.sec-title {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem); line-height: 1.12;
+  margin-bottom: 8px; text-wrap: balance;
+}
+.sec-desc { font-size: 15px; color: var(--muted); max-width: 720px; margin-bottom: 32px; line-height: 1.6 }
+
+/* ── Ledger ── */
+.ledger { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+@media (max-width: 820px) { .ledger { grid-template-columns: 1fr } }
+.ledger-col {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); overflow: hidden;
+}
+.ledger-header {
+  padding: 24px 24px 18px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.ledger-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.ledger-col.in .ledger-icon { background: var(--green-bg); color: var(--green) }
+.ledger-col.out .ledger-icon { background: var(--gold-bg); color: var(--gold) }
+.ledger-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2 }
+.ledger-header h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin-bottom: 2px }
+.ledger-header p { font-size: 13px; color: var(--muted); margin: 0 }
+.flow-list { list-style: none; padding: 0 }
+.flow-item { padding: 22px 24px; border-bottom: 1px solid var(--line) }
+.flow-item:last-child { border-bottom: 0 }
+.flow-value {
+  font-family: var(--serif); font-size: 1.5rem; line-height: 1.15; margin-bottom: 8px;
+}
+.ledger-col.in .flow-value { color: var(--green) }
+.ledger-col.out .flow-value { color: var(--gold) }
+.flow-label { font-weight: 600; font-size: 14.5px; margin-bottom: 6px; line-height: 1.45 }
+.flow-src { font-size: 13px; color: var(--muted); line-height: 1.55 }
+.flow-src cite { font-style: normal; color: var(--ink-soft); font-weight: 600 }
+.flow-caveat {
+  display: block; margin-top: 10px; font-size: 13px; color: var(--ink-soft);
+  background: var(--bg-deep); border-radius: 8px; padding: 10px 14px; line-height: 1.5;
+}
+
+.incomparable {
+  display: flex; gap: 14px; align-items: flex-start; margin-top: 28px;
+  border: 1px dashed var(--muted); border-radius: var(--radius); padding: 18px 22px;
+  font-size: 14px; color: var(--ink-soft); line-height: 1.55;
+}
+.incomparable .badge {
+  flex-shrink: 0; font-weight: 700; font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--red); border: 1.5px solid var(--red);
+  border-radius: 999px; padding: 4px 12px; margin-top: 1px;
+}
+
+/* ── Comparison cards ── */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+@media (max-width: 820px) { .compare-grid { grid-template-columns: 1fr } }
+.compare-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); padding: 28px;
+}
+.compare-card h3 { font-size: 1.15rem; margin-bottom: 4px }
+.compare-card .cmp-src { display: block; font-size: 13px; color: var(--muted); margin-bottom: 22px }
+.bar-row { margin-bottom: 18px }
+.bar-labels { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 600; margin-bottom: 7px }
+.bar-labels span:last-child { font-variant-numeric: tabular-nums }
+.bar-track { background: var(--bg-deep); border-radius: 999px; height: 22px; overflow: hidden }
+.bar-fill {
+  height: 100%; border-radius: 999px; width: 0%;
+  transition: width 1.2s cubic-bezier(.22,1,.36,1);
+}
+.bar-fill.green { background: linear-gradient(90deg, var(--green), var(--green-deep)) }
+.bar-fill.gold { background: linear-gradient(90deg, var(--gold), var(--gold-deep)) }
+.cmp-note { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.55 }
+.cmp-note strong { color: var(--ink-soft) }
+
+.split-viz { display: flex; align-items: center; gap: 4px; margin: 18px 0 10px }
+.split-block {
+  height: 52px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 15px; transition: width 1.2s cubic-bezier(.22,1,.36,1);
+}
+.split-legend { font-size: 13.5px; color: var(--muted); line-height: 1.55 }
+.split-legend strong { color: var(--ink-soft) }
+
+/* ── Debate ── */
+.debate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+@media (max-width: 820px) { .debate-grid { grid-template-columns: 1fr } }
+.debate-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); padding: 28px; position: relative; overflow: hidden;
+}
+.debate-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.debate-card.claim::before { background: var(--red) }
+.debate-card.rebuttal::before { background: var(--green) }
+.debate-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 10px; display: inline-block; padding: 3px 10px; border-radius: 999px;
+}
+.debate-card.claim .debate-tag { background: var(--red-bg); color: var(--red) }
+.debate-card.rebuttal .debate-tag { background: var(--green-bg); color: var(--green) }
+.debate-card h3 { font-size: 1.2rem; margin-bottom: 10px; line-height: 1.3 }
+.debate-card p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.6 }
+.debate-card footer {
+  font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line);
+  padding-top: 12px; margin-top: 14px; line-height: 1.5;
+}
+
+.spectrum {
+  margin-top: 28px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 28px;
+}
+.spectrum h3 { font-size: 1.15rem; margin-bottom: 16px }
+.spectrum-flow {
+  display: flex; align-items: stretch; gap: 0; margin-bottom: 14px; flex-wrap: wrap;
+}
+.spectrum-node {
+  flex: 1; min-width: 180px; padding: 14px 16px; font-size: 13px; font-weight: 600;
+  line-height: 1.4; border: 1px solid var(--line); position: relative;
+  background: var(--surface);
+}
+.spectrum-node:first-child { border-radius: var(--radius) 0 0 var(--radius) }
+.spectrum-node:last-child { border-radius: 0 var(--radius) var(--radius) 0 }
+.spectrum-node small { display: block; font-weight: 400; color: var(--muted); margin-top: 4px; font-size: 12px }
+.spectrum-node:not(:last-child)::after {
+  content: ''; position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0; border: 8px solid transparent; border-left-color: var(--line);
+  z-index: 1;
+}
+
+/* ── Roster ── */
+.roster-controls {
+  position: sticky; top: env(safe-area-inset-top, 3px); z-index: 20;
+  background: var(--bg); padding: 16px 0; margin-bottom: 20px;
+}
+.search-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px }
+.search-box { flex: 1; min-width: 220px; position: relative }
+.search-box input {
+  width: 100%; padding: 12px 16px 12px 44px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  font: inherit; font-size: 15px; background: var(--surface); color: var(--ink);
+  transition: border-color .2s; box-shadow: var(--shadow-sm);
+}
+.search-box input:focus { outline: none; border-color: var(--green) }
+.search-box svg {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; stroke: var(--muted); fill: none; stroke-width: 2;
+}
+.filters { display: flex; gap: 8px; flex-wrap: wrap }
+.filter-btn {
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  border-radius: 999px; padding: 8px 16px; font: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all .2s; box-shadow: var(--shadow-sm);
+}
+.filter-btn:hover { border-color: var(--green) }
+.filter-btn[aria-pressed="true"] {
+  background: var(--green); border-color: var(--green); color: #fff;
+}
+.result-count { font-size: 13px; color: var(--muted); margin-bottom: 16px }
+.roster-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px;
+}
+.person {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  transition: box-shadow .2s, transform .2s;
+}
+.person:hover { box-shadow: var(--shadow-md); transform: translateY(-2px) }
+.person h3 { font-size: 1.2rem; line-height: 1.25 }
+.person .role { font-size: 13.5px; color: var(--muted); font-weight: 500 }
+.person .claim { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55 }
+.person .claim strong { color: var(--ink) }
+.person .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px }
+.tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--tag-bg); color: var(--tag-ink); border-radius: 6px; padding: 3px 9px;
+}
+.tag.upr { background: var(--green-bg); color: var(--green) }
+.tag.ext { background: var(--gold-bg); color: var(--gold) }
+.person details {
+  border-top: 1px solid var(--line); padding-top: 10px; margin-top: 2px;
+}
+.person summary {
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: .02em;
+}
+.person .works { list-style: none; margin: 10px 0 0; padding: 0 }
+.person .works li {
+  font-size: 13px; color: var(--muted); margin-bottom: 8px; line-height: 1.55;
+}
+.person .works li em { color: var(--ink-soft) }
+.no-results {
+  display: none; background: var(--surface); border: 1px dashed var(--muted);
+  border-radius: var(--radius); padding: 32px; text-align: center; color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+/* ── Contested ── */
+.contest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
+@media (max-width: 820px) { .contest-grid { grid-template-columns: 1fr } }
+.contest-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 24px;
+}
+.contest-card h3 { font-size: 1.1rem; margin-bottom: 8px; line-height: 1.3 }
+.verdict {
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 999px; padding: 4px 12px; display: inline-block; margin-bottom: 12px;
+}
+.verdict.unsourced { background: var(--red-bg); color: var(--red); border: 1px solid var(--red) }
+.verdict.disputed { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold) }
+.verdict.gap { background: var(--tag-bg); color: var(--tag-ink); border: 1px solid var(--muted) }
+.contest-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.6 }
+.contest-card p:last-child { margin-bottom: 0 }
+
+/* ── Bibliography ── */
+.bib-group {
+  font-family: var(--serif); font-size: 1.3rem; margin: 40px 0 14px;
+}
+.bib-list { list-style: none; padding: 0 }
+.bib-list li {
+  font-size: 14px; line-height: 1.6; padding: 12px 0 12px 2em; text-indent: -2em;
+  border-bottom: 1px solid var(--line); color: var(--ink-soft);
+}
+.bib-list li:last-child { border-bottom: 0 }
+.bib-list .ln {
+  font-size: 11px; font-weight: 700; background: var(--tag-bg); color: var(--tag-ink);
+  border-radius: 5px; padding: 1px 7px; margin-left: 6px; white-space: nowrap;
+  text-indent: 0; display: inline-block;
+}
+.bib-list .pr {
+  font-size: 11px; font-weight: 700; color: var(--green); margin-left: 6px;
+  white-space: nowrap; text-indent: 0; display: inline-block;
+}
+.bib-list a.ext {
+  font-size: 12px; font-weight: 700; margin-left: 6px;
+  white-space: nowrap; text-indent: 0;
+}
+.source-list { list-style: none; padding: 0 }
+.source-list li {
+  font-size: 13.5px; margin-bottom: 8px; padding: 14px 18px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  break-inside: avoid; line-height: 1.5;
+}
+.source-list .src-name { font-weight: 600; display: block; margin-bottom: 3px; color: var(--ink) }
+.source-list a { font-size: 12.5px; word-break: break-all; color: var(--green) }
+.src-note { font-size: 13px; color: var(--muted); line-height: 1.6 }
+
+/* ── Footer ── */
+.page-foot {
+  margin-top: 72px; border-top: 1px solid var(--line); padding-top: 24px;
+  padding-bottom: 40px; color: var(--muted); font-size: 13px; line-height: 1.6;
+}
+.page-foot p { max-width: 780px }
+
+/* ── Divider ── */
+.divider { border: 0; border-top: 1px solid var(--line); margin: 56px 0 }
+
+/* ── Animations ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease }
+.reveal.visible { opacity: 1; transform: translateY(0) }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none }
+  .bar-fill { transition: none }
+  .split-block { transition: none }
+}
+
+/* ── Timeline ── */
+.timeline { position: relative; padding-left: 32px; margin-top: 8px }
+.timeline::before {
+  content: ''; position: absolute; left: 11px; top: 0; bottom: 0;
+  width: 2px; background: var(--line);
+}
+.tl-item { position: relative; padding-bottom: 28px }
+.tl-item:last-child { padding-bottom: 0 }
+.tl-item::before {
+  content: ''; position: absolute; left: -32px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--green); border: 3px solid var(--bg);
+  z-index: 1;
+}
+.tl-item.gold::before { background: var(--gold) }
+.tl-item.red::before { background: var(--red) }
+.tl-item.blue::before { background: var(--blue) }
+.tl-year { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 4px; letter-spacing: .03em }
+.tl-item.gold .tl-year { color: var(--gold) }
+.tl-item.red .tl-year { color: var(--red) }
+.tl-item.blue .tl-year { color: var(--blue) }
+.tl-content { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55 }
+.tl-content strong { color: var(--ink) }
+.tl-src { font-size: 12.5px; color: var(--muted); margin-top: 4px }
+
+.update-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px }
+@media (max-width: 820px) { .update-grid { grid-template-columns: 1fr } }
+.update-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); padding: 24px; position: relative; overflow: hidden;
+}
+.update-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.update-card.green-top::before { background: var(--green) }
+.update-card.gold-top::before { background: var(--gold) }
+.update-card.red-top::before { background: var(--red) }
+.update-card.blue-top::before { background: var(--blue) }
+.update-card h3 { font-size: 1.1rem; margin-bottom: 6px; line-height: 1.3 }
+.update-card .big-num {
+  font-family: var(--serif); font-size: 1.8rem; line-height: 1.1; margin-bottom: 10px;
+}
+.update-card .big-num.green { color: var(--green) }
+.update-card .big-num.gold { color: var(--gold) }
+.update-card .big-num.red { color: var(--red) }
+.update-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.6 }
+.update-card p:last-child { margin-bottom: 0 }
+.update-card .card-src { font-size: 12px; color: var(--muted); margin-top: 8px }
+
+/* ── Flow diagram ── */
+.flow-diagram {
+  margin: 36px 0; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 28px;
+  overflow-x: auto;
+}
+.flow-diagram h3 { font-size: 1.15rem; margin-bottom: 20px }
+.flow-svg { width: 100%; max-width: 960px; margin: 0 auto; display: block }
+</style>
+
+<div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+  <svg viewBox="0 0 24 24" id="theme-icon"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<nav class="side-nav" id="side-nav">
+  <a href="#hero" data-sec="hero"><span class="dot"></span><span class="label">Inicio</span></a>
+  <a href="#ledger" data-sec="ledger"><span class="dot"></span><span class="label">El libro contable</span></a>
+  <a href="#compare" data-sec="compare"><span class="dot"></span><span class="label">Comparaciones</span></a>
+  <a href="#debate" data-sec="debate"><span class="dot"></span><span class="label">El debate</span></a>
+  <a href="#update" data-sec="update"><span class="dot"></span><span class="label">2017–2025</span></a>
+  <a href="#analysis" data-sec="analysis"><span class="dot"></span><span class="label">Comparativo</span></a>
+  <a href="#roster" data-sec="roster"><span class="dot"></span><span class="label">Académicos</span></a>
+  <a href="#contested" data-sec="contested"><span class="dot"></span><span class="label">Disputado</span></a>
+  <a href="#sources" data-sec="sources"><span class="dot"></span><span class="label">Fuentes</span></a>
+</nav>
+
+<div class="container">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero" id="hero">
+    <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
+    <h1>El libro contable del dinero entre Puerto Rico y EE.&thinsp;UU.</h1>
+    <p class="hero-lede">¿Cuánto recibe Puerto Rico del gobierno federal? ¿Cuánto sale en ganancias corporativas, impuestos y costos de cabotaje? ¿Y cómo se compara con lo que pasa en los estados — o en otras economías coloniales del mundo? Este documento reúne las respuestas documentadas por los propios académicos.</p>
+    <p class="hero-meta">Compilado a partir de <strong>28 académicos</strong> (sistema UPR, diáspora universitaria de CUNY, Centro para una Nueva Economía, economistas independientes) más los académicos externos más citados — e informes oficiales de la <strong>GAO</strong>, <strong>CBO</strong>, <strong>BEA</strong>, <strong>FEMA</strong>, <strong>IRS</strong> y la <strong>Junta de Supervisión Fiscal</strong>. Se incluyen también análisis del <strong>Premio Nobel Joseph Stiglitz</strong> y comparaciones con Irlanda, Singapur, Hawái y los estados más pobres de EE.UU. Las cifras se reportan <strong>tal como las presenta cada fuente</strong>.</p>
+
+    <div class="counters reveal">
+      <div class="counter-cell">
+        <div class="counter-num green" data-target="28">0</div>
+        <div class="counter-label">Académicos documentados</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num gold" data-target="334" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Ganancias repatriadas 2008–17</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="45" data-suffix="%">0%</div>
+        <div class="counter-label">Tasa de pobreza — 4× la nacional</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ ROADMAP ═══ -->
+  <div class="notice reveal" style="border-left-color:var(--blue)">
+    <h3>Qué encontrarás en este documento</h3>
+    <p style="margin-bottom:12px">Esta investigación está organizada en tres bloques. Los datos no son opiniones — cada cifra lleva su autor, su año y su fuente. Donde hay disputa, se dice. Donde falta evidencia, se señala.</p>
+    <ul>
+      <li><strong>El registro histórico (secciones 01–03):</strong> Las cifras fundacionales del debate — cuánto entra y sale según estudios académicos previos a 2017, las comparaciones válidas dentro de una misma fuente, y el debate intelectual entre la tesis de «transferencias generosas» y la refutación empírica.</li>
+      <li><strong>La década post-María (secciones 04–05):</strong> Huracán María ($90.000M en daños), COVID ($9.000M+ en fondos ARP), la reestructuración del 78% de la deuda, el fallo <em>Vaello Madero</em> del Tribunal Supremo, y los datos más recientes de PIB, empleo e impuestos federales — incluyendo el hallazgo del CENTRO-CUNY de que PR pagó <strong>$5.000M en impuestos federales en 2023</strong>.</li>
+      <li><strong>El análisis comparativo (sección 05):</strong> PR comparado con Irlanda (la única economía con una brecha PIB–PNB comparable), Singapur (el contrafactual de la soberanía), Hawái (territorio → estado), Mississippi (el estado más pobre) — y lo que dijo el Premio Nobel Joseph Stiglitz sobre la crisis.</li>
+    </ul>
+    <p style="margin-bottom:0">El registro completo de <strong>28 académicos</strong> con sus obras clave, una sección de <strong>cifras disputadas y mitos virales</strong>, y la <strong>bibliografía con 60+ fuentes enlazadas</strong> cierran el documento.</p>
+  </div>
+
+  <div class="notice reveal">
+    <h3>Cómo leer estas cifras</h3>
+    <ul>
+      <li>Cada cifra tiene una fuente identificada y un año o período específico. <strong>Las cifras de estudios diferentes no son directamente comparables</strong> — usan años, definiciones y metodologías distintas.</li>
+      <li>Las fuentes se consultaron a través del índice web el <strong>30 de septiembre de 2026</strong>. Las URLs íntegras aparecen en la bibliografía.</li>
+      <li>Las obras conservan sus títulos originales; la marca <em>es</em> / <em>en</em> en cada ficha de académico indica los idiomas de publicación.</li>
+      <li>Este documento no defiende una posición política sobre el estatus de PR. Presenta los datos tal como los publicaron los investigadores, señalando dónde converge la evidencia revisada por pares y dónde persiste el desacuerdo legítimo.</li>
+    </ul>
+  </div>
+
+  <!-- ═══ LEDGER ═══ -->
+  <section id="ledger">
+    <div class="sec-label reveal">01 · El libro contable</div>
+    <h2 class="sec-title reveal">Dinero que entra, dinero que sale</h2>
+    <p class="sec-desc reveal">Las cifras agregadas más citadas en cada lado del balance. Léanse dentro de cada fuente, no entre fuentes.</p>
+
+    <!-- Flow Diagram -->
+    <div class="flow-diagram reveal">
+      <h3>Flujos documentados: una vista panorámica</h3>
+      <svg class="flow-svg" viewBox="0 0 960 320" id="flow-svg"></svg>
+    </div>
+
+    <div class="ledger reveal">
+      <div class="ledger-col in">
+        <div class="ledger-header">
+          <div class="ledger-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M5 9l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h3>Dinero que entra</h3>
+            <p>Gasto y transferencias federales que llegan a Puerto Rico.</p>
+          </div>
+        </div>
+        <ul class="flow-list">
+          <li class="flow-item">
+            <div class="flow-value">$15.475 millones</div>
+            <div class="flow-label">Total de fondos federales recibidos por PR en el año fiscal 2004 — $4.003 per cápita, el 55% del promedio, rango 52 de 52 — último.</div>
+            <div class="flow-src"><cite>MacEwan y Ruíz Mercado (2007)</cite>, con datos CFFR del Censo.</div>
+            <span class="flow-caveat">El estudio usa esto para refutar la idea de que PR recibe un gasto federal inusualmente generoso.</span>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">≈ ⅕ del PNB</div>
+            <div class="flow-label">Transferencias federales como proporción del producto nacional bruto de PR.</div>
+            <div class="flow-src"><cite>Ángel L. Ruíz Mercado (2013)</cite>, revisado por pares en <em>Revista Finanzas y Política Económica</em> 5(2).</div>
+            <span class="flow-caveat">Sostiene que es «dudoso» que las transferencias carguen a los contribuyentes de EE.UU. — y gran parte del gasto regresa al continente vía importaciones.</span>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">12,7% del PNB</div>
+            <div class="flow-label">Transferencias federales netas / PNB en 2005 — mínimo histórico en la serie 1976–2020.</div>
+            <div class="flow-src"><cite>José Caraballo Cueto (UPR Cayey)</cite>, presentado al Comité de Recursos Naturales de la Cámara (junio de 2021).</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$9.700 millones</div>
+            <div class="flow-label">Transferencias federales bajo la continuidad del ELA, frente a $680 millones de beneficio fiscal neto bajo la estadidad.</div>
+            <div class="flow-src"><cite>Glenn P. Jenkins (1995)</cite> — académico externo.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">1,5% → 16% del PIB</div>
+            <div class="flow-label">Transferencias federales (era del New Deal) crecieron de 1,5% del PIB a principios de los 1930 a 16% en 1936.</div>
+            <div class="flow-src"><cite>John Devereux (2019)</cite>, <em>Journal of Economic History</em> 79(3) — académico externo.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ledger-col out">
+        <div class="ledger-header">
+          <div class="ledger-icon"><svg viewBox="0 0 24 24"><path d="M12 22V2M5 15l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h3>Dinero que sale</h3>
+            <p>Lo que Estados Unidos gana de Puerto Rico: ganancias, impuestos, costos y recargos.</p>
+          </div>
+        </div>
+        <ul class="flow-list">
+          <li class="flow-item">
+            <div class="flow-value">$334.000 millones</div>
+            <div class="flow-label">Ganancias corporativas repatriadas de PR, 2008–2017 — «suficiente para pagar la deuda total cuatro veces».</div>
+            <div class="flow-src"><cite>César J. Ayala (UCLA, 2018)</cite>: ~un tercio del ingreso se va cada año; <strong>PNB = 67% del PIB</strong>.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$2.000–2.500 millones / año</div>
+            <div class="flow-label">Costo de la Sección 936 al Tesoro, fines de los 80 a principios de los 90 — $3.700–4.500 millones en dólares de 2016.</div>
+            <div class="flow-src"><cite>MacEwan y Hexner</cite>. La GAO (1992): en farmacéuticas, <strong>$3,08 perdidos por cada $1,00 en salarios</strong>.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$50.000 millones en dos décadas</div>
+            <div class="flow-label">Lo que la Sección 936 «le costó a los contribuyentes de EE.UU.» en veinte años.</div>
+            <div class="flow-src"><em>Congressional Record</em> vol. 141 (1995); CBO proyectó <strong>$15.000 millones perdidos 1993–1997</strong>.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$537 millones / año</div>
+            <div class="flow-label">El costo anual de la Ley Jones para Puerto Rico.</div>
+            <div class="flow-src"><cite>Alameda y Valentín (2012)</cite>. Hillberry y Jimenez (2024, Banco Mundial) estiman <strong>$1.400 millones/año</strong> — un arancel de facto de <strong>30,6%</strong>.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$3.500 millones</div>
+            <div class="flow-label">Impuestos federales pagados por PR en 2015 — «casi cinco veces más que los demás territorios combinados».</div>
+            <div class="flow-src"><cite>Caraballo Cueto</cite>, según el IRS 2015.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">1,4% de tasa efectiva</div>
+            <div class="flow-label">PR entre las diez jurisdicciones de mayor desplazamiento de ganancias del mundo.</div>
+            <div class="flow-src"><cite>Marxuach (CNE, 2021)</cite>, citando ICTD 2021 y Tørslov/Wier/Zucman.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">+3% empleos / +2% producción</div>
+            <div class="flow-label">Efecto estimado de las Leyes 20/22 — descrito como <em>modesto</em>.</div>
+            <div class="flow-src"><cite>Caraballo Cueto (2021)</cite>, revisado por pares.</div>
+          </li>
+          <li class="flow-item">
+            <div class="flow-value">$72.000 millones = 103% del PNB</div>
+            <div class="flow-label">La deuda pública de PR en 2015 — «impagable».</div>
+            <div class="flow-src"><cite>Marxuach</cite>, testimonio ante Finanzas del Senado (2015).</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="incomparable reveal" role="note">
+      <span class="badge">No comparable</span>
+      <span>Estos libros son un índice de afirmaciones, no un balance neto. Los $334.000 millones abarcan 2008–2017; los $15.475 millones son del año fiscal 2004; los $537 millones son una estimación de 2012. Concluir «PR debe / se le debe X» sería comparar años, definiciones y métodos distintos.</span>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISONS ═══ -->
+  <section id="compare">
+    <div class="sec-label reveal">02 · Comparaciones válidas</div>
+    <h2 class="sec-title reveal">Dos comparaciones que hacen los propios académicos</h2>
+    <p class="sec-desc reveal">Estos gráficos visualizan comparaciones hechas dentro de una sola fuente — no entre fuentes.</p>
+    <div class="compare-grid">
+      <div class="compare-card reveal">
+        <h3>Gasto federal per cápita, año fiscal 2004</h3>
+        <span class="cmp-src">MacEwan y Ruíz Mercado (2007), con datos CFFR del Censo.</span>
+        <div class="bar-row">
+          <div class="bar-labels"><span>Promedio de los estados</span><span>$7.273</span></div>
+          <div class="bar-track"><div class="bar-fill gold" data-width="100"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-labels"><span>Puerto Rico</span><span>$4.003</span></div>
+          <div class="bar-track"><div class="bar-fill green" data-width="55"></div></div>
+        </div>
+        <div class="cmp-note">PR recibió el <strong>55%</strong> del gasto federal per cápita promedio — rango 52 de 52.</div>
+      </div>
+      <div class="compare-card reveal">
+        <h3>¿Adónde va el ingreso generado en PR?</h3>
+        <span class="cmp-src">Junta de Planificación de PR vía César Ayala (UCLA, 2018).</span>
+        <div class="split-viz" role="img" aria-label="67% retenido como PNB, 33% repatriado">
+          <div class="split-block" data-width="67" style="width:0%;background:var(--green)">67%</div>
+          <div class="split-block" data-width="33" style="width:0%;background:var(--gold)">33%</div>
+        </div>
+        <div class="split-legend"><strong>PNB = 67% del PIB.</strong> Alrededor de un tercio del ingreso se repatria cada año — $334.000 millones en 2008–2017.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DEBATE ═══ -->
+  <section id="debate">
+    <div class="sec-label reveal">03 · El debate</div>
+    <h2 class="sec-title reveal">Por qué importa el libro contable: tres lecturas</h2>
+    <p class="sec-desc reveal">Las cifras son peones en un argumento más grande sobre si las transferencias federales sostienen o hunden a la isla — y qué causó la crisis de la deuda.</p>
+
+    <div class="debate-grid">
+      <div class="debate-card claim reveal">
+        <div class="debate-tag">La tesis de las «transferencias generosas»</div>
+        <h3>PR es una carga fiscal: los programas federales deprimen el trabajo</h3>
+        <p>Burtless y Sotomayor (2006) sostuvieron que las transferencias reducen la participación laboral. Enchautegui y Freeman (2006) avanzaron la hipótesis del «Rich Uncle (Sam)» para explicar por qué trabajan menos hombres puertorriqueños. La lectura de política pública: reducir las transferencias haría a PR autosuficiente.</p>
+        <footer>Fuentes: volúmenes CNE–Brookings <em>The Economy of Puerto Rico</em> / <em>Restoring Growth</em> (2006).</footer>
+      </div>
+      <div class="debate-card rebuttal reveal">
+        <div class="debate-tag">La refutación empírica</div>
+        <h3>Las transferencias son las más bajas per cápita en EE.UU. — la desindustrialización causó la deuda</h3>
+        <p>MacEwan y Ruíz Mercado (2007) muestran que el gasto federal per cápita en PR está por debajo del de todos los estados. Ruíz Mercado (2013, revisado por pares) duda del canal de oferta laboral. Caraballo Cueto y Lara (2017, revisado por pares) encuentran que el endeudamiento fue impulsado por la <strong>desindustrialización</strong> — con solo «débil evidencia» de que fue causado por programas federales.</p>
+        <footer>Fuentes: MacEwan y Ruíz Mercado 2007; Ruíz Mercado 2013; Caraballo Cueto y Lara, <em>JGD</em> 8(2), 2017.</footer>
+      </div>
+    </div>
+
+    <div class="spectrum reveal">
+      <h3>El espectro de perspectivas</h3>
+      <div class="spectrum-flow">
+        <div class="spectrum-node">Institucionalista / dependencia colonial<small>Catalá, Pantojas García, Ayala, Seda-Irizarry, Quiñones-Pérez</small></div>
+        <div class="spectrum-node">Refutaciones empíricas<small>MacEwan, Ruíz Mercado, Caraballo Cueto</small></div>
+        <div class="spectrum-node">Visión tecnocrática CNE–Brookings<small>Burtless/Sotomayor, Enchautegui/Freeman</small></div>
+      </div>
+      <p class="cmp-note">Seda-Irizarry y Quiñones-Pérez: crecimiento 6%/año en 1947–73 → 1,6% en 1976–2014 → −0,5% desde 2000 → −1,5% desde 2006 — deuda superior a $100.000 millones frente a un PNB de $68.500 millones.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 2017–2025 UPDATE ═══ -->
+  <section id="update">
+    <div class="sec-label reveal">04 · Actualización 2017–2025</div>
+    <h2 class="sec-title reveal">Ocho años que lo cambiaron todo</h2>
+    <p class="sec-desc reveal">Desde el huracán María hasta la reestructuración de la deuda, los fondos COVID, el éxodo poblacional y el fallo del Tribunal Supremo: la década que reescribió cada línea del libro contable.</p>
+
+    <!-- Headline numbers -->
+    <div class="counters reveal">
+      <div class="counter-cell">
+        <div class="counter-num gold" data-target="90" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Daños del huracán María (FEMA)</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num green" data-target="64" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Deuda reestructurada bajo PROMESA</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="5" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Impuestos federales pagados por PR (2023)</div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <h3 style="font-family:var(--sans);font-size:17px;font-weight:700;margin:40px 0 20px" class="reveal">Cronología de eventos clave</h3>
+    <div class="timeline reveal">
+      <div class="tl-item red">
+        <div class="tl-year">Septiembre 2017</div>
+        <div class="tl-content"><strong>Huracán María azota Puerto Rico.</strong> FEMA estima daños en <strong>$90.000 millones</strong> — el tercer desastre más costoso en la historia de EE.UU. Destrucción casi total de la red eléctrica. Puerto Rico estimó que se necesitarán <strong>$132.000 millones</strong> para reparar y reconstruir infraestructura.</div>
+        <div class="tl-src">FEMA; NY Fed Staff Report 1078; Wikipedia — Effects of Hurricane Maria in Puerto Rico</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">2017–2019</div>
+        <div class="tl-content"><strong>Éxodo poblacional post-María.</strong> En 2017, el ~2,4% de la población emigró — unas 77.000 personas en términos netos, el pico migratorio en 13 años de datos. La emigración neta representó entre 1,1% y 3,5% de la población anual en 2011–2019.</div>
+        <div class="tl-src">Instituto de Estadísticas de PR; Censo de EE.UU. 2021</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-content"><strong>COVID-19 y fondos CARES.</strong> PR recibe <strong>$2.200 millones</strong> del Tesoro bajo el CARES Act — para testeo, economía y continuidad de gobierno. Terremotos de 6,4 grados en enero añaden presión a la infraestructura.</div>
+        <div class="tl-src">AAFAF — COVID-19 Resource Center; Gobierno de PR</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Marzo 2021</div>
+        <div class="tl-content"><strong>American Rescue Plan.</strong> Inyección masiva: <strong>~$4.000M</strong> para educación, <strong>$2.463M</strong> gobierno estatal, <strong>$832M</strong> ciudades metro, <strong>$600M</strong> para EITC local, <strong>$1.271M</strong> del Fondo de Alivio de Desastres de FEMA.</div>
+        <div class="tl-src">Senado Demócrata — ARP Puerto Rico Fact Sheet; CBS News; Hispanic Federation</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-year">Junio 2021</div>
+        <div class="tl-content"><strong>LUMA Energy asume la red eléctrica.</strong> Contrato de 15 años valorado en <strong>$1.500 millones</strong>. FEMA compromete <strong>~$11.600 millones</strong> para reconstrucción, de los cuales <strong>$9.400 millones</strong> para PREPA. La deuda de PREPA: <strong>$9.000 millones</strong> abandonados en bancarrota.</div>
+        <div class="tl-src">IEEE Spectrum; Jacobin; Congressional Hearing 117th Congress</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-year">Enero 2022</div>
+        <div class="tl-content"><strong>Reestructuración histórica de la deuda.</strong> El tribunal de Título III confirma el Plan de Ajuste: la deuda del Commonwealth se reduce de <strong>$34.300M → $7.400M</strong> — una reducción del <strong>78%</strong>. El servicio de deuda anual baja de $2.100M a $666M en los primeros diez años.</div>
+        <div class="tl-src">Junta de Supervisión Fiscal; Chapman and Cutler LLP; CRS — TE10113</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Abril 2022</div>
+        <div class="tl-content"><strong><em>US v. Vaello Madero</em>: el Tribunal Supremo decide 8-1</strong> que la Constitución <strong>no requiere</strong> que el Congreso extienda los beneficios de SSI a PR. Consolida la exclusión de los residentes de PR de programas federales clave.</div>
+        <div class="tl-src">Corte Suprema, 20-303 (21 de abril de 2022); Harvard Law Review vol. 136; CRS — LSB10737</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Septiembre 2022</div>
+        <div class="tl-content"><strong>Huracán Fiona.</strong> Más de <strong>$1.100 millones</strong> en asistencia federal para sobrevivientes, comunidades e infraestructura. La red eléctrica colapsa de nuevo — toda la isla sin luz.</div>
+        <div class="tl-src">FEMA — Disaster Assistance Summary; Center for American Progress</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Diciembre 2022</div>
+        <div class="tl-content"><strong>Plan de reestructuración de PREPA.</strong> La Junta propone reducir <strong>$10.000M+</strong> de deuda de PREPA en un <strong>~80%</strong>, a unos $2.600 millones.</div>
+        <div class="tl-src">Junta de Supervisión Fiscal — Debt Restructuring Portal</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-content"><strong>Superávit fiscal histórico.</strong> Los estados financieros del gobierno muestran un <strong>superávit neto de $1.900 millones</strong> — una reversión sin precedentes tras años de déficit. Al mismo tiempo, la tasa de pobreza se mantiene en <strong>~40–45%</strong>.</div>
+        <div class="tl-src">GAO-25-108629 (julio 2025); FocusEconomics</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-year">2024</div>
+        <div class="tl-content"><strong>PIB de $126.000 millones</strong>, crecimiento real de 3,2%. Desempleo en ~6%. La brecha PIB–PNB alcanza <strong>45,5% del PNB</strong> en el AF 2022 (promedio de 49% en 2010–2022) — cada año, casi la mitad de la producción se va en ganancias repatriadas. Deuda total reestructurada: <strong>$64.700 millones</strong>.</div>
+        <div class="tl-src">BEA — GDP for Puerto Rico; Jorge Arroyo (2026), SSRN; Junta de Supervisión Fiscal (agosto 2024)</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-content"><strong>PIB alcanza $129.368 millones</strong> (AF 2025, +2,6%). Desempleo baja a <strong>5,7%</strong>, participación laboral en <strong>44,6%</strong> — la más alta sostenida desde 2009. Población muestra migración neta positiva por primera vez. Pero <strong>pobreza persiste en ~45%</strong> — más del doble que el estado más pobre.</div>
+        <div class="tl-src">DEDC Puerto Rico Economic Report End of Year 2025; Macrotrends; Instituto de Estadísticas</div>
+      </div>
+    </div>
+
+    <!-- Deep-dive cards -->
+    <h3 style="font-family:var(--sans);font-size:17px;font-weight:700;margin:40px 0 20px" class="reveal">Datos clave del período</h3>
+    <div class="update-grid">
+      <div class="update-card green-top reveal">
+        <h3>Impuestos federales pagados por PR</h3>
+        <div class="big-num green">$5.000 millones (2023)</div>
+        <p>Residentes de PR han pagado <strong>más de $3.000 millones anuales netos</strong> al tesoro federal por más de 10 años consecutivos. En ocasiones, la contribución de PR ha superado a la de <strong>seis estados distintos</strong>.</p>
+        <div class="card-src">CENTRO (CUNY Hunter) — «¿No Pagan Taxes?» (2024)</div>
+      </div>
+      <div class="update-card gold-top reveal">
+        <h3>La brecha PIB–PNB</h3>
+        <div class="big-num gold">$35.000 millones</div>
+        <p>El PIB supera al PNB por ~$35.000M — esa brecha <strong>son ganancias repatriadas</strong>. Alcanzó <strong>45,5% del PNB</strong> en AF 2022 y promedió <strong>49%</strong> entre 2010–2022. Arroyo (2026) argumenta que el problema es institucional: PR es económicamente «externo» pero estadísticamente «interno» a EE.UU.</p>
+        <div class="card-src">Jorge A. Arroyo (2026), SSRN #6198498; Junta de Planificación de PR</div>
+      </div>
+      <div class="update-card red-top reveal">
+        <h3>Exclusión de programas federales</h3>
+        <div class="big-num red">40–45% pobreza</div>
+        <p>PR excluido de <strong>SSI</strong> (confirmado por el Tribunal Supremo, 2022), recibe <strong>Medicaid con tope</strong> (no ilimitado como en estados), <strong>NAP en vez de SNAP</strong> (con ~40% menos fondos), y el <strong>EITC</strong> se expandió apenas en 2021. Pobreza: <strong>casi 4 veces la tasa nacional</strong> (11%).</p>
+        <div class="card-src">CBPP (2025); Vaello Madero, 20-303; AARP Foundation</div>
+      </div>
+      <div class="update-card blue-top reveal">
+        <h3>Fondos de recuperación de desastres</h3>
+        <div class="big-num" style="color:var(--blue)">$32.200 millones</div>
+        <p>FEMA ha adjudicado <strong>$32.200M</strong> para programas de recuperación (al agosto 2022), pero solo <strong>$1.800M gastados</strong> (al junio 2023). Congreso asignó al menos <strong>$63.000M</strong> para alivio — pero 4 años después, el <strong>71% no había llegado</strong> a las comunidades.</p>
+        <div class="card-src">GAO-24-105557; GAO-22-106211; NBC News (2021)</div>
+      </div>
+      <div class="update-card gold-top reveal">
+        <h3>Ley Jones: estimaciones actualizadas</h3>
+        <div class="big-num gold">$1.400 millones / año</div>
+        <p>Hillberry y Jimenez (Banco Mundial, 2024): arancel de facto de <strong>30,6%</strong>. La Fed de NY (2012) encontró que enviar un contenedor de EE.UU. a PR cuesta <strong>$3.063 vs. $1.503 a Rep. Dominicana</strong>. Costos de envío Jones Act <strong>2,5 veces mayores</strong> que no-Jones Act. La Ley Jones contribuye a un costo de vida <strong>13% mayor</strong> que el continente.</p>
+        <div class="card-src">Cato Institute (2024); NY Fed (2012); Hillberry y Jimenez (2024)</div>
+      </div>
+      <div class="update-card green-top reveal">
+        <h3>GAO: Ley 60 y los incentivos fiscales</h3>
+        <div class="big-num green">1,4% → IRS</div>
+        <p>La GAO (diciembre 2025) encontró que los receptores de incentivos son <strong>personas de altos ingresos</strong> que pagan <strong>significativamente menos impuestos federales</strong> tras mudarse a PR. Advirtió que algunos «quizás no cumplen con sus obligaciones tributarias federales». Mientras tanto, el PNB real fue <strong>4,4% menor en 2024 que en 2014</strong> — los incentivos no han revertido la contracción.</p>
+        <div class="card-src">GAO-26-107225 (diciembre 2025); Caraballo Cueto (2021)</div>
+      </div>
+    </div>
+
+    <div class="notice reveal" style="margin-top:28px">
+      <h3>Nuevo estudio académico clave: «¿No Pagan Taxes?» (CENTRO, 2024)</h3>
+      <p>El Centro de Estudios Puertorriqueños de CUNY (Hunter College) publicó en 2024 un informe documentado que refuta el mito de que los puertorriqueños «no pagan impuestos». Cifras oficiales del IRS muestran <strong>$5.000 millones en 2023</strong> y más de <strong>$3.000 millones netos anuales por más de 10 años consecutivos</strong>. El informe coloca la contribución de PR por encima de la de seis estados en ciertos años.</p>
+      <p style="margin-bottom:0"><a href="https://centropr.hunter.cuny.edu/reports/no-pagan-taxes-overview-of-federal-revenue-raising-in-puerto-rico-2024/">Leer el informe completo (CENTRO, CUNY)</a></p>
+    </div>
+
+    <div class="notice green-border reveal">
+      <h3>Nuevo estudio: la brecha estadística — Arroyo (2026)</h3>
+      <p>Jorge A. Arroyo, en «When GDP Is Not Enough» (SSRN, febrero 2026), argumenta que PR exhibe una de las brechas PIB–PNB <strong>más grandes y persistentes del mundo</strong>. El problema es <strong>institucional</strong>: la isla es económicamente «externa» pero estadísticamente «interna» a las arquitecturas contables de EE.UU. El PIB solo no puede resolver la ambigüedad sobre el ingreso residente y la dependencia externa.</p>
+      <p style="margin-bottom:0"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6198498">Leer en SSRN</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ EDITORIAL ANALYSIS ═══ -->
+  <section id="analysis">
+    <div class="sec-label reveal">05 · Análisis comparativo</div>
+    <h2 class="sec-title reveal">Puerto Rico en el espejo: cuatro economías, una pregunta</h2>
+    <p class="sec-desc reveal">¿Es la situación económica de Puerto Rico única o tiene precedentes? La literatura comparada sugiere que la isla ocupa un punto singular — pero no inexplicable. Aquí se contrastan cuatro casos documentados, seguidos de una lectura editorial.</p>
+
+    <!-- Stiglitz callout -->
+    <div class="notice red-border reveal">
+      <h3>Lo que dijo el Premio Nobel</h3>
+      <p>Joseph Stiglitz (Nobel de Economía 2001) y Martín Guzmán publicaron un análisis formal de la sostenibilidad de la deuda de PR (<strong>NBER Working Paper 25256, 2018</strong>) concluyendo que la posición de deuda era insostenible y que las proyecciones del plan fiscal subestimaban los efectos contractivos de la austeridad. Stiglitz describió el plan fiscal de PROMESA como <strong>«lo peor que he visto»</strong> y advirtió que «conducirá a otra década perdida para Puerto Rico». En San Juan, criticó que PR «carece de autodeterminación básica» y no pudo aprobar un reemplazo a la Sección 936 porque <strong>no tiene un asiento con voto en el Congreso</strong>.</p>
+      <p style="margin-bottom:0;font-size:13px;color:var(--muted)">Fuentes: <a href="https://www.project-syndicate.org/commentary/puerto-rico-debt-plan-deep-depression-by-joseph-e--stiglitz-and-martin-guzman-2017-02">Project Syndicate (feb. 2017)</a> · <a href="https://www.nber.org/papers/w25256">NBER WP 25256 (2018)</a> · <a href="https://puertoricoreport.com/stiglitz-experts-consider-impact-puerto-ricos-colonial-status/">PR Report — CNE Summit</a></p>
+    </div>
+
+    <!-- Comparison cards -->
+    <div class="update-grid">
+      <!-- Ireland -->
+      <div class="update-card gold-top reveal">
+        <h3>🇮🇪 Irlanda — El paralelo más cercano</h3>
+        <div class="big-num gold">45,5% vs. 17%</div>
+        <p>Irlanda es la <strong>única economía avanzada</strong> con una brecha PIB–PNB comparable a la de PR. Ambas atrajeron multinacionales con tasas corporativas bajas (Irlanda: 12,5%; PR: Sección 936 → Ley 60). En Irlanda, la repatriación de ganancias llegó a ~17% del PIB; en PR, alcanza <strong>45,5% del PNB</strong> (AF 2022, promedio 49% en 2010–2022). La distorsión fue tal que en 2015 Irlanda reportó un crecimiento de <strong>26,3%</strong> que era casi enteramente reestructuración contable de multinacionales — el episodio que Paul Krugman bautizó «leprechaun economics». Irlanda respondió creando una nueva métrica (GNI*) para medir la economía real.</p>
+        <p><strong>La diferencia clave:</strong> Irlanda tenía soberanía para negociar sus tasas impositivas y acceso al mercado europeo vía la UE. Puerto Rico no tiene ni lo uno ni lo otro.</p>
+        <div class="card-src">Wikipedia — Modified GNI; Warwick Economics; Irish Examiner; Arroyo (2026)</div>
+      </div>
+
+      <!-- Singapore -->
+      <div class="update-card green-top reveal">
+        <h3>🇸🇬 Singapur — El contrafactual de la soberanía</h3>
+        <div class="big-num green">$500 → $56.000 PIB pc</div>
+        <p>Al independizarse en 1965, Singapur tenía un PIB per cápita de <strong>~$500</strong>, desempleo de <strong>13,5%</strong>, cero recursos naturales, y las bases navales británicas representaban <strong>1/5 del PIB</strong> — una dependencia estructural parecida a la de PR con las bases militares y la Sección 936. Con soberanía, Singapur promedió <strong>~7% de crecimiento anual</strong> y alcanzó $56.000 per cápita en 2015.</p>
+        <p><strong>El contraste:</strong> PR creció a 6%/año en 1947–73, desaceleró a 1,6% en 1976–2014, y se contrajo desde 2006. La diferencia: Singapur <strong>controlaba su política fiscal, comercial, migratoria y monetaria</strong>. PR no controla ninguna.</p>
+        <div class="card-src">World Bank — Singapore Overview; SG101.gov.sg; Seda-Irizarry y Quiñones-Pérez (2022)</div>
+      </div>
+
+      <!-- Hawaii -->
+      <div class="update-card blue-top reveal">
+        <h3>🏝️ Hawái — El territorio que se convirtió en estado</h3>
+        <div class="big-num" style="color:var(--blue)">4% crecimiento pc anual post-1959</div>
+        <p>Hawái era un territorio con una economía de plantación (azúcar, piña) y gasto militar — un perfil similar al de PR en los años 50. Tras obtener la estadidad en 1959, el ingreso per cápita real creció a <strong>4% anual</strong> entre 1958–1973. Hoy su ingreso medio es de <strong>$83.102</strong> (5to más alto del país). La estadidad desbloqueó el gasto federal completo y la inversión del continente.</p>
+        <p><strong>Lo que sugiere:</strong> Un territorio con estructura económica similar a la de PR, al obtener representación plena y acceso igualitario a programas federales, experimentó un cambio estructural. PR lleva 127 años como territorio.</p>
+        <div class="card-src">Time (2015); EH.net — Economic History of Hawaii; PR51st.com</div>
+      </div>
+
+      <!-- Mississippi -->
+      <div class="update-card red-top reveal">
+        <h3>Mississippi — El estado más pobre</h3>
+        <div class="big-num red">$25.096 vs. $54.915</div>
+        <p>El ingreso medio de PR (<strong>$25.096</strong>) es <strong>menos de la mitad</strong> del de Mississippi ($54.915), el estado más pobre. La pobreza en PR (~40%) es <strong>el doble que la de Mississippi</strong> (18%) y <strong>4 veces la tasa nacional</strong> (12%). Sin embargo, PR recibe <strong>menos fondos federales per cápita que cualquier estado</strong>: $1.178 per cápita en subvenciones federales (AF 2023) frente al promedio estatal de $2.779 — menos incluso que Florida ($1.647), el estado con menor recepción.</p>
+        <p>A esto se suma la exclusión de <strong>SSI</strong>, un <strong>Medicaid con tope</strong> (tasa federal de 55% en vez del 83% que le correspondería por fórmula), y <strong>NAP en vez de SNAP</strong> (con ~40% menos fondos). Siete estados tienen un mayor déficit fiscal per cápita que PR.</p>
+        <div class="card-src">Census ACS 2024; FFIS FY2023; Espacios Abiertos; CBPP (2025)</div>
+      </div>
+    </div>
+
+    <!-- Editorial note -->
+    <div class="spectrum reveal" style="margin-top:28px">
+      <h3>Nota editorial: lo que los datos sugieren en conjunto</h3>
+      <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.65">Ninguna comparación es perfecta, pero el patrón que emerge de la literatura es consistente: <strong>la variable que distingue las trayectorias es el grado de control sobre la política económica propia</strong>. Singapur, con soberanía, transformó una isla sin recursos en una de las economías más ricas del mundo. Irlanda, con soberanía y acceso al mercado europeo, convirtió la misma estrategia de atracción corporativa en crecimiento real — y cuando la distorsión contable se hizo evidente, pudo crear sus propias métricas. Hawái, al pasar de territorio a estado, desbloqueó los mecanismos federales que PR tiene restringidos.</p>
+      <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.65">Puerto Rico combina <strong>la brecha PIB–PNB más severa del mundo desarrollado</strong> (peor que Irlanda en su momento más distorsionado), con <strong>la menor recepción federal per cápita de cualquier jurisdicción de EE.UU.</strong>, con <strong>la pobreza más alta de cualquier jurisdicción de EE.UU.</strong> — y con la exclusión de los programas federales que precisamente atienden la pobreza. No es que los datos «hablen por sí mismos» — requieren el contexto de cada fuente. Pero la convergencia de fuentes independientes (académicas, gubernamentales, de organismos multilaterales) apunta en una dirección empírica clara: <strong>la estructura fiscal y comercial de la relación extrae más valor del que transfiere</strong>, y las transferencias que llegan son las más bajas per cápita de todo el sistema.</p>
+      <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:0">Esto no es una conclusión política — es lo que dice la evidencia revisada por pares publicada entre 2007 y 2026 por los propios investigadores citados en este documento. Donde la evidencia es ambigua o disputada, se señala explícitamente en las secciones correspondientes.</p>
+    </div>
+  </section>
+
+  <!-- ═══ ROSTER ═══ -->
+  <section id="roster">
+    <div class="sec-label reveal">06 · El registro</div>
+    <h2 class="sec-title reveal">Los académicos</h2>
+    <p class="sec-desc reveal">22 académicos puertorriqueños más los economistas e historiadores externos más citados.</p>
+
+    <div class="roster-controls">
+      <div class="search-row">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          <input id="roster-search" type="search" placeholder="Buscar por nombre, institución o tema..." aria-label="Buscar" />
+        </div>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">Todos 28</button>
+        <button class="filter-btn" data-filter="upr" aria-pressed="false">Sistema UPR</button>
+        <button class="filter-btn" data-filter="pr-other" aria-pressed="false">Otras inst. PR</button>
+        <button class="filter-btn" data-filter="diaspora" aria-pressed="false">Diáspora</button>
+        <button class="filter-btn" data-filter="external" aria-pressed="false">Externos</button>
+      </div>
+    </div>
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+
+    <div class="roster-grid" id="roster-grid">
+
+      <article class="person" data-group="pr-other" data-search="angel ruiz mercado interamerican devengadas concedidas transfers transferencias">
+        <h3>Ángel L. Ruíz Mercado</h3>
+        <div class="role">Universidad Interamericana de PR (Metro)</div>
+        <p class="claim"><strong>El estudioso de las transferencias.</strong> Transferencias federales ≈ <strong>1/5 del PNB</strong>; es «dudoso» que carguen a los contribuyentes de EE.UU. — gran parte del gasto regresa al continente vía importaciones.</p>
+        <div class="tags"><span class="tag">es</span><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>«Washington Dollars and the Puerto Rican Economy»</em> — con Arthur MacEwan, Ensayo 135 (2007)</li>
+            <li><em>«Impacto directo e indirecto de las transferencias federales…»</em> — <em>Rev. Finanzas y Pol. Económica</em> 5(2), 2013</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="external" data-search="arthur macewan umass boston section 936 transfers hexner">
+        <h3>Arthur MacEwan</h3>
+        <div class="role">UMass Boston — colaborador estadounidense</div>
+        <p class="claim"><strong>El coautor del estudio que desmonta el mito.</strong> Gasto federal per cápita de $4.003 en 2004 — <strong>rango 52, último</strong>. La Sección 936 le costó al Tesoro <strong>$2.000–2.500M/año</strong>.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>«Washington Dollars and the Puerto Rican Economy»</em> — con Ruíz Mercado (2007)</li>
+            <li>Análisis del costo de la Sección 936 con J. Tomás Hexner</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="cesar ayala ucla sociology repatriated profits debt planning board">
+        <h3>César J. Ayala</h3>
+        <div class="role">UCLA — Sociología</div>
+        <p class="claim"><strong>El cronista del drenaje de ganancias.</strong> ~Un tercio del ingreso se repatria cada año; <strong>$334.000M repatriados entre 2008–2017</strong> — «suficiente para pagar la deuda cuatro veces».</p>
+        <div class="tags"><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>«Behind Puerto Rico's Debt, Corporations That Drain Profits»</em> — CADTM, 2018</li>
+            <li><em>Puerto Rico in the American Century</em> — UNC Press, 2007 (con R. Bernabe)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="upr" data-search="jose caraballo cueto upr cayey status taxes deindustrialization incentives">
+        <h3>José Caraballo Cueto</h3>
+        <div class="role">UPR–Cayey — testificó ante la Cámara de EE.UU. (2021)</div>
+        <p class="claim"><strong>El empiricista del estatus.</strong> Transferencias netas/PNB: mínimo histórico de <strong>12,7% en 2005</strong>; PR pagó <strong>$3.500M en impuestos federales en 2015</strong>.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>«El impacto económico del cambio en el estatus político de PR»</em> (2021)</li>
+            <li><em>«Can colonial tax havens stimulate economic growth?»</em> — revisado por pares, 2021</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="upr" data-search="juan lara upr rio piedras deindustrialization debt">
+        <h3>Juan Lara</h3>
+        <div class="role">UPR–Río Piedras — Economía</div>
+        <p class="claim"><strong>La tesis desindustrialización-deuda.</strong> La deuda fue impulsada por la <strong>desindustrialización</strong>, con solo «débil evidencia» de que la causaran programas federales.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">en</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>«Deindustrialization and Unsustainable Debt»</em> — con Caraballo Cueto, <em>JGD</em> 8(2), 2017</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="upr" data-search="jose alameda lozada upr rio piedras jones act shipping">
+        <h3>José I. Alameda Lozada</h3>
+        <div class="role">UPR–Río Piedras — Economía</div>
+        <p class="claim"><strong>El que puso precio a la Ley Jones.</strong> Con Jeffry Valentín: <strong>$537 millones/año</strong> — el ancla que citan estudios posteriores.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li>Estudio del costo de la Ley Jones — <em>Informe Económico al Gobernador 2012</em></li>
+            <li><em>Perspectivas Económicas para Puerto Rico</em> (2025)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="upr" data-search="francisco catala oliveras upr rio piedras promesa institutionalist">
+        <h3>Francisco A. Catalá Oliveras</h3>
+        <div class="role">Catedrático jubilado, UPR–Río Piedras</div>
+        <p class="claim"><strong>El institucionalista.</strong> Lee la relación PR–EE.UU. como un orden institucional — <em>PROMESA Rota</em> toma una «mirada institucionalista a partir de Tugwell».</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>PROMESA Rota: Una mirada institucionalista a partir de Tugwell</em> (Ediciones Callejón)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="upr" data-search="orlando sotomayor upr mayaguez cornell labor supply burtless transfers poverty">
+        <h3>Orlando J. Sotomayor</h3>
+        <div class="role">UPR–Mayagüez — PhD Cornell</div>
+        <p class="claim"><strong>El estudioso de la pobreza.</strong> Su capítulo CNE–Brookings con Gary Burtless (2006) sostiene que las transferencias deprimen la oferta laboral — la tesis que la investigación posterior refuta.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">en</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li>Con Burtless: «Labor Supply and Public Transfers» (CNE–Brookings, 2006)</li>
+            <li>«Development and Income Distribution», <em>World Development</em> 32(8), 2004</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="zadia feliciano queens cuny nber intangibles pharma 936">
+        <h3>Zadia M. Feliciano</h3>
+        <div class="role">Queens College / CUNY Graduate Center; NBER</div>
+        <p class="claim"><strong>La economista de farmacéuticas e intangibles.</strong> Estudia cómo los créditos tributarios y activos intangibles moldearon la manufactura — y qué pasó con la Sección 936.</p>
+        <div class="tags"><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li>Con Yi Chen (2024): «Intangible assets…», <em>Emerging Markets Review</em> 60</li>
+            <li>Con D. Green (2017): «US Multinationals in PR…» (NBER WP 23681)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="ian seda irizarry john jay cuny colonial political economy">
+        <h3>Ian J. Seda-Irizarry</h3>
+        <div class="role">John Jay College, CUNY</div>
+        <p class="claim"><strong>El marco de economía política colonial.</strong> Crecimiento 6%/año en 1947–73 → −1,5% desde 2006; deuda superior a $100.000M frente a PNB de $68.500M.</p>
+        <div class="tags"><span class="tag">en</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>The Political Economy of Contemporary PR</em> — con Quiñones-Pérez, U. Michigan, 2022</li>
+            <li>«Self-Inflicted Dimensions…», <em>Latin American Perspectives</em> 47(3), 2020</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="argeo quinones perez rebelion colonial">
+        <h3>Argeo T. Quiñones-Pérez</h3>
+        <div class="role">Economista puertorriqueño</div>
+        <p class="claim"><strong>Coautor de Seda-Irizarry</strong> en <em>The Political Economy of Contemporary PR</em> (2022) — la explicación estructural-colonial de la crisis.</p>
+        <div class="tags"><span class="tag">es</span></div>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="edwin melendez hunter centro brookings caribbean">
+        <h3>Edwin Meléndez</h3>
+        <div class="role">Hunter College CUNY; director CENTRO 2008–2021</div>
+        <p class="claim"><strong>El estudioso de la arquitectura política.</strong> 13 libros sobre política de EE.UU. y alternativas de desarrollo; editó el volumen del CENTRO sobre la crisis post-María.</p>
+        <div class="tags"><span class="tag">en</span><span class="tag">es</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>In the Shadows of the Sun</em> (entre 13 libros)</li>
+            <li>Editor: número especial <em>CENTRO Journal</em> post-María (2019, 348 pp.)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="edgardo melendez hunter colonial politics status">
+        <h3>Edgardo Meléndez</h3>
+        <div class="role">Hunter College CUNY; antes UPR–Río Piedras</div>
+        <p class="claim"><strong>El analista de la política colonial.</strong> Volumen editado sobre el PR colonial contemporáneo y estudios de los movimientos anexionistas.</p>
+        <div class="tags"><span class="tag">es</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="pedro caban suny albany colonial 1898">
+        <h3>Pedro Cabán</h3>
+        <div class="role">SUNY Albany</div>
+        <p class="claim"><strong>El historiador de la formación colonial.</strong> Traza la economía política de la construcción colonial de PR en 1898–1932.</p>
+        <div class="tags"><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="upr" data-search="emilio pantojas garcia upr rio piedras caribe export plantation resort">
+        <h3>Emilio Pantojas García</h3>
+        <div class="role">Catedrático, Instituto de Estudios del Caribe, UPR–RP</div>
+        <p class="claim"><strong>El crítico del modelo de desarrollo.</strong> La industrialización por exportación fue ideología tanto como estrategia (1990); crónica del arco de plantación a resort.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li><em>Development Strategies as Ideology</em> (1990)</li>
+            <li><em>Crónicas del colapso</em> (2019); <em>De la plantación al resort</em> (2023)</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="pr-other" data-search="ramon daubon espacios abiertos bootstrap unsustainable 1979">
+        <h3>Ramon E. Daubon</h3>
+        <div class="role">Fundador, Espacios Abiertos</div>
+        <p class="claim"><strong>El profeta temprano.</strong> Un análisis de 1979 predijo que el modelo de Bootstrap nunca podría ser autosuficiente.</p>
+        <div class="tags"><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="diaspora" data-search="maria enchautegui urban institute rich uncle sam freeman labor">
+        <h3>María E. Enchautegui</h3>
+        <div class="role">Urban Institute</div>
+        <p class="claim"><strong>La hipótesis del «Rich Uncle (Sam)».</strong> Con Freeman (2006): la tesis de transferencias-desplazan-trabajo que la investigación posterior refuta.</p>
+        <div class="tags"><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="pr-other" data-search="sergio marxuach cne paraiso fiscal profit shifting debt promesa">
+        <h3>Sergio M. Marxuach</h3>
+        <div class="role">Director de Política Pública, CNE</div>
+        <p class="claim"><strong>El analista de la transparencia fiscal.</strong> Deuda <strong>$72.000M = 103% del PNB</strong> era «impagable»; tasa efectiva de <strong>1,4%</strong> para multinacionales.</p>
+        <div class="tags"><span class="tag">es</span><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li>Testimonio ante Finanzas del Senado (2015)</li>
+            <li>«Puerto Rico ¿paraíso fiscal?» — blog CNE, 2021</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="pr-other" data-search="deepak lamba nieves cne policylink poverty inequality">
+        <h3>Deepak Lamba Nieves</h3>
+        <div class="role">Antes CNE; ahora PolicyLink</div>
+        <p class="claim"><strong>El custodio de la investigación.</strong> Dirigió la investigación del CNE por dos décadas, construyendo la infraestructura de datos subyacente.</p>
+        <div class="tags"><span class="tag">es</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="upr" data-search="martha quinones dominguez upr arecibo tariffs federal funds">
+        <h3>Martha Quiñones Domínguez</h3>
+        <div class="role">Catedrática jubilada, UPR–Arecibo</div>
+        <p class="claim"><strong>La conferencista de aranceles y recortes.</strong> Cifras localizadas solo en charlas públicas.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span></div>
+      </article>
+
+      <article class="person" data-group="pr-other" data-search="jose joaquin villamil estudios tecnicos brookings">
+        <h3>José Joaquín Villamil</h3>
+        <div class="role">Fundador, Estudios Técnicos</div>
+        <p class="claim"><strong>El pronosticador independiente.</strong> Colaborador CNE–Brookings. No se localizaron cifras específicas de flujos de dinero.</p>
+        <div class="tags"><span class="tag">es</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="upr" data-search="eileen segarra upr tax incentives brookings">
+        <h3>Eileen Segarra</h3>
+        <div class="role">UPR — incentivos tributarios</div>
+        <p class="claim"><strong>La especialista en incentivos.</strong> Colaboradora CNE–Brookings. Cifras localizadas solo en charlas/contribuciones de volumen.</p>
+        <div class="tags"><span class="tag upr">UPR</span><span class="tag">es</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="pr-other" data-search="tomas hexner section 936 jenkins tax costly dependence">
+        <h3>J. Tomás Hexner</h3>
+        <div class="role">Economista puertorriqueño</div>
+        <p class="claim"><strong>El analista del costo del 936.</strong> Coautor del análisis que fijó el costo al Tesoro en <strong>$2.000–2.500M/año</strong>.</p>
+        <div class="tags"><span class="tag">en</span></div>
+        <details><summary>Obras clave</summary>
+          <ul class="works">
+            <li>Análisis del 936 con MacEwan — presentado al Senado</li>
+            <li>Con Jenkins (1995): «Puerto Rico and Section 936: A Costly Dependence»</li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="person" data-group="external" data-search="hillberry jimenez jones act tariff welfare world bank purdue">
+        <h3>Russell Hillberry y Manuel I. Jimenez</h3>
+        <div class="role">Purdue / Banco Mundial — externos</div>
+        <p class="claim">Ley Jones = arancel de facto de <strong>30,6%</strong> → <strong>$1.400M/año en pérdidas de bienestar</strong>.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="external" data-search="krueger teja wolfe way forward import costs">
+        <h3>Anne Krueger, Ranjit Teja y Andrew Wolfe</h3>
+        <div class="role">Origen FMI — externos</div>
+        <p class="claim"><em>Puerto Rico — A Way Forward</em> (2015): costos de importación <strong>al menos el doble</strong> que las islas vecinas.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="external" data-search="glenn jenkins economics of status statehood fiscal benefit">
+        <h3>Glenn P. Jenkins</h3>
+        <div class="role">Queen's University — externo</div>
+        <p class="claim"><em>The Economics of Status</em> (1995): $9.700M bajo ELA vs. $680M de beneficio fiscal neto bajo estadidad.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="external" data-search="john devereux new deal transfers gdp 1936">
+        <h3>John Devereux</h3>
+        <div class="role">Queens College, CUNY — externo</div>
+        <p class="claim">Transferencias del New Deal a PR: <strong>1,5% → 16% del PIB</strong> entre principios de los 1930 y 1936.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+      </article>
+
+      <article class="person" data-group="external" data-search="harry franqui rivera military soldiers nation vietnam">
+        <h3>Harry Franqui-Rivera</h3>
+        <div class="role">Bloomfield College — historiador puertorriqueño</div>
+        <p class="claim"><em>Soldiers of the Nation</em> (2018) — la dimensión militar, <strong>sin valoraciones en dólares</strong>.</p>
+        <div class="tags"><span class="tag ext">Externo</span><span class="tag">en</span></div>
+      </article>
+
+    </div>
+    <div class="no-results" id="no-results">Ningún académico coincide con esa búsqueda.</div>
+  </section>
+
+  <!-- ═══ CONTESTED ═══ -->
+  <section id="contested">
+    <div class="sec-label reveal">07 · Manejarse con cuidado</div>
+    <h2 class="sec-title reveal">Disputado, controvertido — y un mito viral</h2>
+    <p class="sec-desc reveal">Dónde discrepan las cifras, o dónde una afirmación muy ruidosa no tiene autor.</p>
+    <div class="contest-grid">
+      <div class="contest-card reveal">
+        <span class="verdict unsourced">Sin fuente</span>
+        <h3>El mito viral de TikTok: «EE.UU. se llevó $444.800M y devolvió $71.960M»</h3>
+        <p>Este balance específico <strong>no es rastreable a ningún académico ni fuente gubernamental</strong> — parece originarse en una publicación de TikTok. Se incluye aquí para <strong>advertir contra citarlo</strong>. No coincide con ninguno de los estudios anteriores, y comete el error exacto que este resumen intenta evitar: mezclar flujos medidos de forma distinta en un solo neto.</p>
+      </div>
+      <div class="contest-card reveal">
+        <span class="verdict disputed">Disputado</span>
+        <h3>Costos de la Ley Jones: ¿$537M o $1.400M?</h3>
+        <p>La estimación de <strong>$537M/año</strong> de Alameda y Valentín (2012) es disputada. Hillberry y Jimenez (2024) llegan a <strong>$1.400M</strong> mientras califican estimaciones anteriores como metodológicamente defectuosas — y luego se anclan en el estudio de 2012 de todos modos.</p>
+      </div>
+      <div class="contest-card reveal">
+        <span class="verdict disputed">Disputado</span>
+        <h3>¿Las transferencias deprimen la participación laboral?</h3>
+        <p>Aún abierto. La tesis CNE–Brookings (2006) dice que sí; Ruíz Mercado (2013) duda del canal; Caraballo Cueto y Lara (2017) encuentran que fue <strong>desindustrialización</strong> con «débil evidencia» para la explicación de transferencias. La revisión por pares se ha inclinado hacia la refutación.</p>
+      </div>
+      <div class="contest-card reveal">
+        <span class="verdict gap">Pregunta abierta</span>
+        <h3>¿Cuánto vale el valor militar / estratégico de PR?</h3>
+        <p>No se encontró ninguna fuente académica que lo cuantifique. Ayala cubre Vieques/Roosevelt Roads y Franqui-Rivera la historia militar — pero <strong>una cifra en dólares sigue siendo un vacío en la literatura</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GAPS ═══ -->
+  <section>
+    <div class="sec-label reveal">08 · Preguntas abiertas</div>
+    <h2 class="sec-title reveal">Lo que este resumen no pudo verificar</h2>
+    <div class="notice green-border reveal">
+      <ul>
+        <li>La investigación de <strong>Eileen Segarra</strong> y las charlas de <strong>Martha Quiñones Domínguez</strong> se localizaron solo como charlas públicas — no como artículos recuperables.</li>
+        <li>Los análisis de <strong>José Joaquín Villamil</strong>: colaborador CNE–Brookings, sin cifras específicas localizadas.</li>
+        <li>La afiliación actual de <strong>Argeo T. Quiñones-Pérez</strong> no pudo confirmarse.</li>
+        <li>Las cifras de <strong>Hexner y Jenkins (1995)</strong> deben re-verificarse contra el artículo de <em>Tax Notes International</em>.</li>
+        <li>Varias URLs de fuentes <strong>no fueron re-leídas</strong> en la fecha de la investigación.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ SOURCES ═══ -->
+  <section id="sources">
+    <div class="sec-label reveal">09 · Fuentes y bibliografía</div>
+    <h2 class="sec-title reveal">Fuentes y bibliografía</h2>
+    <p class="sec-desc reveal">Obras citadas, ordenadas alfabéticamente. Títulos en su idioma original.</p>
+
+    <ul class="bib-list">
+      <li>Alameda Lozada, J. I. y Valentín, J. (2012). Estudio del costo de la Ley Jones en $537 millones/año. <em>Informe Económico al Gobernador 2012</em>.<span class="ln">es</span></li>
+      <li>Alameda Lozada, J. I. (2005). <em>Ensayos en Economía Aplicada</em>.<span class="ln">es</span></li>
+      <li>Alameda Lozada, J. I. (2025). <em>Perspectivas Económicas para Puerto Rico</em>. Publicaciones Gaviota.<span class="ln">es</span></li>
+      <li>Ayala, C. J. (2018). «Behind Puerto Rico's Debt, Corporations That Drain Profits from the Island.» <em>CADTM</em>.<span class="ln">en</span><a class="ext" href="https://www.cadtm.org/Behind-Puerto-Rico-s-Debt-Corporations">enlace</a></li>
+      <li>Ayala, C. J. y Bernabe, R. (2007). <em>Puerto Rico in the American Century</em>. UNC Press.<span class="ln">en</span></li>
+      <li>Burtless, G. y Sotomayor, O. J. (2006). «Labor Supply and Public Transfers.» CNE–Brookings, pp. 82–142.<span class="ln">en</span></li>
+      <li>Cabán, P. (1999). <em>Constructing a Colonial People: PR and the US, 1898–1932</em>.<span class="ln">en</span></li>
+      <li>Caraballo Cueto, J. (2021). <em>El impacto económico del cambio en el estatus político de PR</em>.<span class="ln">es</span><a class="ext" href="https://www.camarapr.org/wp-content/uploads/2021/06/estudio-impacto-economico-cambio-estatus-politico.pdf">enlace</a></li>
+      <li>Caraballo Cueto, J. (2021). «Can colonial tax havens stimulate economic growth?»<span class="pr">revisado por pares</span><span class="ln">en</span></li>
+      <li>Caraballo Cueto, J. y Lara, J. (2017). «Deindustrialization and Unsustainable Debt…» <em>JGD</em> 8(2).<span class="pr">revisado por pares</span><span class="ln">en</span></li>
+      <li>Catalá Oliveras, F. A. <em>PROMESA Rota</em>. Ediciones Callejón.<span class="ln">es</span></li>
+      <li>Congressional Record, vol. 141 (1995). Costos de la Sección 936.<span class="ln">en</span><a class="ext" href="https://www.congress.gov/congressional-record/volume-141/issue-21/senate-section/article/S2071-1">enlace</a></li>
+      <li>Daubon, R. E. (1979). Análisis de la insostenibilidad del modelo Bootstrap.<span class="ln">en</span></li>
+      <li>Devereux, J. (2019). Transferencias del New Deal a PR. <em>JEH</em> 79(3).<span class="ln">en</span></li>
+      <li>Enchautegui, M. E. y Freeman, R. (2006). «Why Don't More Puerto Rican Men Work?» CNE–Brookings.<span class="ln">en</span></li>
+      <li>Feliciano, Z. M. y Chen, Y. (2024). «Intangible assets…» <em>Emerging Markets Review</em> 60.<span class="ln">en</span></li>
+      <li>Feliciano, Z. M. y Green, D. (2017). «US Multinationals in PR…» NBER WP 23681.<span class="ln">en</span></li>
+      <li>Franqui-Rivera, H. (2018). <em>Soldiers of the Nation</em>. U. of Nebraska Press.<span class="ln">en</span></li>
+      <li>GAO (1992). Ingreso tributario perdido por empleo bajo Sección 936.<span class="ln">en</span></li>
+      <li>Hexner, J. T. y Jenkins, G. P. (1995). «Puerto Rico and Section 936: A Costly Dependence.» <em>Tax Notes Intl</em>.<span class="ln">en</span></li>
+      <li>Hillberry, R. y Jimenez, M. I. (2024). Ley Jones: arancel de facto 30,6%; $1.400M/año. Banco Mundial.<span class="ln">en</span></li>
+      <li>Jenkins, G. P. (1995). <em>Puerto Rico: The Economics of Status</em>.<span class="ln">en</span></li>
+      <li>Krueger, A., Teja, R. y Wolfe, A. (2015). <em>Puerto Rico — A Way Forward</em>.<span class="ln">en</span></li>
+      <li>MacEwan, A. y Hexner, J. T. Análisis del costo de la Sección 936. Presentado al Senado.<span class="ln">en</span><a class="ext" href="https://www.finance.senate.gov/download/arthur-macewan-and-j-tomas-hexner-6&download=1">enlace</a></li>
+      <li>MacEwan, A. y Ruíz Mercado, Á. L. (2007). «Washington Dollars and the Puerto Rican Economy.» Ensayo 135, UPR–RP.<span class="ln">en</span><a class="ext" href="http://sociales.uprrp.edu/economia/wp-content/uploads/sites/15/2018/02/ensayo-135.pdf">enlace</a></li>
+      <li>Marxuach, S. M. (2015). Testimonio ante Finanzas del Senado.<span class="ln">en</span></li>
+      <li>Marxuach, S. M. (2021). «Puerto Rico ¿paraíso fiscal?» CNE.<span class="ln">es</span><a class="ext" href="https://grupocne.org/2021/09/09/puerto-rico-paraiso-fiscal/">enlace</a></li>
+      <li>Meléndez, Edgardo (1993). <em>El movimiento anexionista en PR</em>. UPR Press.<span class="ln">es</span></li>
+      <li>Meléndez, Edgardo y Meléndez, Edwin (Eds.) (1993). <em>Colonial Dilemma</em>. South End Press.<span class="ln">en</span></li>
+      <li>Meléndez, Edwin. <em>In the Shadows of the Sun</em>.<span class="ln">en</span></li>
+      <li>Meléndez, Edwin (Ed.) (2019). «Puerto Rico Post-Hurricane Maria.» <em>CENTRO Journal</em> (348 pp.).<span class="ln">en</span></li>
+      <li>Pantojas García, E. (1990). <em>Development Strategies as Ideology</em>.<span class="ln">en</span></li>
+      <li>Pantojas García, E. (2019). <em>Crónicas del colapso</em>. Ediciones Callejón.<span class="ln">es</span></li>
+      <li>Puerto Rico Report. «The End of Section 936.»<span class="ln">en</span><a class="ext" href="https://puertoricoreport.com/the-end-of-section-936/">enlace</a></li>
+      <li>CNE–Brookings (2006). <em>Restoring Growth in Puerto Rico</em>.<span class="ln">en</span><a class="ext" href="https://www.brookings.edu/books/restoring-growth-in-puerto-rico/">enlace</a></li>
+      <li>Ruíz Mercado, Á. L. (2013). «Impacto directo e indirecto de las transferencias…» <em>Rev. Finanzas y Pol. Económica</em> 5(2).<span class="pr">revisado por pares</span><span class="ln">es</span><a class="ext" href="https://revfinypolecon.ucatolica.edu.co/index.php/RFYPE/article/view/441">enlace</a></li>
+      <li>Seda-Irizarry, I. J. y Quiñones-Pérez, A. T. (2022). <em>The Political Economy of Contemporary PR</em>. U. Michigan.<span class="ln">en</span></li>
+      <li>Seda-Irizarry, I. J. (2020). «Self-Inflicted Dimensions…» <em>Latin American Perspectives</em> 47(3).<span class="ln">en</span></li>
+      <li>Sotomayor, O. J. (2004). «Development and Income Distribution.» <em>World Development</em> 32(8).<span class="ln">en</span></li>
+      <li>CNE–Brookings (2006). <em>The Economy of Puerto Rico</em>.<span class="ln">en</span><a class="ext" href="https://www.brookings.edu/books/the-economy-of-puerto-rico/">enlace</a></li>
+    </ul>
+
+    <h3 class="bib-group">Fuentes adicionales 2017–2025</h3>
+    <ul class="bib-list">
+      <li>Arroyo, J. A. (2026). «When GDP Is Not Enough: Puerto Rico, Statistical Boundaries, and the Limits of National Accounting in a Regional Economy.» SSRN.<span class="ln">en</span><a class="ext" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6198498">enlace</a></li>
+      <li>CENTRO, Centro de Estudios Puertorriqueños, CUNY (2024). «¿No Pagan Taxes? Overview of Federal Revenue-Raising in Puerto Rico, 2024.»<span class="ln">en</span><a class="ext" href="https://centropr.hunter.cuny.edu/reports/no-pagan-taxes-overview-of-federal-revenue-raising-in-puerto-rico-2024/">enlace</a></li>
+      <li>CBPP (2025). «Puerto Rico Needs and Should Have Full and Equitable Access to All Federal Economic and Health Security Programs.» Testimonio.<span class="ln">en</span><a class="ext" href="https://www.cbpp.org/research/federal-budget/puerto-rico-needs-and-should-have-full-and-equitable-access-to-all-federal">enlace</a></li>
+      <li>Corte Suprema de EE.UU. (2022). <em>United States v. Vaello Madero</em>, 20-303 (21 de abril de 2022). 8-1: la Constitución no requiere que el Congreso extienda SSI a PR.<span class="ln">en</span><a class="ext" href="https://www.supremecourt.gov/opinions/21pdf/20-303_6khn.pdf">enlace</a></li>
+      <li>CRS — Congressional Research Service (2024). «Puerto Rico's Fiscal Recovery Under PROMESA: A Look Back, Pending Obligations, and the Road Ahead.» TE10113.<span class="ln">en</span><a class="ext" href="https://www.congress.gov/crs-product/TE10113">enlace</a></li>
+      <li>DEDC (2025). <em>Puerto Rico Economic Report — End of Year 2025</em>. Departamento de Desarrollo Económico y Comercio.<span class="ln">en</span><a class="ext" href="https://docs.pr.gov/files/DDEC/DEDC%20PUERTO%20RICO%20DATA%20CENTER/Puerto%20Rico%20Economic%20Analysis/DEDC%20Puerto%20Rico%20Economic%20Report%20-%20End%20of%20Year%202025.pdf">enlace</a></li>
+      <li>Federal Reserve Bank of New York. Puerto Rico Economic Indicators (series regional actualizada).<span class="ln">en</span><a class="ext" href="https://www.newyorkfed.org/medialibrary/media/research/regional_economy/charts/Regional_PuertoRico">enlace</a></li>
+      <li>FEMA (2022). Más de $1.100 millones en asistencia federal por el huracán Fiona.<span class="ln">en</span><a class="ext" href="https://www.fema.gov/print/pdf/node/667060">enlace</a></li>
+      <li>GAO (2024). <em>Puerto Rico Disasters: Progress Made, but the Recovery Continues to Face Challenges</em>. GAO-24-105557.<span class="ln">en</span><a class="ext" href="https://www.gao.gov/products/gao-24-105557">enlace</a></li>
+      <li>GAO (2025). <em>Puerto Rico: Fiscal Conditions Have Improved but Risks Remain</em>. GAO-25-108629.<span class="ln">en</span><a class="ext" href="https://www.gao.gov/products/gao-25-108629">enlace</a></li>
+      <li>GAO (2025). <em>Puerto Rico: IRS Should Improve Oversight of Taxpayers Claiming Exemption from Federal Taxes</em>. GAO-26-107225.<span class="ln">en</span><a class="ext" href="https://www.gao.gov/products/gao-26-107225">enlace</a></li>
+      <li>Harvard Law Review (2023). Nota sobre <em>United States v. Vaello Madero</em>, vol. 136.<span class="ln">en</span><a class="ext" href="https://harvardlawreview.org/print/vol-136/vaello-madero/">enlace</a></li>
+      <li>Junta de Supervisión y Administración Financiera (FOMB). Portal de reestructuración de deuda — progreso bajo PROMESA.<span class="ln">en</span><a class="ext" href="https://oversightboard.pr.gov/debt/">enlace</a></li>
+      <li>NY Fed Staff Report 1078. «A Case Study of Puerto Rico after Hurricanes Irma and Maria.»<span class="ln">en</span><a class="ext" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr1078.pdf">enlace</a></li>
+      <li>ReVista (Harvard DRCLAS). «Puerto Rico's Act 60: More Than Economics, a Human Rights Issue.»<span class="ln">en</span><a class="ext" href="https://revista.drclas.harvard.edu/puerto-ricos-act-60-more-than-economics-a-human-rights-issue/">enlace</a></li>
+      <li>Senado Demócrata de EE.UU. (2021). ARP Puerto Rico Fact Sheet.<span class="ln">en</span><a class="ext" href="https://www.democrats.senate.gov/arp-puerto-rico-fact-sheet">enlace</a></li>
+      <li>U.S. Bureau of Economic Analysis (BEA). GDP for Puerto Rico.<span class="ln">en</span><a class="ext" href="https://www.bea.gov/data/gdp/gdp-puerto-rico">enlace</a></li>
+      <li>USAspending.gov. Puerto Rico Spending Profile.<span class="ln">en</span><a class="ext" href="https://www.usaspending.gov/state/72/latest">enlace</a></li>
+    </ul>
+
+    <h3 class="bib-group">Análisis comparativo y fuentes editoriales</h3>
+    <ul class="bib-list">
+      <li>Census Bureau (2025). American Community Survey 2024 — Poverty in the United States. ACSBR-026.<span class="ln">en</span><a class="ext" href="https://www2.census.gov/library/publications/2025/demo/acsbr-026.pdf">enlace</a></li>
+      <li>Espacios Abiertos (2025). «Facts: Does Puerto Rico Really Not Pay Federal Taxes?»<span class="ln">en</span><a class="ext" href="https://espaciosabiertos.org/facts-does-puerto-rico-really-not-pay-federal-taxes-a-common-misconception/">enlace</a></li>
+      <li>FFIS — Federal Funds Information for States (2024). Federal Grant Allocations per Capita, FY2023. SA24-02.<span class="ln">en</span><a class="ext" href="https://ffis.org/wp-content/uploads/2024/10/SA24-02-1.pdf">enlace</a></li>
+      <li>Gluzmann, P., Guzmán, M. y Stiglitz, J. E. (2018). «An Analysis of Puerto Rico's Debt Relief Needs to Restore Debt Sustainability.» NBER Working Paper 25256.<span class="ln">en</span><a class="ext" href="https://www.nber.org/papers/w25256">enlace</a></li>
+      <li>Harvard Political Review. «An Unfulfilled Promise: Colonialism, Austerity, and the Puerto Rican Debt Crisis.»<span class="ln">en</span><a class="ext" href="https://harvardpolitics.com/unfulfilled-promise-2/">enlace</a></li>
+      <li>LSE US Politics Blog (julio de 2026). «A decade of imposed bankruptcy regime reveals the unresolved colonial foundations of Puerto Rico's relationship with the United States.»<span class="ln">en</span><a class="ext" href="https://blogs.lse.ac.uk/usappblog/2026/07/11/a-decade-of-imposed-bankruptcy-regime-reveals-the-unresolved-colonial-foundations-of-puerto-ricos-relationship-with-the-united-states/">enlace</a></li>
+      <li>Stiglitz, J. E. y Guzmán, M. (2017). «From Bad to Worse for Puerto Rico.» <em>Project Syndicate</em>, 1 de febrero de 2017.<span class="ln">en</span><a class="ext" href="https://www.project-syndicate.org/commentary/puerto-rico-debt-plan-deep-depression-by-joseph-e--stiglitz-and-martin-guzman-2017-02">enlace</a></li>
+      <li>Stiglitz, J. E. y Guzmán, M. (2017). «PROMESA's Dangerous Premises.» <em>Project Syndicate</em>, 28 de septiembre de 2017.<span class="ln">en</span><a class="ext" href="https://www.project-syndicate.org/commentary/puerto-rico-flawed-fiscal-plan-by-martin-guzman-and-joseph-e--stiglitz-2017-09">enlace</a></li>
+      <li>World Bank — Singapore Overview (datos económicos históricos).<span class="ln">en</span><a class="ext" href="https://www.worldbank.org/en/country/singapore/overview">enlace</a></li>
+    </ul>
+
+    <h3 class="bib-group">Fuentes primarias en línea</h3>
+    <p class="src-note" style="margin-bottom:16px">URLs confirmadas en la investigación del 30 de septiembre de 2026.</p>
+    <ul class="source-list">
+      <li><span class="src-name">MacEwan y Ruíz Mercado (2007) — Ensayo 135</span><a href="http://sociales.uprrp.edu/economia/wp-content/uploads/sites/15/2018/02/ensayo-135.pdf">sociales.uprrp.edu/…/ensayo-135.pdf</a></li>
+      <li><span class="src-name">Ruíz Mercado (2013) — Rev. Finanzas y Pol. Económica</span><a href="https://revfinypolecon.ucatolica.edu.co/index.php/RFYPE/article/view/441">revfinypolecon.ucatolica.edu.co/…/441</a></li>
+      <li><span class="src-name">Ayala (2018) — CADTM</span><a href="https://www.cadtm.org/Behind-Puerto-Rico-s-Debt-Corporations">cadtm.org/Behind-Puerto-Rico-s-Debt-Corporations</a></li>
+      <li><span class="src-name">MacEwan y Hexner — Análisis Sección 936</span><a href="https://www.finance.senate.gov/download/arthur-macewan-and-j-tomas-hexner-6&download=1">finance.senate.gov/…/macewan-hexner</a></li>
+      <li><span class="src-name">Congressional Record, vol. 141 (1995)</span><a href="https://www.congress.gov/congressional-record/volume-141/issue-21/senate-section/article/S2071-1">congress.gov/…/S2071-1</a></li>
+      <li><span class="src-name">Puerto Rico Report — «The End of Section 936»</span><a href="https://puertoricoreport.com/the-end-of-section-936/">puertoricoreport.com/the-end-of-section-936/</a></li>
+      <li><span class="src-name">Caraballo Cueto — Impacto del estatus</span><a href="https://www.camarapr.org/wp-content/uploads/2021/06/estudio-impacto-economico-cambio-estatus-politico.pdf">camarapr.org/…/estudio-impacto-economico</a></li>
+      <li><span class="src-name">Marxuach (2021) — CNE blog</span><a href="https://grupocne.org/2021/09/09/puerto-rico-paraiso-fiscal/">grupocne.org/…/paraiso-fiscal/</a></li>
+      <li><span class="src-name">CNE–Brookings — <em>The Economy of PR</em> (2006)</span><a href="https://www.brookings.edu/books/the-economy-of-puerto-rico/">brookings.edu/books/the-economy-of-puerto-rico/</a></li>
+      <li><span class="src-name">CNE–Brookings — <em>Restoring Growth</em> (2006)</span><a href="https://www.brookings.edu/books/restoring-growth-in-puerto-rico/">brookings.edu/books/restoring-growth-in-puerto-rico/</a></li>
+    </ul>
+    <p class="src-note">Nota: los testimonios de Marxuach (2015), el documento de Caraballo Cueto en ResearchGate y Hillberry/Jimenez (2024) se citan sin enlace confirmado.</p>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Las cifras se reportan tal como las presentan sus fuentes; los distintos estudios usan años, definiciones y métodos diferentes. Las afirmaciones en disputa se señalan en la sección 05; las preguntas abiertas, en la sección 06. Investigación compilada el 30 de septiembre de 2026. Una foto del momento, no una base de datos en vivo.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // ── Theme toggle ──
+  var toggle = document.getElementById('theme-toggle');
+  toggle.addEventListener('click', function(){
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next) } catch(e){}
+  });
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch(e){}
+
+  // ── Progress bar ──
+  var prog = document.getElementById('progress');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+  });
+
+  // ── Side nav active state ──
+  var navLinks = document.querySelectorAll('.side-nav a');
+  var sections = [];
+  navLinks.forEach(function(a){
+    var id = a.getAttribute('data-sec');
+    var el = document.getElementById(id);
+    if (el) sections.push({ el: el, link: a });
+  });
+  function updateNav(){
+    var scrollY = window.scrollY + 200;
+    var active = sections[0];
+    sections.forEach(function(s){ if (s.el.offsetTop <= scrollY) active = s; });
+    navLinks.forEach(function(a){ a.classList.remove('active') });
+    if (active) active.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateNav);
+  updateNav();
+
+  // ── Reveal on scroll ──
+  var reveals = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    reveals.forEach(function(r){ r.classList.add('visible') });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function(r){ io.observe(r) });
+  }
+
+  // ── Animated counters (per block) ──
+  document.querySelectorAll('.counters').forEach(function(countersBlock){
+    var blockCounted = false;
+    var cObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && !blockCounted) {
+          blockCounted = true;
+          e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
+            var target = parseInt(el.dataset.target);
+            var prefix = el.dataset.prefix || '';
+            var suffix = el.dataset.suffix || '';
+            var duration = 1200, t0 = null;
+            function step(ts){
+              if (!t0) t0 = ts;
+              var p = Math.min((ts - t0) / duration, 1);
+              p = 1 - Math.pow(1 - p, 3);
+              el.textContent = prefix + Math.round(target * p).toLocaleString('es') + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+          cObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    cObs.observe(countersBlock);
+  });
+
+  // ── Animated bars ──
+  var barObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        var bars = e.target.querySelectorAll('.bar-fill[data-width]');
+        bars.forEach(function(b){ b.style.width = b.dataset.width + '%' });
+        var splits = e.target.querySelectorAll('.split-block[data-width]');
+        splits.forEach(function(s){ s.style.width = s.dataset.width + '%' });
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.compare-card').forEach(function(c){ barObs.observe(c) });
+
+  // ── Roster filter/search ──
+  var buttons = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('#roster-grid .person');
+  var search = document.getElementById('roster-search');
+  var count = document.getElementById('result-count');
+  var noResults = document.getElementById('no-results');
+  var activeFilter = 'all';
+
+  function applyFilter(){
+    var q = (search.value || '').toLowerCase().trim();
+    var shown = 0;
+    cards.forEach(function(card){
+      var okF = activeFilter === 'all' || card.dataset.group === activeFilter;
+      var hay = (card.dataset.search + ' ' + card.textContent).toLowerCase();
+      var okS = !q || hay.indexOf(q) !== -1;
+      var vis = okF && okS;
+      card.style.display = vis ? '' : 'none';
+      if (vis) shown++;
+    });
+    noResults.style.display = shown === 0 ? 'block' : 'none';
+    count.textContent = 'Mostrando ' + shown + ' de ' + cards.length + ' académicos';
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.setAttribute('aria-pressed','false') });
+      btn.setAttribute('aria-pressed','true');
+      activeFilter = btn.dataset.filter;
+      applyFilter();
+    });
+  });
+  search.addEventListener('input', applyFilter);
+  applyFilter();
+
+  // ── Flow diagram (SVG) ──
+  (function(){
+    var svg = document.getElementById('flow-svg');
+    if (!svg) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    var w = 960, h = 320;
+    var cx = w / 2;
+
+    var style = getComputedStyle(document.documentElement);
+    function tok(name){ return style.getPropertyValue(name).trim() }
+
+    function el(tag, attrs){
+      var e = document.createElementNS(ns, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+    function txt(x, y, text, opts){
+      opts = opts || {};
+      var t = el('text', {
+        x: x, y: y, fill: opts.fill || tok('--ink'),
+        'font-family': '"DM Sans", sans-serif',
+        'font-size': opts.size || '12',
+        'font-weight': opts.weight || '600',
+        'text-anchor': opts.anchor || 'middle'
+      });
+      t.textContent = text;
+      return t;
+    }
+
+    // Central node
+    var prBox = el('rect', { x: cx-70, y: 120, width: 140, height: 56, rx: 10, fill: tok('--surface'), stroke: tok('--line'), 'stroke-width': 1.5 });
+    svg.appendChild(prBox);
+    svg.appendChild(txt(cx, 153, 'PUERTO RICO', { size: '13', weight: '700' }));
+
+    // Left side: money in
+    var inItems = [
+      { label: '$15.475M (2004)', sub: 'Fondos federales' },
+      { label: '≈20% PNB', sub: 'Transferencias' },
+      { label: '$9.700M (ELA)', sub: 'Jenkins 1995' },
+    ];
+    inItems.forEach(function(item, i){
+      var y = 60 + i * 80;
+      var bx = 40;
+      var r = el('rect', { x: bx, y: y, width: 160, height: 50, rx: 8, fill: tok('--green-bg'), stroke: tok('--green'), 'stroke-width': 1 });
+      svg.appendChild(r);
+      svg.appendChild(txt(bx + 80, y + 22, item.label, { size: '13', weight: '700', fill: tok('--green') }));
+      svg.appendChild(txt(bx + 80, y + 38, item.sub, { size: '11', weight: '400', fill: tok('--muted') }));
+      // Arrow
+      var path = el('path', {
+        d: 'M' + (bx+160) + ',' + (y+25) + ' Q' + (cx-100) + ',' + (y+25) + ' ' + (cx-70) + ',148',
+        fill: 'none', stroke: tok('--green'), 'stroke-width': 2, opacity: '0.5',
+        'stroke-dasharray': '6,4'
+      });
+      svg.appendChild(path);
+    });
+
+    // Right side: money out
+    var outItems = [
+      { label: '$334.000M (08–17)', sub: 'Ganancias repatriadas' },
+      { label: '$50.000M', sub: 'Costo Sección 936' },
+      { label: '$537–1.400M/año', sub: 'Costo Ley Jones' },
+    ];
+    outItems.forEach(function(item, i){
+      var y = 60 + i * 80;
+      var bx = w - 200;
+      var r = el('rect', { x: bx, y: y, width: 160, height: 50, rx: 8, fill: tok('--gold-bg'), stroke: tok('--gold'), 'stroke-width': 1 });
+      svg.appendChild(r);
+      svg.appendChild(txt(bx + 80, y + 22, item.label, { size: '13', weight: '700', fill: tok('--gold') }));
+      svg.appendChild(txt(bx + 80, y + 38, item.sub, { size: '11', weight: '400', fill: tok('--muted') }));
+      var path = el('path', {
+        d: 'M' + bx + ',' + (y+25) + ' Q' + (cx+100) + ',' + (y+25) + ' ' + (cx+70) + ',148',
+        fill: 'none', stroke: tok('--gold'), 'stroke-width': 2, opacity: '0.5',
+        'stroke-dasharray': '6,4'
+      });
+      svg.appendChild(path);
+    });
+
+    // Labels
+    svg.appendChild(txt(120, 38, 'ENTRA', { size: '12', weight: '700', fill: tok('--green') }));
+    svg.appendChild(txt(w - 120, 38, 'SALE', { size: '12', weight: '700', fill: tok('--gold') }));
+  })();
+})();
+</script>
