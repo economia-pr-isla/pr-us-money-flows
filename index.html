@@ -139,6 +139,28 @@ p { margin-block-end: 1em }
 .container { max-width: 1060px; margin: 0 auto }
 
 /* ── Hero ── */
+.hero-cinematic {
+  position: relative; padding: 0;
+  width: 100vw; margin-left: calc(-50vw + 50%);
+  background: url('https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?w=1920&q=80') center/cover no-repeat;
+  min-height: 420px; display: flex; align-items: flex-end;
+}
+.hero-cinematic::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(12,27,42,.35) 0%, rgba(12,27,42,.82) 60%, rgba(12,27,42,.97) 100%);
+}
+.hero-cinematic .hero-inner {
+  position: relative; z-index: 1; padding: 60px 40px 48px; max-width: 1100px; width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 640px) { .hero-cinematic .hero-inner { padding: 40px 20px 36px } .hero-cinematic { min-height: 360px } }
+.hero-cinematic .hero-kicker { color: #8FD4C0 }
+.hero-cinematic .hero-kicker::before { background: #8FD4C0 }
+.hero-cinematic h1 { color: #FFFFFF; text-shadow: 0 2px 20px rgba(0,0,0,.4) }
+.hero-cinematic .hero-lede { color: rgba(255,255,255,.88) }
+.hero-cinematic .hero-meta { color: rgba(255,255,255,.6) }
+.hero-cinematic .hero-meta strong { color: rgba(255,255,255,.8) }
+
 .hero { padding: 80px 0 48px; position: relative }
 .hero-kicker {
   display: inline-flex; align-items: center; gap: 8px;
@@ -160,6 +182,35 @@ p { margin-block-end: 1em }
   font-size: 14px; color: var(--muted); max-width: 700px; line-height: 1.6;
 }
 .hero-meta strong { color: var(--ink-soft) }
+
+/* ── Data viz charts ── */
+.viz-chart {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); padding: 28px 24px; margin: 32px 0; overflow-x: auto;
+}
+.viz-chart h3 {
+  font-family: var(--sans); font-size: 15px; font-weight: 700; margin-bottom: 4px;
+  color: var(--ink);
+}
+.viz-chart .viz-subtitle {
+  font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5;
+}
+.viz-chart svg text { font-family: var(--sans) }
+.viz-legend {
+  display: flex; gap: 20px; margin-top: 16px; font-size: 12.5px; color: var(--muted);
+}
+.viz-legend-item { display: flex; align-items: center; gap: 6px }
+.viz-legend-swatch { width: 14px; height: 3px; border-radius: 2px; flex-shrink: 0 }
+.viz-tooltip {
+  position: absolute; pointer-events: none; opacity: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: var(--shadow-lg); padding: 10px 14px; font-size: 13px;
+  color: var(--ink); z-index: 10; transition: opacity .15s;
+  white-space: nowrap;
+}
+.viz-tooltip .tt-val { font-weight: 700; font-size: 15px }
+.viz-tooltip .tt-label { color: var(--muted); font-size: 12px }
+.viz-tooltip .tt-key { display: inline-block; width: 12px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle }
 
 /* ── Animated counters row ── */
 .counters {
@@ -691,11 +742,14 @@ section { padding-top: 72px }
 
   <div id="tab-flujos">
   <!-- ═══ HERO ═══ -->
-  <header class="hero" id="hero">
-    <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
-    <h1>El libro contable del dinero entre Puerto Rico y EE.&thinsp;UU.</h1>
-    <p class="hero-lede">¿Cuánto recibe Puerto Rico del gobierno federal? ¿Cuánto sale en ganancias corporativas, impuestos y costos de cabotaje? ¿Y cómo se compara con lo que pasa en los estados — o en otras economías coloniales del mundo? Este documento reúne las respuestas documentadas por los propios académicos.</p>
-    <p class="hero-meta">Compilado a partir de <strong>28 académicos</strong> (sistema UPR, diáspora universitaria de CUNY, Centro para una Nueva Economía, economistas independientes) más los académicos externos más citados — e informes oficiales de la <strong>GAO</strong>, <strong>CBO</strong>, <strong>BEA</strong>, <strong>FEMA</strong>, <strong>IRS</strong> y la <strong>Junta de Supervisión Fiscal</strong>. Se incluyen también análisis del <strong>Premio Nobel Joseph Stiglitz</strong> y comparaciones con Irlanda, Singapur, Hawái y los estados más pobres de EE.UU. Las cifras se reportan <strong>tal como las presenta cada fuente</strong>.</p>
+  <div class="hero-cinematic" id="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
+      <h1>El libro contable del dinero entre Puerto Rico y EE.&thinsp;UU.</h1>
+      <p class="hero-lede">¿Cuánto recibe Puerto Rico del gobierno federal? ¿Cuánto sale en ganancias corporativas, impuestos y costos de cabotaje? ¿Y cómo se compara con lo que pasa en los estados — o en otras economías coloniales del mundo?</p>
+      <p class="hero-meta">Compilado a partir de <strong>28 académicos</strong> (sistema UPR, diáspora universitaria de CUNY, Centro para una Nueva Economía, economistas independientes) más informes oficiales de la <strong>GAO</strong>, <strong>CBO</strong>, <strong>BEA</strong>, <strong>FEMA</strong>, <strong>IRS</strong> y la <strong>Junta de Supervisión Fiscal</strong>. Incluye análisis del <strong>Premio Nobel Joseph Stiglitz</strong> y comparaciones con Irlanda, Singapur, Hawái y los estados más pobres de EE.UU.</p>
+    </div>
+  </div>
 
     <div class="counters reveal">
       <div class="counter-cell">
@@ -711,7 +765,6 @@ section { padding-top: 72px }
         <div class="counter-label">Tasa de pobreza — 4× la nacional</div>
       </div>
     </div>
-  </header>
 
   <!-- ═══ ROADMAP ═══ -->
   <div class="notice reveal" style="border-left-color:var(--blue)">
@@ -838,6 +891,55 @@ section { padding-top: 72px }
           </li>
         </ul>
       </div>
+    </div>
+
+    <!-- ── Money Flows Comparison Chart ── -->
+    <div class="viz-chart reveal" id="viz-flows" style="position:relative">
+      <h3>El desbalance anual: qué entra vs. qué sale</h3>
+      <p class="viz-subtitle">Cifras anualizadas de las fuentes más citadas. Cada barra es de un estudio diferente — no se suman entre sí.</p>
+      <svg viewBox="0 0 760 280" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico de barras: dinero que entra vs. dinero que sale de Puerto Rico">
+        <!-- Gridlines -->
+        <line x1="80" y1="30" x2="80" y2="250" stroke="var(--line)" stroke-width="1"/>
+        <line x1="250" y1="30" x2="250" y2="250" stroke="var(--line)" stroke-width="1" opacity=".5"/>
+        <line x1="420" y1="30" x2="420" y2="250" stroke="var(--line)" stroke-width="1" opacity=".5"/>
+        <line x1="590" y1="30" x2="590" y2="250" stroke="var(--line)" stroke-width="1" opacity=".5"/>
+        <line x1="730" y1="30" x2="730" y2="250" stroke="var(--line)" stroke-width="1" opacity=".5"/>
+        <!-- Axis labels -->
+        <text x="80" y="268" font-size="11" fill="var(--muted)" text-anchor="middle" font-variant-numeric="tabular-nums">$0</text>
+        <text x="250" y="268" font-size="11" fill="var(--muted)" text-anchor="middle" font-variant-numeric="tabular-nums">$10B</text>
+        <text x="420" y="268" font-size="11" fill="var(--muted)" text-anchor="middle" font-variant-numeric="tabular-nums">$20B</text>
+        <text x="590" y="268" font-size="11" fill="var(--muted)" text-anchor="middle" font-variant-numeric="tabular-nums">$30B</text>
+        <text x="730" y="268" font-size="11" fill="var(--muted)" text-anchor="middle" font-variant-numeric="tabular-nums">$40B+</text>
+
+        <!-- Bar: Transferencias federales -->
+        <text x="76" y="58" font-size="12" fill="var(--muted)" text-anchor="end">Transferencias</text>
+        <text x="76" y="72" font-size="11" fill="var(--muted)" text-anchor="end" opacity=".7">federales</text>
+        <rect x="82" y="46" width="0" height="22" rx="4" ry="4" fill="var(--green)" class="viz-bar" data-w="263"/>
+        <text x="350" y="62" font-size="13" fill="var(--ink-soft)" font-weight="600" class="viz-bar-label" opacity="0">$15.500M/año</text>
+
+        <!-- Bar: Gasto federal total -->
+        <text x="76" y="108" font-size="12" fill="var(--muted)" text-anchor="end">Gasto federal</text>
+        <text x="76" y="122" font-size="11" fill="var(--muted)" text-anchor="end" opacity=".7">total en PR</text>
+        <rect x="82" y="96" width="0" height="22" rx="4" ry="4" fill="var(--green)" opacity=".7" class="viz-bar" data-w="374"/>
+        <text x="462" y="112" font-size="13" fill="var(--ink-soft)" font-weight="600" class="viz-bar-label" opacity="0">$22.000M/año</text>
+
+        <!-- Bar: Ganancias repatriadas -->
+        <text x="76" y="162" font-size="12" fill="var(--muted)" text-anchor="end">Ganancias</text>
+        <text x="76" y="176" font-size="11" fill="var(--muted)" text-anchor="end" opacity=".7">repatriadas</text>
+        <rect x="82" y="150" width="0" height="22" rx="4" ry="4" fill="var(--gold)" class="viz-bar" data-w="578"/>
+        <text x="666" y="166" font-size="13" fill="var(--ink-soft)" font-weight="600" class="viz-bar-label" opacity="0">$34.000M/año</text>
+
+        <!-- Bar: Costo Jones Act -->
+        <text x="76" y="212" font-size="12" fill="var(--muted)" text-anchor="end">Costo</text>
+        <text x="76" y="226" font-size="11" fill="var(--muted)" text-anchor="end" opacity=".7">Jones Act</text>
+        <rect x="82" y="200" width="0" height="22" rx="4" ry="4" fill="var(--gold)" opacity=".7" class="viz-bar" data-w="24"/>
+        <text x="112" y="216" font-size="13" fill="var(--ink-soft)" font-weight="600" class="viz-bar-label" opacity="0">$1.400M/año</text>
+      </svg>
+      <div class="viz-legend">
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--green)"></span> Entra a Puerto Rico</div>
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--gold)"></span> Sale de Puerto Rico</div>
+      </div>
+      <div class="viz-tooltip" id="tt-flows"></div>
     </div>
 
     <div class="incomparable reveal" role="note">
@@ -1848,6 +1950,67 @@ section { padding-top: 72px }
       <div class="big-num-card"><div class="big-num" style="color:var(--green)">$28.100M</div><div class="big-num-label">Reestructurada (2022)</div></div>
     </div>
 
+    <!-- ── Debt Timeline Area Chart ── -->
+    <div class="viz-chart reveal" id="viz-debt" style="position:relative">
+      <h3>Trayectoria de la deuda pública</h3>
+      <p class="viz-subtitle">De $14.000M en 1993 al pico de $72.000M en 2016, reestructurada a $28.100M en 2022. Área roja = deuda acumulada.</p>
+      <svg viewBox="0 0 720 300" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico de área: trayectoria de la deuda pública de Puerto Rico 1993-2025">
+        <defs>
+          <linearGradient id="debt-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--red)" stop-opacity=".25"/>
+            <stop offset="100%" stop-color="var(--red)" stop-opacity=".03"/>
+          </linearGradient>
+        </defs>
+        <!-- Grid lines -->
+        <line x1="60" y1="30" x2="690" y2="30" stroke="var(--line)" stroke-width="1"/>
+        <line x1="60" y1="84" x2="690" y2="84" stroke="var(--line)" stroke-width="1"/>
+        <line x1="60" y1="138" x2="690" y2="138" stroke="var(--line)" stroke-width="1"/>
+        <line x1="60" y1="192" x2="690" y2="192" stroke="var(--line)" stroke-width="1"/>
+        <line x1="60" y1="246" x2="690" y2="246" stroke="var(--line)" stroke-width="1"/>
+        <!-- Y-axis labels -->
+        <text x="55" y="34" font-size="11" fill="var(--muted)" text-anchor="end" font-variant-numeric="tabular-nums">$80B</text>
+        <text x="55" y="88" font-size="11" fill="var(--muted)" text-anchor="end" font-variant-numeric="tabular-nums">$60B</text>
+        <text x="55" y="142" font-size="11" fill="var(--muted)" text-anchor="end" font-variant-numeric="tabular-nums">$40B</text>
+        <text x="55" y="196" font-size="11" fill="var(--muted)" text-anchor="end" font-variant-numeric="tabular-nums">$20B</text>
+        <text x="55" y="250" font-size="11" fill="var(--muted)" text-anchor="end" font-variant-numeric="tabular-nums">$0</text>
+        <!-- Baseline -->
+        <line x1="60" y1="246" x2="690" y2="246" stroke="var(--muted)" stroke-width="1" opacity=".4"/>
+        <!-- Area fill (data: 1993:14, 1996:18, 2000:25, 2003:32, 2006:43, 2009:55, 2012:65, 2014:70, 2016:72, 2017:72, 2019:68, 2022:28, 2025:28) -->
+        <!-- Scale: x: 1993=60, 2025=690 → 19.69px/year; y: 0=246, 80=30 → 2.7px/B -->
+        <path d="M60,208 L119,198 L198,179 L257,160 L316,130 L375,98 L434,71 L473,57 L513,52 L532,52 L571,62 L630,171 L690,171 L690,246 L60,246 Z" fill="url(#debt-fill)" class="viz-area"/>
+        <!-- Line -->
+        <path d="M60,208 L119,198 L198,179 L257,160 L316,130 L375,98 L434,71 L473,57 L513,52 L532,52 L571,62 L630,171 L690,171" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Data points with surface rings -->
+        <circle cx="60" cy="208" r="5" fill="var(--surface)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="198" cy="179" r="5" fill="var(--surface)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="316" cy="130" r="5" fill="var(--surface)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="375" cy="98" r="5" fill="var(--surface)" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="513" cy="52" r="5" fill="var(--red)" stroke="var(--surface)" stroke-width="2"/>
+        <circle cx="630" cy="171" r="5" fill="var(--green)" stroke="var(--surface)" stroke-width="2"/>
+        <circle cx="690" cy="171" r="5" fill="var(--green)" stroke="var(--surface)" stroke-width="2"/>
+        <!-- Direct labels (selective - key moments only) -->
+        <text x="60" y="200" font-size="12" fill="var(--ink-soft)" font-weight="600" text-anchor="middle">$14B</text>
+        <text x="198" y="171" font-size="12" fill="var(--ink-soft)" font-weight="600" text-anchor="middle">$25B</text>
+        <text x="375" y="90" font-size="12" fill="var(--ink-soft)" font-weight="600" text-anchor="middle">$55B</text>
+        <text x="513" y="44" font-size="13" fill="var(--ink)" font-weight="700" text-anchor="middle">$72B</text>
+        <text x="513" y="278" font-size="10" fill="var(--red)" font-weight="600" text-anchor="middle">«Impagable»</text>
+        <text x="660" y="163" font-size="12" fill="var(--ink-soft)" font-weight="600" text-anchor="middle">$28B</text>
+        <!-- Event annotations -->
+        <line x1="316" y1="130" x2="316" y2="260" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+        <text x="316" y="278" font-size="10" fill="var(--muted)" text-anchor="middle">Fin 936</text>
+        <line x1="532" y1="52" x2="532" y2="260" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+        <text x="532" y="288" font-size="10" fill="var(--muted)" text-anchor="middle">María</text>
+        <!-- X-axis labels -->
+        <text x="60" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">1993</text>
+        <text x="198" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">2000</text>
+        <text x="375" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">2009</text>
+        <text x="513" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">2016</text>
+        <text x="630" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">2022</text>
+        <text x="690" y="262" font-size="11" fill="var(--muted)" text-anchor="middle">2025</text>
+      </svg>
+      <div class="viz-tooltip" id="tt-debt"></div>
+    </div>
+
     <h3 style="margin:24px 0 16px">Cronología</h3>
     <div class="timeline2">
       <div class="tl2-item warning"><span class="tl2-year">2012–2013</span><div class="tl2-text">Agencias empiezan a bajar calificación</div></div>
@@ -2507,6 +2670,115 @@ section { padding-top: 72px }
     }, { rootMargin: '-30% 0px -70% 0px' });
     var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-futuro:not([hidden])');
     if(activePanel) activePanel.querySelectorAll('section[id]').forEach(function(s){ window._sideObs.observe(s) });
+  }
+
+  // ── Viz chart animations ──
+  function animateValue(from, to, duration, cb) {
+    var start = performance.now();
+    function step(now) {
+      var t = Math.min((now - start) / duration, 1);
+      var ease = t < 1 ? 1 - Math.pow(1 - t, 3) : 1;
+      cb(from + (to - from) * ease);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var vizFlows = document.getElementById('viz-flows');
+  if(vizFlows){
+    var vizFlowsObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var bars = vizFlows.querySelectorAll('.viz-bar');
+          var labels = vizFlows.querySelectorAll('.viz-bar-label');
+          bars.forEach(function(b, i){
+            setTimeout(function(){
+              var target = parseFloat(b.dataset.w);
+              animateValue(0, target, 900, function(v){ b.setAttribute('width', v) });
+              if(labels[i]) {
+                setTimeout(function(){ labels[i].setAttribute('opacity', '1') }, 600);
+              }
+            }, i * 150);
+          });
+          vizFlowsObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    vizFlowsObs.observe(vizFlows);
+
+    // Hover tooltips for bars
+    var ttFlows = document.getElementById('tt-flows');
+    var flowData = [
+      { label: 'Transferencias federales', val: '$15.500M/año', src: 'MacEwan & Ruíz Mercado (2007)' },
+      { label: 'Gasto federal total en PR', val: '$22.000M/año', src: 'GAO + Censo (AF 2020)' },
+      { label: 'Ganancias corporativas repatriadas', val: '$34.000M/año', src: 'BEA promedio 2010–2022' },
+      { label: 'Sobrecosto Jones Act', val: '$1.400M/año', src: 'Cato Institute (2019)' }
+    ];
+    vizFlows.querySelectorAll('.viz-bar').forEach(function(bar, i){
+      bar.style.cursor = 'pointer';
+      bar.addEventListener('pointerenter', function(ev){
+        var d = flowData[i];
+        ttFlows.innerHTML = '<div class="tt-val">' + d.val + '</div><div class="tt-label">' + d.label + '</div><div class="tt-label" style="opacity:.6">' + d.src + '</div>';
+        ttFlows.style.opacity = '1';
+      });
+      bar.addEventListener('pointermove', function(ev){
+        var rect = vizFlows.getBoundingClientRect();
+        ttFlows.style.left = (ev.clientX - rect.left + 14) + 'px';
+        ttFlows.style.top = (ev.clientY - rect.top - 50) + 'px';
+      });
+      bar.addEventListener('pointerleave', function(){
+        ttFlows.style.opacity = '0';
+      });
+    });
+  }
+
+  // Animate debt area chart on scroll
+  var vizDebt = document.getElementById('viz-debt');
+  if(vizDebt){
+    var vizDebtObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var area = vizDebt.querySelector('.viz-area');
+          if(area){
+            area.style.opacity = '0';
+            area.style.transition = 'opacity 1.2s ease';
+            requestAnimationFrame(function(){ area.style.opacity = '1' });
+          }
+          vizDebtObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    vizDebtObs.observe(vizDebt);
+
+    // Hover tooltip for debt chart data points
+    var ttDebt = document.getElementById('tt-debt');
+    var debtData = [
+      { year: '1993', val: '$14.000M', note: 'Rosselló padre inicia mega-proyectos' },
+      { year: '2000', val: '$25.000M', note: 'Deuda se duplica en 7 años' },
+      { year: '2006', val: '$43.000M', note: 'Expira Sección 936' },
+      { year: '2009', val: '$55.000M', note: 'Ley 7 destruye 75.000+ empleos' },
+      { year: '2016', val: '$72.000M', note: '«La deuda es impagable» — pico histórico' },
+      { year: '2022', val: '$28.100M', note: 'Reestructurada bajo Título III' },
+      { year: '2025', val: '$28.100M', note: 'Primer presupuesto balanceado' }
+    ];
+    vizDebt.querySelectorAll('circle').forEach(function(dot, i){
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('pointerenter', function(ev){
+        var d = debtData[i];
+        dot.setAttribute('r', '7');
+        ttDebt.innerHTML = '<div class="tt-val">' + d.val + ' <span style="font-weight:400;font-size:12px;color:var(--muted)">(' + d.year + ')</span></div><div class="tt-label">' + d.note + '</div>';
+        ttDebt.style.opacity = '1';
+      });
+      dot.addEventListener('pointermove', function(ev){
+        var rect = vizDebt.getBoundingClientRect();
+        ttDebt.style.left = (ev.clientX - rect.left + 14) + 'px';
+        ttDebt.style.top = (ev.clientY - rect.top - 50) + 'px';
+      });
+      dot.addEventListener('pointerleave', function(){
+        dot.setAttribute('r', '5');
+        ttDebt.style.opacity = '0';
+      });
+    });
   }
 
   // Restore saved tab
