@@ -538,6 +538,19 @@ section { padding-top: 72px }
 }
 .tab-btn:hover { color: var(--ink) }
 .tab-btn.active { color: var(--green); border-bottom-color: var(--green) }
+.tab-btn.highlight {
+  background: linear-gradient(135deg, #FF6B00, #FF8C00);
+  color: #fff !important; border-bottom-color: #FF6B00;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  animation: pulse-glow 2s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.tab-btn.highlight:hover { background: linear-gradient(135deg, #E56000, #FF7800) }
+.tab-btn.highlight.active { animation: none; box-shadow: 0 2px 12px rgba(255,107,0,.4) }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,107,0,.3) }
+  50% { box-shadow: 0 0 20px rgba(255,107,0,.6) }
+}
 @media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
 
 /* ── Phase 2 styles ── */
@@ -635,7 +648,7 @@ section { padding-top: 72px }
   <!-- ═══ TAB BAR ═══ -->
   <nav class="tab-bar" id="tabBar">
     <button class="tab-btn active" data-tab="tab-flujos">Flujos Económicos PR–EE.UU.</button>
-    <button class="tab-btn" data-tab="tab-historia">¿Qué Nos Trajo Aquí?</button>
+    <button class="tab-btn highlight" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
   </nav>
 
   <div id="tab-flujos">
