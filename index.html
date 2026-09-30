@@ -538,18 +538,39 @@ section { padding-top: 72px }
 }
 .tab-btn:hover { color: var(--ink) }
 .tab-btn.active { color: var(--green); border-bottom-color: var(--green) }
-.tab-btn.highlight {
+.tab-btn.btn-blue {
+  background: linear-gradient(135deg, #4A9BD9, #5BB8F5);
+  color: #fff !important; border-bottom-color: #4A9BD9;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.tab-btn.btn-blue:hover { background: linear-gradient(135deg, #3A8BC9, #4AA8E5) }
+.tab-btn.btn-blue.active { box-shadow: 0 2px 12px rgba(74,155,217,.4) }
+.tab-btn.btn-orange {
   background: linear-gradient(135deg, #FF6B00, #FF8C00);
   color: #fff !important; border-bottom-color: #FF6B00;
   border-radius: 8px 8px 0 0; font-weight: 700;
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-orange 2s ease-in-out infinite;
   text-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
-.tab-btn.highlight:hover { background: linear-gradient(135deg, #E56000, #FF7800) }
-.tab-btn.highlight.active { animation: none; box-shadow: 0 2px 12px rgba(255,107,0,.4) }
-@keyframes pulse-glow {
+.tab-btn.btn-orange:hover { background: linear-gradient(135deg, #E56000, #FF7800) }
+.tab-btn.btn-orange.active { animation: none; box-shadow: 0 2px 12px rgba(255,107,0,.4) }
+@keyframes pulse-orange {
   0%, 100% { box-shadow: 0 0 8px rgba(255,107,0,.3) }
   50% { box-shadow: 0 0 20px rgba(255,107,0,.6) }
+}
+.tab-btn.btn-green {
+  background: linear-gradient(135deg, #00C853, #00E676);
+  color: #fff !important; border-bottom-color: #00C853;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  animation: pulse-green 2s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.tab-btn.btn-green:hover { background: linear-gradient(135deg, #00B848, #00D466) }
+.tab-btn.btn-green.active { animation: none; box-shadow: 0 2px 12px rgba(0,200,83,.4) }
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,200,83,.3) }
+  50% { box-shadow: 0 0 20px rgba(0,200,83,.6) }
 }
 @media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
 
@@ -647,8 +668,9 @@ section { padding-top: 72px }
 
   <!-- ═══ TAB BAR ═══ -->
   <nav class="tab-bar" id="tabBar">
-    <button class="tab-btn active" data-tab="tab-flujos">Flujos Económicos PR–EE.UU.</button>
-    <button class="tab-btn highlight" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
+    <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 Flujos Económicos</button>
+    <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
+    <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 ¿Cuáles Son Nuestras Opciones?</button>
   </nav>
 
   <div id="tab-flujos">
@@ -1650,9 +1672,82 @@ section { padding-top: 72px }
     </div>
   </section>
 
+  <!-- EMISIÓN DE DEUDA POR GOBERNADOR Y LÍDERES LEGISLATIVOS -->
+  <section id="deuda-emision">
+    <div class="sec-label">02 · ¿Quién endeudó a Puerto Rico?</div>
+    <h2 class="sec-title">Deuda emitida por administración</h2>
+    <p class="sec-intro">La deuda pública de Puerto Rico creció de ~$14.000M en 1993 a ~$72.000M en 2016. ¿Qué gobernador añadió cuánto — y qué presidentes del Senado y la Cámara aprobaron esa deuda?</p>
+
+    <div class="corr-table-wrap" style="margin-bottom:24px">
+      <table class="corr-table">
+        <thead><tr><th>Gobernador</th><th>Período</th><th>Deuda al inicio</th><th>Deuda al final</th><th>Añadida</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pedro Rosselló</strong> <span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>1993–2001</td><td>~$14.000M</td><td>~$24.200M</td><td style="color:var(--red);font-weight:700">+$10.000M</td></tr>
+          <tr><td><strong>Sila M. Calderón</strong> <span class="gov-party ppd" style="font-size:10px;padding:1px 6px">PPD</span></td><td>2001–2005</td><td>~$24.200M</td><td>~$37.500M</td><td style="color:var(--red);font-weight:700">+$13.300M</td></tr>
+          <tr><td><strong>Aníbal Acevedo Vilá</strong> <span class="gov-party ppd" style="font-size:10px;padding:1px 6px">PPD</span></td><td>2005–2009</td><td>~$37.500M</td><td>~$47.600M</td><td style="color:var(--red);font-weight:700">+$10.100M</td></tr>
+          <tr style="background:var(--red-bg)"><td><strong>Luis Fortuño</strong> <span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>2009–2013</td><td>~$47.600M</td><td>~$70.000M</td><td style="color:var(--red);font-weight:700">+$23.400M</td></tr>
+          <tr><td><strong>A. García Padilla</strong> <span class="gov-party ppd" style="font-size:10px;padding:1px 6px">PPD</span></td><td>2013–2017</td><td>~$70.000M</td><td>~$72.000M</td><td style="font-weight:700">+$2.000M (default)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
+      <strong>Fortuño fue el mayor emisor individual de deuda</strong> — añadió $23.400M, más que las dos administraciones PPD anteriores combinadas. Paradójicamente, su gobierno implementó la austeridad más severa (Ley 7). De las 20 mayores emisiones de bonos (~$31.000M), <strong>16 fueron exclusivamente para refinanciar deuda existente o cubrir operaciones</strong> — no para inversión productiva.
+    </div>
+
+    <h3 style="margin:32px 0 16px">Presidentes del Senado que aprobaron la deuda</h3>
+    <div class="corr-table-wrap" style="margin-bottom:24px">
+      <table class="corr-table">
+        <thead><tr><th>Nombre</th><th>Partido</th><th>Período</th><th>Legislación clave aprobada</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Kenneth McClintock</strong></td><td><span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>2005–2009</td><td>Creación de <strong>COFINA</strong> ($17.300M en bonos tóxicos) y primer IVU (7%)</td></tr>
+          <tr style="background:var(--red-bg)"><td><strong>Thomas Rivera Schatz</strong></td><td><span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>2009–2013, 2017–2021</td><td><strong>Ley 7</strong> (despidos masivos), <strong>Leyes 20/22</strong>, mayor emisión de deuda ($23.400M bajo Fortuño). Senador más poderoso en décadas.</td></tr>
+          <tr><td><strong>Eduardo Bhatia</strong></td><td><span class="gov-party ppd" style="font-size:10px;padding:1px 6px">PPD</span></td><td>2013–2017</td><td>Aprobó <strong>IVU al 11,5%</strong> (14 votos a favor). Declaró que votó «sabiendo que la medida tenía defectos.» Presidió durante imposición de PROMESA.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:24px 0 16px">Presidentes de la Cámara que aprobaron la deuda</h3>
+    <div class="corr-table-wrap" style="margin-bottom:24px">
+      <table class="corr-table">
+        <thead><tr><th>Nombre</th><th>Partido</th><th>Período</th><th>Legislación clave aprobada</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Edison Misla Aldarondo</strong></td><td><span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>1997–2000</td><td>Mega-proyectos de Rosselló. <strong>Convicto federalmente</strong> de conspiración y extorsión.</td></tr>
+          <tr><td><strong>José Aponte Hernández</strong></td><td><span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>2005–2009</td><td>Aprobó creación de <strong>COFINA</strong> ($17.300M en bonos tóxicos) y primer IVU (7%)</td></tr>
+          <tr style="background:var(--red-bg)"><td><strong>Jenniffer González-Colón</strong></td><td><span class="gov-party pnp" style="font-size:10px;padding:1px 6px">PNP</span></td><td>2009–2013</td><td>Aprobó <strong>Ley 7</strong> en 4 días (30.000+ despidos), <strong>Leyes 20/22</strong>, mayor emisión de deuda. <strong>Hoy es gobernadora de PR (2025–)</strong>.</td></tr>
+          <tr><td><strong>Jaime Perelló</strong></td><td><span class="gov-party ppd" style="font-size:10px;padding:1px 6px">PPD</span></td><td>2013–2017</td><td>Aprobó <strong>IVU al 11,5%</strong> (26 votos a favor). Presidió durante crisis de deuda y PROMESA.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:24px 0 16px">¿Quién aprobó qué?</h3>
+    <div class="card-grid2">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">COFINA (2006) — $17.300M</h3>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Gobernador:</strong> Acevedo Vilá (PPD)<br><strong>Senado:</strong> McClintock (PNP)<br><strong>Cámara:</strong> Aponte Hernández (PNP)<br>Legislatura PNP aprobó bonos tóxicos bajo gobernador PPD.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Ley 7 (2009) — 75.000+ empleos</h3>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Gobernador:</strong> Fortuño (PNP)<br><strong>Senado:</strong> Rivera Schatz (PNP)<br><strong>Cámara:</strong> González-Colón (PNP)<br>Aprobada en 4 días laborables. Control total PNP.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Leyes 20/22 (2012) — Gentrificación</h3>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Gobernador:</strong> Fortuño (PNP)<br><strong>Senado:</strong> Rivera Schatz (PNP)<br><strong>Cámara:</strong> González-Colón (PNP)<br>Harvard: «un asunto de derechos humanos.»</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">IVU 11,5% (2015) — El más alto de EE.UU.</h3>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Gobernador:</strong> García Padilla (PPD)<br><strong>Senado:</strong> Bhatia (PPD) — 14 votos<br><strong>Cámara:</strong> Perelló (PPD) — 26 votos<br>Control total PPD.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Responsabilidad bipartidista:</strong> Tanto PNP como PPD aprobaron legislación que profundizó la crisis. COFINA fue creada por un gobernador PPD con legislatura PNP. La Ley 7 y las Leyes 20/22 fueron 100% PNP. El IVU al 11,5% fue 100% PPD. Los mismos dos partidos han gobernado Puerto Rico por más de 70 años — y entre ambos construyeron esta crisis.
+    </div>
+  </section>
+
   <!-- LEYES FEDERALES -->
   <section id="leyes-federales">
-    <div class="sec-label">02 · Leyes federales</div>
+    <div class="sec-label">03 · Leyes federales</div>
     <h2 class="sec-title">Las imposiciones de Washington</h2>
     <p class="sec-intro">Las decisiones tomadas en el Congreso — donde PR no tiene voto — han definido los límites de la economía isleña durante más de un siglo.</p>
 
@@ -1675,7 +1770,7 @@ section { padding-top: 72px }
 
   <!-- LEYES LOCALES -->
   <section id="leyes-locales">
-    <div class="sec-label">03 · Leyes locales</div>
+    <div class="sec-label">04 · Leyes locales</div>
     <h2 class="sec-title">Decisiones desde la isla</h2>
     <p class="sec-intro">Las leyes aprobadas por la Legislatura de Puerto Rico también jugaron un papel central.</p>
 
@@ -1692,7 +1787,7 @@ section { padding-top: 72px }
 
   <!-- CORRUPCIÓN -->
   <section id="corrupcion">
-    <div class="sec-label">04 · Corrupción</div>
+    <div class="sec-label">05 · Corrupción</div>
     <h2 class="sec-title">Los que robaron a Puerto Rico</h2>
     <p class="sec-intro">La corrupción gubernamental ha desviado miles de millones. Nombres, montos y sentencias.</p>
 
@@ -1726,7 +1821,7 @@ section { padding-top: 72px }
 
   <!-- CRISIS DE DEUDA -->
   <section id="deuda">
-    <div class="sec-label">05 · La deuda</div>
+    <div class="sec-label">06 · La deuda</div>
     <h2 class="sec-title">Cómo se acumularon $72.000 millones</h2>
     <p class="sec-intro">Se construyó durante décadas de gasto deficitario, instrumentos tóxicos y complicidad de Wall Street.</p>
 
@@ -1759,7 +1854,7 @@ section { padding-top: 72px }
 
   <!-- CADENA CAUSAL -->
   <section id="cadena">
-    <div class="sec-label">06 · Cadena causal</div>
+    <div class="sec-label">07 · Cadena causal</div>
     <h2 class="sec-title">Cómo llegamos hasta aquí</h2>
     <p class="sec-intro">Una secuencia de decisiones construyó la trampa económica en la que Puerto Rico vive hoy.</p>
 
@@ -1776,7 +1871,7 @@ section { padding-top: 72px }
 
   <!-- NOTA EDITORIAL FINAL -->
   <section id="editorial">
-    <div class="sec-label">07 · Nota editorial</div>
+    <div class="sec-label">08 · Nota editorial</div>
     <h2 class="sec-title">La doble trampa: flujos y poder</h2>
 
     <div class="note-box" style="border-width:2px">
@@ -1791,7 +1886,7 @@ section { padding-top: 72px }
 
   <!-- FUENTES FASE 2 -->
   <section id="fuentes2">
-    <div class="sec-label">08 · Fuentes</div>
+    <div class="sec-label">09 · Fuentes</div>
     <h2 class="sec-title">Bibliografía — Fase II</h2>
 
     <h3 style="margin:16px 0 12px">Instituciones y reportes oficiales</h3>
@@ -1828,6 +1923,247 @@ section { padding-top: 72px }
   </footer>
 
   </div><!-- /tab-historia -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 3: FUTURO (placeholder - will be filled with research) -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-futuro" hidden>
+    <header class="hero">
+      <div class="hero-kicker" style="color:#00C853"><span style="display:inline-block;width:32px;height:2px;background:#00C853;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase III</div>
+      <h1>¿Cuáles son nuestras opciones de futuro?</h1>
+      <p class="hero-lede">Tres opciones de estatus político. Cuatro modelos económicos internacionales. Un movimiento político que rompió 55 años de bipartidismo. Y estrategias concretas para energía, agricultura, tecnología y anticorrupción. Esta investigación examina las vías reales que Puerto Rico tiene para salir de la crisis — con datos, no con promesas.</p>
+      <p class="hero-meta">Basado en proyecciones del <strong>CBO</strong>, <strong>GAO</strong>, <strong>Centro de Estudios Puertorriqueños (CUNY)</strong>, <strong>NREL</strong>, <strong>Fraser Institute</strong>, y datos electorales oficiales de 2024.</p>
+    </header>
+
+  <!-- ESTATUS POLÍTICO -->
+  <section id="estatus">
+    <div class="sec-label reveal">01 · Opciones de estatus</div>
+    <h2 class="sec-title">Tres caminos, tres futuros</h2>
+    <p class="sec-intro reveal">Puerto Rico lleva más de 125 años como territorio no incorporado. El Congreso ha legislado sobre la isla sin darle voto. Aquí se examinan las tres opciones reales de estatus político — con sus proyecciones económicas documentadas.</p>
+
+    <div class="card-grid2">
+      <div class="card" style="border-top:4px solid var(--blue)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--blue)">🗳️ Estadidad (Estado 51)</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+          <div style="text-align:center"><div class="counter-num" data-target="4500" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">Medicaid adicional/año</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="5" data-suffix=" representantes" style="font-size:1.8rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:12px;color:var(--muted)">en el Congreso</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Acceso pleno a Medicaid, SSI, EITC, SNAP. 2 senadores + 4-5 representantes con voto. Estabilidad jurídica. CBO proyecta superávit de ~$4.000M por década.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Impuestos federales reducirían inversión manufacturera. Pérdida de Act 60 y autonomía fiscal. Requiere aprobación del Congreso — políticamente improbable.</p>
+        <p style="font-size:13px;color:var(--muted)">En 2020 el «sí» ganó con 52,5%. En 2024 se repitió plebiscito con múltiples opciones.</p>
+      </div>
+
+      <div class="card" style="border-top:4px solid var(--green)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--green)">🏛️ República independiente</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+          <div style="text-align:center"><div class="counter-num" data-target="1400" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">ahorro/año sin Jones Act</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="51000" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--gold)">$0</div><div style="font-size:12px;color:var(--muted)">ingresos propios año 20</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Eliminación del Jones Act ($1.400M/año). Soberanía fiscal total. Tratados comerciales independientes. Acceso pleno a ONU, FMI, Banco Mundial.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Pérdida de ~$21.000M anuales en transferencias federales. Pérdida de ciudadanía automática para nuevas generaciones. Riesgo de fuga de capital.</p>
+        <p style="font-size:13px;color:var(--muted)">Plan de transición (2025): $36.000M anuales por 20 años o pago único de $489.000M. Proyección de ingresos propios: $32.000–51.000M/año para año 20.</p>
+      </div>
+
+      <div class="card" style="border-top:4px solid var(--gold)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--gold)">🤝 Libre asociación (Compact)</h3>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Relación entre dos naciones soberanas con acuerdos negociados. EE.UU. tiene este arreglo con Palau, Micronesia e Islas Marshall.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Soberanía con red de seguridad. Posibilidad de negociar fin del Jones Act. Acceso a organismos internacionales sin ruptura total.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Los compactos son temporales y renegociables. EE.UU. puede terminar el acuerdo unilateralmente. Palau recibe solo ~$18M/año. El Congreso ha rechazado el concepto de «ELA mejorado».</p>
+        <p style="font-size:13px;color:var(--muted)">En 2024 apareció como «Estado Libre Asociado Soberano» en el plebiscito.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Cualquier opción requiere acción del Congreso</strong> — donde PR no tiene voto. Las tres opciones tienen costos y beneficios reales. Lo que no es opción es seguir en el limbo colonial actual: un territorio sin representación, sin soberanía fiscal, sin acceso pleno a programas federales y bajo control de una Junta no electa.
+    </div>
+  </section>
+
+  <!-- MODELOS ECONÓMICOS -->
+  <section id="modelos">
+    <div class="sec-label reveal">02 · Modelos internacionales</div>
+    <h2 class="sec-title">¿Qué pueden enseñarnos otros países?</h2>
+    <p class="sec-intro reveal">Cuatro naciones pequeñas que enfrentaron desafíos similares — y encontraron caminos de transformación económica.</p>
+
+    <div class="card-grid2">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇸🇬 Singapur</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">PIB per cápita: $500 (1965) → $65.000 (2024)</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Isla sin recursos naturales, 5,9M de habitantes. Claves: educación técnica masiva, anticorrupción radical (CPIB), estado desarrollista que dirige sin controlar, hub comercial global, fondo soberano (Temasek).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Replicable en PR:</strong> Educación técnica, anticorrupción institucional, posición geográfica como hub Caribe-América. <strong>No replicable:</strong> Singapur tuvo soberanía total y gobierno autoritario.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇮🇪 Irlanda</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De emigración masiva (1980s) a PIB per cápita más alto de la UE</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Impuesto corporativo del 12,5% atrajo a Apple, Google, Meta, Pfizer. Membresía en la UE (mercado de 450M). Inversión en educación. Agencia IDA Ireland — desarrollo industrial profesionalizado.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> PR tiene Act 60 (4% corporativo) pero las ganancias se repatrían — falta el «ancla local». Necesita agencia de desarrollo con mandato profesional, no político.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇪🇪 Estonia</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">1,3M de habitantes. De la URSS a líder digital mundial.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independencia en 1991. Creó e-Residency (ciudadanía digital), 99% de servicios gubernamentales online. Epicentro de startups (Skype, Bolt, Wise).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> Gobierno digital, transparencia radical, atracción de talento tech. PR como «Silicon Island» — con Act 60 y e-Residency tropical.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇧🇧 Barbados</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De colonia británica a república (2021) sin colapso económico.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Se independizó de la Corona Británica en noviembre 2021. Mantuvo estabilidad económica, turismo y servicios financieros durante la transición.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFORMA POLÍTICA -->
+  <section id="reforma">
+    <div class="sec-label reveal">03 · Reforma política</div>
+    <h2 class="sec-title">70+ años del mismo bipartidismo</h2>
+    <p class="sec-intro reveal">PNP y PPD han alternado el poder desde 1952. Bajo ambos, la deuda se triplicó, la corrupción floreció y la población emigró masivamente. El problema no es solo de personas — es de estructura. Pero en 2024, un tercio del electorado rompió con el bipartidismo.</p>
+
+    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
+      <strong>Responsabilidad compartida:</strong> PNP aprobó Ley 7 (75.000+ empleos destruidos), Leyes 20/22 (gentrificación) y la mayor emisión de deuda ($23.400M bajo Fortuño). PPD declaró la deuda impagable, subió el IVU al 11,5% y gobernó durante la creación de COFINA. Los mismos dos partidos gobernaron por más de 70 años — y entre ambos construyeron esta crisis.
+    </div>
+
+    <h3 style="margin:32px 0 16px;font-family:var(--serif);font-size:1.3rem">El terremoto electoral de 2024</h3>
+
+    <div class="card" style="border-left:4px solid var(--green);margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Juan Dalmau Ramírez — Alianza de País</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="391945" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">votos (30,81%)</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Candidato a gobernador por la coalición <strong>Alianza de País</strong> (PIP + Movimiento Victoria Ciudadana). <strong>Segundo lugar</strong> — primera vez en 55 años que un candidato fuera de PNP/PPD logra esa posición. El PPD cayó a tercer lugar.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Propuestas:</strong> Soberanía económica, energía 100% renovable, fin de la Junta Fiscal, reforma anticorrupción, inversión en educación y agricultura local.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Eliezer Molina Pérez — Primer senador por write-in</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Hazaña histórica:</strong> Elegido Senador por Acumulación el 5 de noviembre de 2024 mediante <strong>campaña de write-in</strong> — los votantes escribieron su nombre manualmente en la papeleta. <strong>Primer legislador electo por nominación directa en la historia de Puerto Rico.</strong></p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Trayectoria:</strong> Ingeniero civil (Politécnica de PR). Tras el huracán María estudió ciencias económicas. Lideró la recuperación de la Playa Los Almendros en Rincón — precedente replicado en Aguadilla, Salinas, Río Grande y Lajas.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Enfoque legislativo:</strong> Protección de recursos naturales, dominio marítimo-terrestre, desarrollo económico sostenible.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid #9C27B0;margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Movimiento Victoria Ciudadana (MVC)</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Partido fundado en 2019 como respuesta al Telegramgate y las protestas de <strong>#RickyRenuncia</strong>. Posiciones: anticorrupción, justicia social, soberanía económica, energía renovable.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">En alianza con PIP formaron Alianza de País para 2024. Eligieron legisladores en ambas cámaras. La coalición demostró que existe un bloque electoral real fuera del bipartidismo.</p>
+    </div>
+
+    <div class="note-box" style="background:var(--green-bg);border-color:var(--green)">
+      <strong>La señal de 2024:</strong> Un tercio del electorado votó fuera del bipartidismo tradicional. El PPD perdió el segundo lugar por primera vez en más de medio siglo. Esto indica que el cambio político no es utopía — ya está en marcha.
+    </div>
+  </section>
+
+  <!-- ESTRATEGIAS ECONÓMICAS -->
+  <section id="estrategias">
+    <div class="sec-label reveal">04 · Estrategias económicas</div>
+    <h2 class="sec-title">¿Cómo salir de la crisis?</h2>
+    <p class="sec-intro reveal">Independientemente del estatus político, Puerto Rico tiene recursos reales que no ha explotado. Aquí se presentan seis ejes de desarrollo concretos.</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">☀️ Energía renovable — La revolución solar</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="300" data-suffix=" días" style="font-size:1.8rem;font-weight:700;color:var(--gold)">0</div><div style="font-size:12px;color:var(--muted)">de sol al año</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="24" data-suffix=" TWh" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">potencial solar (4× consumo)</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">El potencial solar residencial de PR es de <strong>24,6 TWh/año</strong> — cuatro veces el consumo eléctrico residencial. Meta oficial: 100% renovable para 2050, pero el avance ha sido glacial.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Agrivoltaica:</strong> Proyecto piloto NREL de café bajo paneles solares resistentes a huracanes — combina producción agrícola con generación eléctrica sin competir por tierra.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Solar en techos vs. centralizado:</strong> El solar en techos no compite con tierras agrícolas; el centralizado sí y ha desplazado agricultores. La prioridad debe ser descentralización energética comunitaria.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🌾 Soberanía alimentaria</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="85" data-suffix="%" style="font-size:1.8rem;font-weight:700;color:var(--red)">0</div><div style="font-size:12px;color:var(--muted)">de alimentos importados</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR importa el 85% de sus alimentos — vulnerabilidad extrema demostrada durante María. El Jones Act encarece cada producto importado.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Potencial:</strong> Agroindustria tropical, acuaponía, agricultura urbana. Modelo Cuba: tras el colapso soviético, desarrolló agricultura urbana que hoy produce 50%+ de vegetales de La Habana.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Modelo Israel:</strong> Tecnología agrícola avanzada en condiciones limitadas — replicable en PR para optimizar producción con menos tierra y agua.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">💻 Economía del conocimiento</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR tiene legado farmacéutico/biotech de la era 936 — infraestructura y talento existente. Act 60 ya atrae empresas tech y nómadas digitales.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Estonia (e-Residency):</strong> PR podría crear ciudadanía digital tropical — atrayendo emprendedores globales a un hub tech con incentivos fiscales y clima caribeño.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Hub biotech:</strong> La infraestructura de manufactura farmacéutica sigue existiendo. Con inversión en I+D y educación universitaria (UPR), PR podría pasar de manufactura a innovación.</p>
+    </div>
+
+    <div class="card-grid2" style="margin-bottom:20px">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🏝️ Turismo diversificado</h3>
+        <p style="font-size:14px;color:var(--ink-soft)">Más allá de playas: turismo médico, ecoturismo, agroturismo, turismo cultural. Bioluminiscencia (Mosquito Bay), El Yunque, patrimonio histórico, gastronomía. PR recibe ~5M visitantes/año — potencial de duplicar con diversificación.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🌎 La diáspora como motor</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+          <div style="text-align:center"><div class="counter-num" data-target="5800000" style="font-size:1.5rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:11px;color:var(--muted)">boricuas en el continente</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft)">5,8 millones en EE.UU. vs. 3,2 millones en la isla. Potencial de inversión diasporiana, retorno de talento profesional (médicos, ingenieros, educadores), redes de negocios en NYC, Orlando, Chicago.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🔒 Reforma anticorrupción</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Correlación directa entre corrupción y estancamiento económico (documentada por Banco Mundial). PR tiene un historial de gobernadores, senadores, representantes y alcaldes convictos — como se documenta en la pestaña anterior.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Receta Singapur (CPIB):</strong> Fiscalía independiente con dientes. Transparencia presupuestaria digital en tiempo real. Salarios competitivos para funcionarios públicos con castigos severos por corrupción. Auditorías obligatorias de todo contrato gubernamental.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🤝 Economía cooperativa</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Mondragón (País Vasco):</strong> Cooperativas de trabajadores que generan €12.000M anuales con 80.000 empleados. PR ya tiene tradición cooperativista (cooperativas de ahorro y crédito).</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Fideicomisos comunitarios de tierra (CLTs):</strong> Para combatir la gentrificación de Act 60 — la comunidad es dueña de la tierra, los residentes son dueños de las estructuras. Modelo exitoso en Burlington (Vermont) y Londres.</p>
+    </div>
+  </section>
+
+  <!-- NOTA EDITORIAL -->
+  <section id="editorial-futuro">
+    <div class="sec-label reveal">05 · Nota editorial</div>
+    <h2 class="sec-title">El futuro no se hereda — se construye</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p><strong>Los datos de esta investigación cuentan una historia de tres capas.</strong></p>
+
+      <p>En la primera pestaña documentamos que Puerto Rico genera más de <strong>$35.000 millones anuales</strong> en ganancias corporativas que se repatrian al continente — suficiente para pagar la deuda total cuatro veces en una década. En la segunda, mostramos que los mismos dos partidos que gobernaron por más de <strong>70 años</strong> acumularon esa deuda, aprobaron leyes devastadoras y permitieron que la corrupción desviara miles de millones.</p>
+
+      <p>En esta tercera pestaña, la pregunta ya no es quién nos trajo aquí, sino <strong>cómo salimos</strong>.</p>
+
+      <p>Los modelos internacionales son claros: Singapur, Irlanda, Estonia y Barbados demuestran que naciones pequeñas, insulares y sin recursos naturales pueden transformarse en una generación. Pero todas tuvieron algo que PR no tiene hoy: <strong>soberanía real sobre sus decisiones económicas</strong>.</p>
+
+      <p>Lo más significativo de 2024 no fue quién ganó — fue que <strong>391.945 puertorriqueños</strong> votaron fuera del bipartidismo tradicional, y un ciudadano sin partido logró llegar al Senado escribiendo su nombre en una papeleta. Eso no es una anomalía estadística — es una señal.</p>
+
+      <p>Puerto Rico tiene 300 días de sol, potencial solar cuatro veces mayor que su consumo, una diáspora de 5,8 millones, infraestructura farmacéutica existente, posición geográfica privilegiada y una generación que ya demostró — en las calles de 2019 y las urnas de 2024 — que no acepta el statu quo.</p>
+
+      <p>La pregunta no es si PR <em>puede</em> cambiar. <strong>La pregunta es si quienes llegan al poder van a permitirlo — o si el ciclo de 70 años se repite.</strong></p>
+    </div>
+  </section>
+
+  <!-- FUENTES TAB 3 -->
+  <section id="fuentes-futuro">
+    <div class="sec-label reveal">Fuentes</div>
+    <h2 class="sec-title" style="font-size:1.5rem">Bibliografía — Fase III</h2>
+    <ul style="font-size:14px;color:var(--ink-soft);line-height:2">
+      <li>Congressional Budget Office (CBO). <em>Potential Economic Impacts of Changes in Puerto Rico's Status</em>.</li>
+      <li>Government Accountability Office (GAO-14-31). <em>Puerto Rico: How Statehood Would Affect Federal Programs</em>.</li>
+      <li>Centro de Estudios Puertorriqueños (Hunter/CUNY). <em>Federal Tax Policy in Puerto Rico</em>, 2024.</li>
+      <li>Pasquines. <em>New independence plan outlines economic vision for Puerto Rico</em>, mayo 2025.</li>
+      <li>Current Affairs. <em>The Case for Puerto Rican Independence</em>, 2024.</li>
+      <li>Puerto Rico Report. <em>Three Examples of Free Association</em>.</li>
+      <li>LA Progressive. <em>A Compact of Free Association as Puerto Rico's Path</em>.</li>
+      <li>Fraser Institute. <em>Lessons from Singapore's Growth Miracle</em>.</li>
+      <li>ResearchGate. <em>Singapore's Development Model and Its Limits</em>.</li>
+      <li>Emerging Europe. <em>The Singapore Model</em>.</li>
+      <li>Earthjustice. <em>Powering an Energy Revolution in Puerto Rico</em>.</li>
+      <li>Princeton JPIA. <em>Renewing Growth: Distributed Solar Energy in Puerto Rico</em>.</li>
+      <li>Canary Media. <em>Puerto Rico's energy future</em>.</li>
+      <li>NREL. <em>Puerto Rico Solar and Agrivoltaic Potential Study</em>.</li>
+      <li>Wikipedia / Ballotpedia. <em>2024 Puerto Rico gubernatorial election</em>.</li>
+      <li>Senado de PR. <em>Hon. Eliezer Molina Pérez</em> — perfil oficial.</li>
+      <li>Fenix Puerto Rico. <em>Senator Molina: A Voice for Environmental Justice</em>.</li>
+    </ul>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Los datos de estatus provienen de proyecciones del CBO y GAO. Los modelos económicos se basan en literatura académica revisada. Los datos electorales son oficiales. Las estrategias de desarrollo se fundamentan en estudios del NREL, Fraser Institute y Banco Mundial. Investigación compilada el 30 de septiembre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-futuro -->
 
 </div>
 
@@ -2045,7 +2381,7 @@ section { padding-top: 72px }
 
   // ── Tab switching ──
   var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia')];
+  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-futuro')];
   var sideNav = document.getElementById('side-nav');
 
   tabBtns.forEach(function(btn){
@@ -2059,7 +2395,7 @@ section { padding-top: 72px }
       // Update side nav for the active tab
       if(target === 'tab-historia'){
         sideNav.innerHTML = [
-          ['#gobernadores','Gobernadores'],['#leyes-federales','Leyes federales'],
+          ['#gobernadores','Gobernadores'],['#deuda-emision','¿Quién endeudó?'],['#leyes-federales','Leyes federales'],
           ['#leyes-locales','Leyes locales'],['#corrupcion','Corrupción'],
           ['#deuda','Crisis de deuda'],['#cadena','Cadena causal'],['#editorial','Editorial']
         ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
@@ -2096,6 +2432,39 @@ section { padding-top: 72px }
           }, { threshold: 0.3 });
           cObs2.observe(block);
         });
+      } else if(target === 'tab-futuro'){
+        sideNav.innerHTML = [
+          ['#estatus','Opciones de estatus'],['#modelos','Modelos internacionales'],['#reforma','Reforma política'],
+          ['#estrategias','Estrategias económicas'],['#editorial-futuro','Editorial'],['#fuentes-futuro','Fuentes']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+        var fadeEls3 = document.querySelectorAll('#tab-futuro .card, #tab-futuro .note-box');
+        fadeEls3.forEach(function(el){ el.classList.add('fade-in'); el.classList.remove('hidden'); });
+        document.querySelectorAll('#tab-futuro .counters').forEach(function(block){
+          var done3 = false;
+          var cObs3 = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting && !done3){
+                done3 = true;
+                e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
+                  var tgt = parseInt(el.getAttribute('data-target'));
+                  var pfx = el.getAttribute('data-prefix') || '';
+                  var sfx = el.getAttribute('data-suffix') || '';
+                  var dur = 1500, st = performance.now();
+                  function tick(now){
+                    var p = Math.min((now - st) / dur, 1);
+                    var ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = pfx + Math.round(tgt * ease).toLocaleString('es') + sfx;
+                    if(p < 1) requestAnimationFrame(tick);
+                  }
+                  requestAnimationFrame(tick);
+                });
+                cObs3.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          cObs3.observe(block);
+        });
       } else {
         sideNav.innerHTML = origNavHTML;
         initSideNavObs();
@@ -2120,15 +2489,15 @@ section { padding-top: 72px }
         }
       });
     }, { rootMargin: '-30% 0px -70% 0px' });
-    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden])');
+    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-futuro:not([hidden])');
     if(activePanel) activePanel.querySelectorAll('section[id]').forEach(function(s){ window._sideObs.observe(s) });
   }
 
   // Restore saved tab
   try {
     var savedTab = localStorage.getItem('activeTab');
-    if(savedTab === 'tab-historia'){
-      var btn2 = document.querySelector('.tab-btn[data-tab="tab-historia"]');
+    if(savedTab === 'tab-historia' || savedTab === 'tab-futuro'){
+      var btn2 = document.querySelector('.tab-btn[data-tab="'+savedTab+'"]');
       if(btn2) btn2.click();
     }
   } catch(e){}
