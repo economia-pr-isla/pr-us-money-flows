@@ -628,6 +628,19 @@ section { padding-top: 72px }
   0%, 100% { box-shadow: 0 0 8px rgba(0,200,83,.3) }
   50% { box-shadow: 0 0 20px rgba(0,200,83,.6) }
 }
+.tab-btn.btn-red {
+  background: linear-gradient(135deg, #E53935, #FF5252);
+  color: #fff !important; border-bottom-color: #E53935;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  animation: pulse-red 2s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.tab-btn.btn-red:hover { background: linear-gradient(135deg, #D32F2F, #EF4444) }
+.tab-btn.btn-red.active { animation: none; box-shadow: 0 2px 12px rgba(229,57,53,.4) }
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 8px rgba(229,57,53,.3) }
+  50% { box-shadow: 0 0 20px rgba(229,57,53,.6) }
+}
 @media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
 .tab-hint {
   display: flex; align-items: center; gap: 6px;
@@ -738,11 +751,12 @@ section { padding-top: 72px }
 <div class="container">
 
   <!-- ═══ TAB BAR ═══ -->
-  <div class="tab-hint" id="tabHint"><span class="hint-icon">i</span> Pulsa los botones de colores para navegar entre las tres investigaciones</div>
+  <div class="tab-hint" id="tabHint"><span class="hint-icon">i</span> Pulsa los botones de colores para navegar entre las cuatro investigaciones</div>
   <nav class="tab-bar" id="tabBar">
     <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 Flujos Económicos</button>
     <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
     <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 ¿Cuáles Son Nuestras Opciones?</button>
+    <button class="tab-btn btn-red" data-tab="tab-energia">⚡ La Crisis Energética</button>
   </nav>
 
   <div id="tab-flujos">
@@ -2708,6 +2722,463 @@ section { padding-top: 72px }
 
   </div><!-- /tab-futuro -->
 
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB 4 — LA CRISIS ENERGÉTICA               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-energia" hidden>
+
+  <header class="hero-cinematic" id="hero4" style="min-height:380px">
+    <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:.06;right:3%;width:50%">
+      <!-- Lightning bolt -->
+      <polygon points="380,20 320,200 370,200 310,390 440,170 380,170 440,20" stroke="#E87060" stroke-width="2.5" fill="none"/>
+      <!-- Power lines -->
+      <line x1="50" y1="100" x2="200" y2="80" stroke="#E87060" stroke-width="1.5" opacity=".5"/>
+      <line x1="200" y1="80" x2="350" y2="100" stroke="#E87060" stroke-width="1.5" opacity=".5"/>
+      <line x1="350" y1="100" x2="500" y2="80" stroke="#E87060" stroke-width="1.5" opacity=".5"/>
+      <line x1="500" y1="80" x2="650" y2="100" stroke="#E87060" stroke-width="1.5" opacity=".5"/>
+      <line x1="650" y1="100" x2="780" y2="85" stroke="#E87060" stroke-width="1.5" opacity=".5"/>
+      <!-- Towers -->
+      <rect x="195" y="60" width="10" height="80" stroke="#E87060" stroke-width="1" fill="none" opacity=".3"/>
+      <rect x="345" y="60" width="10" height="80" stroke="#E87060" stroke-width="1" fill="none" opacity=".3"/>
+      <rect x="495" y="60" width="10" height="80" stroke="#E87060" stroke-width="1" fill="none" opacity=".3"/>
+      <rect x="645" y="60" width="10" height="80" stroke="#E87060" stroke-width="1" fill="none" opacity=".3"/>
+      <!-- Grid pattern -->
+      <rect x="80" y="280" width="60" height="60" stroke="#E87060" stroke-width="1" fill="none" opacity=".2"/>
+      <rect x="160" y="280" width="60" height="60" stroke="#E87060" stroke-width="1" fill="none" opacity=".2"/>
+      <rect x="240" y="280" width="60" height="60" stroke="#E87060" stroke-width="1" fill="none" opacity=".2"/>
+      <rect x="80" y="340" width="60" height="40" stroke="#E87060" stroke-width="1" fill="none" opacity=".15"/>
+      <rect x="160" y="340" width="60" height="40" stroke="#E87060" stroke-width="1" fill="none" opacity=".15"/>
+      <!-- X marks - broken connections -->
+      <line x1="550" y1="250" x2="580" y2="280" stroke="#E87060" stroke-width="2" opacity=".3"/>
+      <line x1="580" y1="250" x2="550" y2="280" stroke="#E87060" stroke-width="2" opacity=".3"/>
+      <line x1="620" y1="300" x2="650" y2="330" stroke="#E87060" stroke-width="2" opacity=".3"/>
+      <line x1="650" y1="300" x2="620" y2="330" stroke="#E87060" stroke-width="2" opacity=".3"/>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-kicker" style="color:#E87060"><span style="display:inline-block;width:32px;height:2px;background:#E87060;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase IV</div>
+      <h1>La crisis energética: el apagón que frena a Puerto Rico</h1>
+      <p class="hero-lede" style="color:rgba(255,255,255,.88)">Un análisis documentado de cómo décadas de mala administración en PREPA, la privatización bajo LUMA y Genera PR, y las tarifas más altas del sistema estadounidense están ahogando la economía y la calidad de vida de la isla.</p>
+      <p class="hero-meta">Este análisis cubre <strong>70+ años de infraestructura eléctrica</strong>, el contrato de <strong>$1.500 millones de LUMA</strong>, tarifas récord de <strong>33,86¢/kWh</strong>, y el impacto de <strong>$500M–$1.000M anuales</strong> en pérdidas económicas por apagones.</p>
+
+    <div class="counters" style="grid-template-columns:repeat(4,1fr)">
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="34" data-suffix="¢">0¢</div>
+        <div class="counter-label">Tarifa récord por kWh (Oct 2026)</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num gold" data-target="9" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-label">Deuda de PREPA</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num red" data-target="73" data-suffix="h">0h</div>
+        <div class="counter-label">Sin luz al año (promedio 2024)</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num green" data-target="12" data-suffix="%">0%</div>
+        <div class="counter-label">Energía renovable (meta: 40%)</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="note-box">
+    <strong>Nota editorial:</strong> La electricidad en Puerto Rico no es solo un servicio — es el requisito previo para todo lo demás. Sin luz no hay agua (las bombas dependen de electricidad), no hay refrigeración de alimentos ni medicamentos, no hay comercio digital, no hay manufactura confiable. La crisis energética no es un problema aislado: es el multiplicador que agrava cada uno de los problemas documentados en las otras pestañas de esta investigación.
+  </div>
+
+  <!-- 01 HISTORIA DE PREPA -->
+  <section id="prepa">
+    <div class="sec-label">01 · Historia de PREPA</div>
+    <h2 class="sec-title">70 años de mala administración</h2>
+    <p class="sec-desc reveal">La Autoridad de Energía Eléctrica (PREPA) fue durante décadas un monopolio estatal plagado de nombramientos políticos, mantenimiento diferido y deuda insostenible. Su colapso no fue accidental — fue el resultado predecible de décadas de negligencia.</p>
+
+    <div class="timeline" style="margin-top:24px">
+      <div class="tl-item gold">
+        <div class="tl-year">1941</div>
+        <div class="tl-content">Se crea PREPA como corporación pública. Inicialmente eficiente, electrifica la isla rural durante las décadas de 1950–60.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1970s–1990s</div>
+        <div class="tl-content">PREPA se convierte en <strong>botín político</strong>. Cada nuevo gobernador nombra nuevos directivos. Las decisiones técnicas se subordinan a la política. El mantenimiento se posterga sistemáticamente. La plantilla se infla con empleados de patronazgo.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">2000–2014</div>
+        <div class="tl-content"><strong>La deuda se dispara de $4.000M a $9.000M.</strong> PREPA emite bonos «triple exentos» (herencia de la Ley Jones 1917) que atraen a inversionistas de todo EE.UU. Los ingresos se usan para operaciones diarias, no infraestructura. Wall Street sigue prestando sabiendo que la situación es insostenible.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">2014</div>
+        <div class="tl-content">Las tres agencias crediticias degradan los bonos de PREPA a <strong>«chatarra» (junk)</strong>. PREPA pierde acceso a los mercados de capital.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Septiembre 2017</div>
+        <div class="tl-content"><strong>Huracán María destruye el 80% de la red eléctrica.</strong> 2.975 muertos (Harvard). Puerto Rico entero queda sin luz. La restauración completa tarda <strong>11 meses</strong> — el apagón más largo en la historia de EE.UU. Más de 500.000 abonados sin servicio a 4 meses del huracán.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Octubre 2017</div>
+        <div class="tl-content"><strong>El escándalo Whitefish.</strong> PREPA otorga un contrato de $300 millones a Whitefish Energy — una empresa de <strong>2 empleados</strong> en Montana cuyo mayor contrato previo era de $1,3M. Se acuerda pagar <strong>$319/hora por líniero</strong> cuando el salario promedio en PR es $19/hora. El contrato se cancela tras el escándalo, pero el daño a la credibilidad institucional es irreparable.</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-year">2018–2020</div>
+        <div class="tl-content">Se asignan <strong>$16.300 millones de FEMA</strong> para reconstruir la red eléctrica. Pero la burocracia federal y local retrasa los desembolsos: para 2025, solo se ha gastado <strong>$1.270M (8%)</strong> de lo asignado.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">2019–2022</div>
+        <div class="tl-content"><strong>Arresto de funcionarios de FEMA.</strong> Dos exfuncionarios de FEMA y un presidente de contratista son arrestados por un esquema de soborno de <strong>$1.800 millones</strong> vinculado a la reconstrucción de la red eléctrica post-María.</div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:24px">
+      <strong>PREPA en números al momento de la privatización:</strong> $9.000M en deuda, plantas generadoras con <strong>edad promedio de 45 años</strong> (el doble del promedio estadounidense), algunas con <strong>60+ años de antigüedad</strong>, dependencia del <strong>97% de combustibles fósiles</strong> (62% petróleo, 35% gas natural), y una tasa de pérdidas en transmisión y distribución que duplicaba el promedio de EE.UU.
+    </div>
+  </section>
+
+  <!-- 02 LUMA ENERGY -->
+  <section id="luma">
+    <div class="sec-label">02 · LUMA Energy</div>
+    <h2 class="sec-title">La privatización que no mejoró nada</h2>
+    <p class="sec-desc reveal">En junio de 2021, LUMA Energy — un consorcio de ATCO (Canadá) y Quanta Services (EE.UU.) — asumió la transmisión y distribución de electricidad en Puerto Rico bajo un contrato de 15 años valorado en $1.500 millones. La promesa: modernizar la red y mejorar el servicio. La realidad ha sido otra.</p>
+
+    <div class="update-grid" style="margin-top:20px">
+      <div class="update-card red-top">
+        <h3>El contrato</h3>
+        <div class="big-num red">$1.500M</div>
+        <p>Tarifa de gestión fija de $1.625M + hasta $309M en incentivos. El contrato <strong>no incluye penalidades significativas por mal servicio</strong>. LUMA cobra costos laborales, operativos e incluso entretenimiento de empleados — todo reembolsable.</p>
+      </div>
+      <div class="update-card red-top">
+        <h3>Fiabilidad empeorada</h3>
+        <div class="big-num red">1.448 min</div>
+        <p><strong>SAIDI FY2024</strong> (duración promedio de interrupciones) — un aumento del 16,2% respecto a FY2023 (1.218 min). La meta regulatoria es <strong>102 minutos</strong>. LUMA está a 14x de la meta.</p>
+      </div>
+      <div class="update-card gold-top">
+        <h3>Frecuencia de apagones</h3>
+        <div class="big-num gold">~8 al año</div>
+        <p><strong>SAIFI</strong>: cada abonado experimenta ~8 interrupciones anuales. Mejoró levemente desde 11 en 2020, pero la meta regulatoria (NEPR) es <strong>1 interrupción</strong>. Puerto Rico está a 8x de la meta.</p>
+      </div>
+      <div class="update-card red-top">
+        <h3>Apagón total (abril 2022)</h3>
+        <div class="big-num red">100%</div>
+        <p>Un incendio en la subestación Costa Sur causó un <strong>apagón de toda la isla</strong> que duró días. Demanda colectiva de $800M presentada. Múltiples apagones masivos han seguido, incluyendo en Navidad 2021 y durante tormentas menores.</p>
+      </div>
+    </div>
+
+    <div class="timeline" style="margin-top:28px">
+      <div class="tl-item gold">
+        <div class="tl-year">Junio 2021</div>
+        <div class="tl-content">LUMA asume operaciones. <strong>El primer día</strong>, miles de clientes reportan apagones.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Diciembre 2021</div>
+        <div class="tl-content">Apagones masivos durante las <strong>fiestas navideñas</strong>. Cientos de miles sin servicio. Protestas en San Juan.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Abril 2022</div>
+        <div class="tl-content"><strong>Apagón total de la isla</strong> por incendio en Costa Sur. Demanda colectiva de $800M.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Sept 2022</div>
+        <div class="tl-content">Huracán Fiona destruye infraestructura que se suponía reparada. Toda la isla sin luz nuevamente. Protestas masivas exigiendo cancelación del contrato de LUMA.</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-year">Enero 2023</div>
+        <div class="tl-content"><strong>Genera PR</strong> (subsidiaria de New Fortress Energy) asume la generación. Contrato de $22,5M/año + hasta $100M en incentivos por 10 años. <strong>El contrato no menciona energía renovable.</strong></div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">LUMA proyecta hasta <strong>154 horas de apagones planificados</strong> en 36 días (julio 2024–junio 2025) por insuficiencia de generación.</div>
+      </div>
+      <div class="tl-item red">
+        <div class="tl-year">Octubre 2026</div>
+        <div class="tl-content"><strong>Tarifa récord de 33,86¢/kWh</strong> entra en vigor — casi el doble del promedio estadounidense (18,3¢). Los puertorriqueños gastan <strong>8% de sus ingresos en electricidad</strong> vs. 2,4% en el continente.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TARIFAS -->
+  <section id="tarifas">
+    <div class="sec-label">03 · Tarifas eléctricas</div>
+    <h2 class="sec-title">Las más altas del sistema estadounidense</h2>
+    <p class="sec-desc reveal">Las tarifas eléctricas de Puerto Rico han aumentado dramáticamente desde la privatización en 2021. La tarifa residencial ha subido 7 veces, y en octubre de 2026 alcanzó un récord histórico — casi el doble del promedio del continente.</p>
+
+    <!-- SVG Rate Chart -->
+    <div class="flow-diagram" id="viz-rates" style="position:relative">
+      <h3 style="margin-bottom:4px">Tarifa eléctrica residencial (¢/kWh)</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Fuentes: EIA, NEPR, LUMA Energy</p>
+      <svg viewBox="0 0 700 320" style="width:100%;height:auto" aria-label="Gráfica de tarifas eléctricas 2018-2026">
+        <!-- Grid lines -->
+        <line x1="60" y1="40" x2="660" y2="40" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="60" y1="96" x2="660" y2="96" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="60" y1="152" x2="660" y2="152" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="60" y1="208" x2="660" y2="208" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="60" y1="264" x2="660" y2="264" stroke="var(--line)" stroke-width=".5"/>
+        <!-- Y-axis labels -->
+        <text x="55" y="44" text-anchor="end" font-size="11" fill="var(--muted)">35¢</text>
+        <text x="55" y="100" text-anchor="end" font-size="11" fill="var(--muted)">28¢</text>
+        <text x="55" y="156" text-anchor="end" font-size="11" fill="var(--muted)">21¢</text>
+        <text x="55" y="212" text-anchor="end" font-size="11" fill="var(--muted)">14¢</text>
+        <text x="55" y="268" text-anchor="end" font-size="11" fill="var(--muted)">7¢</text>
+        <!-- US Average reference line -->
+        <line x1="60" y1="112" x2="660" y2="112" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="6,4" opacity=".6"/>
+        <text x="665" y="116" font-size="10" fill="var(--green)" font-weight="600">EE.UU. promedio: 18,3¢</text>
+        <!-- PR rate area -->
+        <polygon class="viz-area" points="93,150, 160,144, 227,163, 294,152, 361,76, 394,100, 461,110, 528,102, 595,96, 640,45, 640,264, 93,264" fill="var(--red)" opacity=".15"/>
+        <!-- PR rate line -->
+        <polyline class="viz-area" points="93,150, 160,144, 227,163, 294,152, 361,76, 394,100, 461,110, 528,102, 595,96, 640,45" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+        <!-- Data points: 2018:20.7, 2019:21.4, 2020:19.2, 2021:21.2, 2022:28.3, mid-2022:24, 2023:22.8, 2024:23.7, 2025:25.2, 2026:33.9 -->
+        <circle cx="93" cy="150" r="5" fill="var(--red)"/>
+        <circle cx="160" cy="144" r="5" fill="var(--red)"/>
+        <circle cx="227" cy="163" r="5" fill="var(--red)"/>
+        <circle cx="294" cy="152" r="5" fill="var(--red)"/>
+        <circle cx="361" cy="76" r="5" fill="var(--red)"/>
+        <circle cx="461" cy="110" r="5" fill="var(--red)"/>
+        <circle cx="528" cy="102" r="5" fill="var(--red)"/>
+        <circle cx="595" cy="96" r="5" fill="var(--red)"/>
+        <circle cx="640" cy="45" r="5" fill="var(--red)"/>
+        <!-- X-axis labels -->
+        <text x="93" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2018</text>
+        <text x="160" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2019</text>
+        <text x="227" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2020</text>
+        <text x="294" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2021</text>
+        <text x="361" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2022</text>
+        <text x="461" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2023</text>
+        <text x="528" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2024</text>
+        <text x="595" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2025</text>
+        <text x="640" y="284" text-anchor="middle" font-size="11" fill="var(--muted)">2026</text>
+        <!-- Annotations -->
+        <text x="294" y="140" text-anchor="middle" font-size="10" fill="var(--gold)" font-weight="600">LUMA asume ↓</text>
+        <text x="640" y="35" text-anchor="middle" font-size="10" fill="var(--red)" font-weight="700">33,86¢ RÉCORD</text>
+        <!-- Value labels -->
+        <text x="93" y="142" text-anchor="middle" font-size="10" fill="var(--ink-soft)" font-weight="600">20,7¢</text>
+        <text x="361" y="68" text-anchor="middle" font-size="10" fill="var(--ink-soft)" font-weight="600">28,3¢</text>
+        <!-- Tooltip container -->
+        <rect x="0" y="0" width="700" height="290" fill="transparent"/>
+      </svg>
+      <div id="tt-rates" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .15s;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;box-shadow:var(--shadow-md);z-index:10;font-size:13px;min-width:140px">
+      </div>
+    </div>
+
+    <div class="update-grid" style="margin-top:24px">
+      <div class="update-card red-top">
+        <h3>8% de ingresos en electricidad</h3>
+        <div class="big-num red">8%</div>
+        <p>Los puertorriqueños gastan el <strong>8% de sus ingresos en electricidad</strong>, comparado con solo el 2,4% que gastan los residentes del continente. Para una familia de ingreso medio ($21.000/año), esto equivale a ~$1.680 anuales solo en luz.</p>
+      </div>
+      <div class="update-card red-top">
+        <h3>Industria: premium del 163%</h3>
+        <div class="big-num red">163%</div>
+        <p>La tarifa industrial de Puerto Rico es <strong>24,42¢/kWh vs. 9,29¢ en el continente</strong> — un sobrecosto del 163% que cambia fundamentalmente los cálculos de inversión para manufactura y operaciones.</p>
+      </div>
+      <div class="update-card gold-top">
+        <h3>Desglose de la tarifa</h3>
+        <p style="font-size:14px;line-height:1.7"><strong>Combustible:</strong> ~45% (petróleo importado + LNG)<br>
+        <strong>Generación (Genera PR):</strong> ~20%<br>
+        <strong>T&amp;D (LUMA):</strong> ~20%<br>
+        <strong>Servicio de deuda (PREPA):</strong> ~10%<br>
+        <strong>Subsidios cruzados / otros:</strong> ~5%</p>
+      </div>
+      <div class="update-card gold-top">
+        <h3>¿Por qué tan cara?</h3>
+        <p style="font-size:14px;line-height:1.7"><strong>97% fósil</strong> → dependencia de precios globales de petróleo<br>
+        <strong>Jones Act</strong> → sobrecosto en transporte de combustible<br>
+        <strong>Plantas viejas</strong> → ineficiencia de conversión<br>
+        <strong>Deuda PREPA</strong> → consumidores pagan reestructuración<br>
+        <strong>Isla pequeña</strong> → sin economías de escala</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 IMPACTO ECONÓMICO -->
+  <section id="impacto-energia">
+    <div class="sec-label">04 · Impacto económico</div>
+    <h2 class="sec-title">El apagón que frena la economía</h2>
+    <p class="sec-desc reveal">La electricidad cara e inestable no es solo una molestia — es un freno estructural al desarrollo económico. Cada apagón destruye inventario, paraliza comercio, y erosiona la confianza de inversionistas.</p>
+
+    <div class="update-grid" style="margin-top:20px">
+      <div class="update-card red-top">
+        <h3>Pérdidas anuales por apagones</h3>
+        <div class="big-num red">$500M–$1.000M</div>
+        <p>Las interrupciones de la red le cuestan a la economía entre <strong>$500 millones y $1.000 millones al año</strong> en productividad perdida, bienes dañados, respuesta de emergencia y pérdidas indirectas.</p>
+        <div class="card-src">Del Río Global Strategies / Medium (2024)</div>
+      </div>
+      <div class="update-card red-top">
+        <h3>Generadores: el costo oculto</h3>
+        <div class="big-num gold">80+</div>
+        <p><strong>Más de 80 instalaciones médicas</strong> (incluyendo hospitales) dependen de generadores durante apagones. Los pequeños comercios pierden inventario perecedero, equipos se dañan por fluctuaciones, y muchos negocios simplemente no pueden operar.</p>
+      </div>
+      <div class="update-card red-top">
+        <h3>Fuga de manufactura</h3>
+        <div class="big-num red">$40.000M</div>
+        <p>La industria farmacéutica genera <strong>$40.000M al año</strong> y emplea 90.000 trabajadores. Pero «la electricidad confiable es imprescindible para la producción de medicamentos» — y las empresas evalúan reubicarse a zonas con infraestructura más estable.</p>
+        <div class="card-src">Cornell University / Federal Reserve Bank of New York (2025)</div>
+      </div>
+      <div class="update-card gold-top">
+        <h3>Disuasión de inversión</h3>
+        <div class="big-num gold">8–10</div>
+        <p>Puerto Rico experimenta <strong>8–10 interrupciones mayores de la red por año</strong>, con apagones que duran días o semanas en áreas rurales. Esta inestabilidad es el primer factor que citan potenciales inversionistas para no establecerse en la isla.</p>
+        <div class="card-src">EIA / Geopolitics Unplugged (2024)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CALIDAD DE VIDA -->
+  <section id="calidad">
+    <div class="sec-label">05 · Calidad de vida</div>
+    <h2 class="sec-title">Sin luz no hay agua, no hay salud, no hay vida normal</h2>
+    <p class="sec-desc reveal">La crisis eléctrica no existe en aislamiento — tiene un efecto cascada sobre el agua, la salud, la educación y la seguridad alimentaria de 3,2 millones de personas.</p>
+
+    <div class="update-grid" style="margin-top:20px">
+      <div class="update-card red-top">
+        <h3>Sin luz = Sin agua</h3>
+        <div class="big-num red">200.000+</div>
+        <p><strong>Más de 200.000 hogares y negocios</strong> pierden servicio de agua durante apagones porque el sistema de bombeo depende de electricidad. En 2026, residentes de Santurce acumularon <strong>140+ días sin agua</strong>.</p>
+        <div class="card-src">CNN / CPI (2026)</div>
+      </div>
+      <div class="update-card red-top">
+        <h3>Salud en riesgo</h3>
+        <div class="big-num red">73h</div>
+        <p>En 2024, el cliente promedio estuvo <strong>73 horas sin electricidad</strong> (43h por eventos mayores). En el continente: <strong>2 horas al año</strong>. Medicamentos se dañan, equipos médicos fallan, enfermos crónicos quedan vulnerables.</p>
+        <div class="card-src">EIA (2025)</div>
+      </div>
+      <div class="update-card gold-top">
+        <h3>Los más vulnerables</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink-soft)"><strong>Adultos mayores:</strong> Edad mediana de PR es 45,6 años. Muchos dependen de equipos médicos eléctricos.<br><br>
+        <strong>Comunidades rurales:</strong> Los apagones duran semanas en zonas montañosas. La restauración prioriza áreas urbanas.<br><br>
+        <strong>Escuelas:</strong> Cientos de escuelas sin generadores de respaldo. Los apagones interrumpen clases y la preparación de alimentos del programa escolar.</p>
+      </div>
+      <div class="update-card red-top">
+        <h3>Seguridad alimentaria</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink-soft)">Puerto Rico importa el <strong>85% de sus alimentos</strong>. Sin refrigeración confiable, cada apagón destruye inventario perecedero en hogares, supermercados y restaurantes. Las familias de bajos ingresos — el 45% de la población — no tienen dinero para reemplazar alimentos dañados ni para comprar generadores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 ENERGÍA RENOVABLE -->
+  <section id="renovables">
+    <div class="sec-label">06 · Energía renovable</div>
+    <h2 class="sec-title">La promesa incumplida</h2>
+    <p class="sec-desc reveal">La Ley 17 de 2019 comprometió a Puerto Rico con 100% de energía renovable para 2050, con metas intermedias de 40% para 2025. La realidad: solo el 12% de la generación es renovable — a un tercio de la meta.</p>
+
+    <!-- SVG Energy Mix Chart -->
+    <div class="flow-diagram" id="viz-energy-mix" style="position:relative">
+      <h3 style="margin-bottom:4px">Mezcla energética: meta vs. realidad</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Fuente: EIA, Ley 17-2019, NREL PR100</p>
+      <svg viewBox="0 0 650 280" style="width:100%;height:auto" aria-label="Comparación de meta renovable vs realidad">
+        <!-- REALITY donut -->
+        <text x="170" y="30" text-anchor="middle" font-size="14" fill="var(--ink)" font-weight="700">REALIDAD (2026)</text>
+        <!-- 88% fossil = ~317° -->
+        <circle cx="170" cy="150" r="80" fill="none" stroke="var(--red)" stroke-width="30" stroke-dasharray="445 57" stroke-dashoffset="0" transform="rotate(-90 170 150)"/>
+        <!-- 12% renewable = ~43° -->
+        <circle cx="170" cy="150" r="80" fill="none" stroke="var(--green)" stroke-width="30" stroke-dasharray="57 445" stroke-dashoffset="-445" transform="rotate(-90 170 150)"/>
+        <circle cx="170" cy="150" r="60" fill="var(--bg)"/>
+        <text x="170" y="145" text-anchor="middle" font-size="26" font-weight="700" fill="var(--red)" font-family="var(--serif)">88%</text>
+        <text x="170" y="165" text-anchor="middle" font-size="12" fill="var(--muted)">fósil</text>
+        <!-- META 2025 donut -->
+        <text x="480" y="30" text-anchor="middle" font-size="14" fill="var(--ink)" font-weight="700">META LEY 17 (2025)</text>
+        <!-- 60% fossil -->
+        <circle cx="480" cy="150" r="80" fill="none" stroke="var(--red)" stroke-width="30" stroke-dasharray="302 200" stroke-dashoffset="0" transform="rotate(-90 480 150)" opacity=".4"/>
+        <!-- 40% renewable -->
+        <circle cx="480" cy="150" r="80" fill="none" stroke="var(--green)" stroke-width="30" stroke-dasharray="200 302" stroke-dashoffset="-302" transform="rotate(-90 480 150)" opacity=".6"/>
+        <circle cx="480" cy="150" r="60" fill="var(--bg)"/>
+        <text x="480" y="145" text-anchor="middle" font-size="26" font-weight="700" fill="var(--green)" font-family="var(--serif)">40%</text>
+        <text x="480" y="165" text-anchor="middle" font-size="12" fill="var(--muted)">renovable</text>
+        <!-- Arrow between -->
+        <text x="325" y="150" text-anchor="middle" font-size="28" fill="var(--muted)">→</text>
+        <text x="325" y="175" text-anchor="middle" font-size="10" fill="var(--red)" font-weight="600">28% por debajo</text>
+        <!-- Legend -->
+        <rect x="130" y="245" width="14" height="14" rx="3" fill="var(--red)"/>
+        <text x="150" y="257" font-size="12" fill="var(--ink-soft)">Combustibles fósiles</text>
+        <rect x="290" y="245" width="14" height="14" rx="3" fill="var(--green)"/>
+        <text x="310" y="257" font-size="12" fill="var(--ink-soft)">Energía renovable</text>
+      </svg>
+    </div>
+
+    <div class="update-grid" style="margin-top:20px">
+      <div class="update-card green-top">
+        <h3>Potencial solar</h3>
+        <div class="big-num green">40 GW</div>
+        <p>NREL estima que PR tiene <strong>40 GW de potencial solar</strong> (20 GW utilidad + 20 GW distribuido). La isla podría generar <strong>4x la energía que necesita</strong> solo con techos solares.</p>
+        <div class="card-src">NREL PR100 Study (2024)</div>
+      </div>
+      <div class="update-card green-top">
+        <h3>Fondos federales</h3>
+        <div class="big-num green">$1.300M</div>
+        <p><strong>DOE:</strong> $440M para solar comunitario + baterías (nov 2023). <strong>DOE Loan Programs:</strong> $861M para 200 MW solar + 285 MW baterías. Pero la implementación sigue atrasada por burocracia y contratos.</p>
+      </div>
+      <div class="update-card gold-top">
+        <h3>Boom solar residencial</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink-soft)">Los apagones crónicos han disparado la instalación de <strong>paneles solares con baterías</strong> en hogares. Pero hay barreras: permisos lentos, batallas por net metering (compensación por energía devuelta a la red), y la Junta Fiscal ha cuestionado los subsidios al solar residencial.</p>
+        <div class="card-src">Canary Media / IEEFA (2024)</div>
+      </div>
+      <div class="update-card red-top">
+        <h3>Genera PR: sin mención renovable</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink-soft)">El contrato de Genera PR (New Fortress Energy) para gestionar la generación por 10 años <strong>no menciona energía renovable</strong>. New Fortress vende gas natural licuado (LNG) a PR — un claro conflicto de interés con la transición a renovables.</p>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:20px">
+      <strong>Los $16.300M de FEMA que no llegan:</strong> De los fondos asignados para reconstruir la red, solo el <strong>8% ($1.270M) se ha desembolsado</strong> después de 7+ años. A este ritmo, la reconstrucción completa tomaría <strong>décadas</strong>. La burocracia federal y local, los requisitos de procurement, y la corrupción documentada en contratos de FEMA han paralizado el proceso.
+    </div>
+  </section>
+
+  <!-- 07 NOTA EDITORIAL -->
+  <section id="editorial-energia">
+    <div class="sec-label">07 · Nota editorial</div>
+    <h2 class="sec-title">La electricidad como metáfora colonial</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p><strong>La crisis eléctrica de Puerto Rico es, en microcosmos, toda la crisis colonial.</strong></p>
+      <p>Una infraestructura construida para servir a un modelo económico extractivo — las plantas se diseñaron para alimentar fábricas de capital estadounidense, no para el desarrollo endógeno de la isla. Cuando las fábricas se fueron (tras la expiración de la 936), la infraestructura quedó sobredimensionada, obsoleta y endeudada.</p>
+      <p>La deuda de PREPA ($9.000M) se acumuló con el mismo mecanismo que la deuda pública general: bonos «triple exentos» vendidos a inversionistas del continente que lucraban con la exención fiscal colonial, mientras los directivos de PREPA — nombrados políticamente, sin rendición de cuentas técnica — usaban los fondos para operaciones diarias en vez de mantenimiento. Wall Street seguía prestando porque los bonos eran rentables.</p>
+      <p>Cuando el huracán María expuso la fragilidad de esta estructura en 2017, la respuesta no fue fortalecer la institución pública — fue <strong>privatizarla</strong>. LUMA (transmisión) y Genera PR (generación, subsidiaria de New Fortress Energy, que le vende gas a PR) ahora operan un sistema donde las ganancias son privadas, las pérdidas son públicas, y el consumidor paga la tarifa más alta de todo EE.UU. por el servicio menos confiable.</p>
+      <p>Y el círculo se cierra: la electricidad cara e inestable <strong>acelera la emigración</strong> documentada en la pestaña anterior (500.000+ desde 2010), <strong>disuade la inversión</strong> que podría diversificar la economía, <strong>destruye inventario</strong> de los pequeños comercios que son la columna vertebral del empleo local, y <strong>corta el agua</strong> que depende de bombas eléctricas — todo mientras el 45% de la población vive en pobreza y no puede costear generadores ni paneles solares.</p>
+      <p>Puerto Rico tiene <strong>40 GW de potencial solar</strong> — suficiente para generar 4 veces la energía que necesita. Tiene $16.300M asignados por FEMA para reconstruir la red. Tiene una ley (Ley 17) que exige 100% renovable para 2050. Pero solo el 12% de su generación es renovable (la meta para 2025 era 40%), solo el 8% de los fondos de FEMA se ha desembolsado en 7 años, y el contrato de generación privatizado <strong>ni siquiera menciona la palabra «renovable»</strong>.</p>
+      <p><strong>La isla tiene los recursos naturales, los fondos federales y el marco legal para resolver su crisis energética. Lo que no tiene es el control político sobre las decisiones que determinan cómo se usa cada uno de ellos.</strong></p>
+    </div>
+  </section>
+
+  <!-- 08 FUENTES -->
+  <section id="fuentes-energia">
+    <div class="sec-label">08 · Fuentes</div>
+    <h2 class="sec-title">Bibliografía — Crisis Energética</h2>
+
+    <h3 style="margin:16px 0 12px">Instituciones y datos oficiales</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">U.S. Energy Information Administration (EIA). «Puerto Rico Territory Energy Profile» y tablas de tarifas eléctricas (2018–2026).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">NEPR (Negociado de Energía de Puerto Rico). Resoluciones, informes de métricas SAIDI/SAIFI, y órdenes sobre tarifas.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">FEMA. Obligaciones de Public Assistance para reconstrucción de red eléctrica de PR ($16.300M asignados).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">NREL. «PR100 Study: Pathways to 100% Renewable Energy for Puerto Rico» (2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">DOE. Programa de préstamos: $861M para solar + baterías; $440M para solar comunitario (2023–2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">GAO. «Puerto Rico Grid Recovery: Limited Progress Toward Stability» (julio 2026).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Congressional Research Service. «Electric Reliability and Resiliency in Puerto Rico» (IF12913).</li>
+    </ul>
+
+    <h3 style="margin:24px 0 12px">Análisis y periodismo investigativo</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">IEEFA. «Solar at a Crossroads in Puerto Rico» y análisis de plan fiscal eléctrico.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Centro de Periodismo Investigativo. Reportajes sobre LUMA, apagones y contratos (2021–2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Canary Media. «Puerto Rico's rooftop solar boom is at risk» (2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Jacobin. «Puerto Rico's Electricity Nightmare Was Brought to You by Privatization» (2022).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">New Lines Magazine. «A Private Company Provokes an Energy Crisis in Puerto Rico» (2022).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">HuffPost. «As Puerto Rico's Privatized Power Grid Collapses, Its Owner Eyes a Bigger Payday» (2022).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">NBC News. «Record electric rate goes into effect in Puerto Rico amid soaring costs» (octubre 2026).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">CNN. «Inside Puerto Rico's worsening water emergency» (agosto 2026).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Union of Concerned Scientists. «Seven Years After María, You Can't Even Count on Keeping the Lights On» (2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Sierra Club. «What Would It Take to Bring Renewable, Reliable Power to Puerto Rico?» (2024).</li>
+    </ul>
+
+    <h3 style="margin:24px 0 12px">Datos financieros y corporativos</h3>
+    <ul class="bib-list" style="list-style:none;padding:0;font-size:14px">
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">LUMA Energy. Informes de métricas y tarifas (lumapr.com).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Latino Rebels. Reportajes sobre Genera PR/New Fortress Energy y protestas contra LUMA.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Del Río Global Strategies. «The Energy Decline of Puerto Rico: Crisis, Consequences and Road to Resilience» (2024).</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">CarbonMinus. «Why Puerto Rico Energy Costs Change Equipment Investment Strategy» — análisis de tarifa industrial 24,42¢ vs. 9,29¢ continental.</li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft)">Federal Reserve Bank of New York. «Puerto Rico Regional Visit: Economic Growth Followed Disaster. What Comes Next?» (2025).</li>
+    </ul>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Las tarifas provienen de la EIA y NEPR. Los datos de fiabilidad (SAIDI/SAIFI) son de informes oficiales de LUMA al NEPR. Las cifras de fondos FEMA provienen de informes del GAO y CRS. Los datos de potencial renovable son del estudio PR100 del NREL/DOE. Los montos de contratos provienen de documentos públicos del NEPR y reportajes verificados. Investigación compilada el 1 de octubre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-energia -->
+
 </div>
 
 <script>
@@ -2924,7 +3395,7 @@ section { padding-top: 72px }
 
   // ── Tab switching ──
   var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-futuro')];
+  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-futuro'), document.getElementById('tab-energia')];
   var sideNav = document.getElementById('side-nav');
 
   tabBtns.forEach(function(btn){
@@ -3049,6 +3520,58 @@ section { padding-top: 72px }
           }, { threshold: 0.3 });
           cObs3.observe(block);
         });
+      } else if(target === 'tab-energia'){
+        sideNav.innerHTML = [
+          ['#prepa','Historia PREPA'],['#luma','LUMA Energy'],['#tarifas','Tarifas'],
+          ['#impacto-energia','Impacto económico'],['#calidad','Calidad de vida'],
+          ['#renovables','Renovables'],['#editorial-energia','Editorial'],['#fuentes-energia','Fuentes']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+        var fadeEls4 = document.querySelectorAll('#tab-energia .update-card, #tab-energia .law-card, #tab-energia .note-box, #tab-energia .tl-item');
+        fadeEls4.forEach(function(el){ el.classList.add('fade-in'); el.classList.remove('hidden'); });
+        // Animate rate chart
+        var vizRates = document.getElementById('viz-rates');
+        if(vizRates){
+          vizRates.querySelectorAll('.viz-area').forEach(function(a){ a.style.opacity='0'; });
+          var rObs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting){
+                e.target.querySelectorAll('.viz-area').forEach(function(a){
+                  a.style.transition='opacity 1.2s ease';
+                  requestAnimationFrame(function(){ a.style.opacity='1'; });
+                });
+                rObs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          rObs.observe(vizRates);
+        }
+        // Counters for tab-energia
+        document.querySelectorAll('#tab-energia .counters').forEach(function(block){
+          var done4 = false;
+          var cObs4 = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting && !done4){
+                done4 = true;
+                e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
+                  var tgt = parseInt(el.getAttribute('data-target'));
+                  var pfx = el.getAttribute('data-prefix') || '';
+                  var sfx = el.getAttribute('data-suffix') || '';
+                  var dur = 1500, st = performance.now();
+                  function tick(now){
+                    var p = Math.min((now - st) / dur, 1);
+                    var ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = pfx + Math.round(tgt * ease).toLocaleString('es') + sfx;
+                    if(p < 1) requestAnimationFrame(tick);
+                  }
+                  requestAnimationFrame(tick);
+                });
+                cObs4.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          cObs4.observe(block);
+        });
       } else {
         sideNav.innerHTML = origNavHTML;
         initSideNavObs();
@@ -3073,7 +3596,7 @@ section { padding-top: 72px }
         }
       });
     }, { rootMargin: '-30% 0px -70% 0px' });
-    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-futuro:not([hidden])');
+    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-futuro:not([hidden]), #tab-energia:not([hidden])');
     if(activePanel) activePanel.querySelectorAll('section[id]').forEach(function(s){ window._sideObs.observe(s) });
   }
 
@@ -3212,7 +3735,7 @@ section { padding-top: 72px }
   // Restore saved tab
   try {
     var savedTab = localStorage.getItem('activeTab');
-    if(savedTab === 'tab-historia' || savedTab === 'tab-futuro'){
+    if(savedTab === 'tab-historia' || savedTab === 'tab-futuro' || savedTab === 'tab-energia'){
       var btn2 = document.querySelector('.tab-btn[data-tab="'+savedTab+'"]');
       if(btn2) btn2.click();
     }
