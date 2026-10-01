@@ -755,8 +755,8 @@ section { padding-top: 72px }
   <nav class="tab-bar" id="tabBar">
     <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 Flujos Económicos</button>
     <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
-    <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 ¿Cuáles Son Nuestras Opciones?</button>
     <button class="tab-btn btn-red" data-tab="tab-energia">⚡ La Crisis Energética</button>
+    <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 ¿Cuáles Son Nuestras Opciones?</button>
   </nav>
 
   <div id="tab-flujos">
@@ -2368,362 +2368,8 @@ section { padding-top: 72px }
 
   </div><!-- /tab-historia -->
 
-  <!-- ═══════════════════════════════════════════════════════════════════ -->
-  <!-- TAB 3: FUTURO (placeholder - will be filled with research) -->
-  <!-- ═══════════════════════════════════════════════════════════════════ -->
-  <div id="tab-futuro" hidden>
-    <header class="hero-cinematic" id="hero3" style="min-height:380px">
-      <!-- Geometric: rising bars + sun/horizon -->
-      <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:.07;right:2%;width:48%">
-        <!-- Rising bars — growth metaphor -->
-        <rect x="100" y="300" width="50" height="60" stroke="#00E676" stroke-width="2" fill="none"/>
-        <rect x="170" y="260" width="50" height="100" stroke="#00E676" stroke-width="2" fill="none"/>
-        <rect x="240" y="210" width="50" height="150" stroke="#00E676" stroke-width="2" fill="none"/>
-        <rect x="310" y="150" width="50" height="210" stroke="#00E676" stroke-width="2" fill="none"/>
-        <rect x="380" y="100" width="50" height="260" stroke="#00E676" stroke-width="2" fill="none"/>
-        <rect x="450" y="60" width="50" height="300" stroke="#00E676" stroke-width="2" fill="none"/>
-        <!-- Horizon line -->
-        <line x1="60" y1="360" x2="740" y2="360" stroke="#00E676" stroke-width="1.5" opacity=".5"/>
-        <!-- Sun arc -->
-        <path d="M550,360 A120,120 0 0,1 670,240" stroke="#00E676" stroke-width="1.5" fill="none" opacity=".4"/>
-        <circle cx="670" cy="240" r="4" fill="#00E676" opacity=".6"/>
-        <!-- Radiating lines from sun -->
-        <line x1="670" y1="240" x2="720" y2="200" stroke="#00E676" stroke-width="1" opacity=".3"/>
-        <line x1="670" y1="240" x2="730" y2="230" stroke="#00E676" stroke-width="1" opacity=".3"/>
-        <line x1="670" y1="240" x2="720" y2="260" stroke="#00E676" stroke-width="1" opacity=".3"/>
-      </svg>
-      <div class="hero-inner">
-        <div class="hero-kicker" style="color:#66FFA6"><span style="display:inline-block;width:32px;height:2px;background:#66FFA6;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase III</div>
-        <h1>¿Cuáles son nuestras opciones de futuro?</h1>
-        <p class="hero-lede" style="color:rgba(255,255,255,.88)">Tres opciones de estatus político. Cuatro modelos económicos internacionales. Un movimiento político que rompió 55 años de bipartidismo. Y estrategias concretas para energía, agricultura, tecnología y anticorrupción. Esta investigación examina las vías reales que Puerto Rico tiene para salir de la crisis — con datos, no con promesas.</p>
-        <p class="hero-meta">Basado en proyecciones del <strong>CBO</strong>, <strong>GAO</strong>, <strong>Centro de Estudios Puertorriqueños (CUNY)</strong>, <strong>NREL</strong>, <strong>Fraser Institute</strong>, y datos electorales oficiales de 2024.</p>
-      </div>
-    </header>
-
-  <!-- ESTATUS POLÍTICO -->
-  <section id="estatus">
-    <div class="sec-label reveal">01 · Opciones de estatus</div>
-    <h2 class="sec-title">Tres caminos, tres futuros</h2>
-    <p class="sec-intro reveal">Puerto Rico lleva más de 125 años como territorio no incorporado. El Congreso ha legislado sobre la isla sin darle voto. Aquí se examinan las tres opciones reales de estatus político — con sus proyecciones económicas documentadas.</p>
-
-    <div class="card-grid2">
-      <div class="card" style="border-top:4px solid var(--blue)">
-        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--blue)">🗳️ Estadidad (Estado 51)</h3>
-        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-          <div style="text-align:center"><div class="counter-num" data-target="4500" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">Medicaid adicional/año</div></div>
-          <div style="text-align:center"><div class="counter-num" data-target="5" data-suffix=" representantes" style="font-size:1.8rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:12px;color:var(--muted)">en el Congreso</div></div>
-        </div>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Acceso pleno a Medicaid, SSI, EITC, SNAP. 2 senadores + 4-5 representantes con voto. Estabilidad jurídica. CBO proyecta superávit de ~$4.000M por década.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Impuestos federales reducirían inversión manufacturera. Pérdida de Act 60 y autonomía fiscal. Requiere aprobación del Congreso — políticamente improbable.</p>
-        <p style="font-size:13px;color:var(--muted)">En 2020 el «sí» ganó con 52,5%. En 2024 se repitió plebiscito con múltiples opciones.</p>
-      </div>
-
-      <div class="card" style="border-top:4px solid var(--green)">
-        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--green)">🏛️ República independiente</h3>
-        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-          <div style="text-align:center"><div class="counter-num" data-target="1400" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">ahorro/año sin Jones Act</div></div>
-          <div style="text-align:center"><div class="counter-num" data-target="51000" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--gold)">$0</div><div style="font-size:12px;color:var(--muted)">ingresos propios año 20</div></div>
-        </div>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Eliminación del Jones Act ($1.400M/año). Soberanía fiscal total. Tratados comerciales independientes. Acceso pleno a ONU, FMI, Banco Mundial.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Pérdida de ~$21.000M anuales en transferencias federales. Pérdida de ciudadanía automática para nuevas generaciones. Riesgo de fuga de capital.</p>
-        <p style="font-size:13px;color:var(--muted)">Plan de transición (2025): $36.000M anuales por 20 años o pago único de $489.000M. Proyección de ingresos propios: $32.000–51.000M/año para año 20.</p>
-      </div>
-
-      <div class="card" style="border-top:4px solid var(--gold)">
-        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--gold)">🤝 Libre asociación (Compact)</h3>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Relación entre dos naciones soberanas con acuerdos negociados. EE.UU. tiene este arreglo con Palau, Micronesia e Islas Marshall.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Soberanía con red de seguridad. Posibilidad de negociar fin del Jones Act. Acceso a organismos internacionales sin ruptura total.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Los compactos son temporales y renegociables. EE.UU. puede terminar el acuerdo unilateralmente. Palau recibe solo ~$18M/año. El Congreso ha rechazado el concepto de «ELA mejorado».</p>
-        <p style="font-size:13px;color:var(--muted)">En 2024 apareció como «Estado Libre Asociado Soberano» en el plebiscito.</p>
-      </div>
-    </div>
-
-    <div class="note-box">
-      <strong>Cualquier opción requiere acción del Congreso</strong> — donde PR no tiene voto. Las tres opciones tienen costos y beneficios reales. Lo que no es opción es seguir en el limbo colonial actual: un territorio sin representación, sin soberanía fiscal, sin acceso pleno a programas federales y bajo control de una Junta no electa.
-    </div>
-
-    <!-- ── Status Options Comparison Chart ── -->
-    <div class="viz-chart reveal" id="viz-status" style="position:relative">
-      <h3>Comparación de las tres opciones</h3>
-      <p class="viz-subtitle">Cada opción tiene fortalezas y sacrificios diferentes. Barras más largas = mayor beneficio en esa dimensión.</p>
-      <svg viewBox="0 0 720 340" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico comparativo: estadidad vs república vs libre asociación">
-        <!-- Dimension labels -->
-        <text x="136" y="32" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Fondos federales</text>
-        <text x="136" y="92" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Soberanía fiscal</text>
-        <text x="136" y="152" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Comercio libre</text>
-        <text x="136" y="212" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Representación</text>
-        <text x="136" y="272" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Viabilidad política</text>
-        <!-- Grid -->
-        <line x1="148" y1="15" x2="148" y2="290" stroke="var(--line)" stroke-width="1"/>
-        <!-- Estadidad (blue) -->
-        <rect x="150" y="18" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
-        <rect x="150" y="78" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="80"/>
-        <rect x="150" y="138" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="100"/>
-        <rect x="150" y="198" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
-        <rect x="150" y="258" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="150"/>
-        <!-- República (green) -->
-        <rect x="150" y="34" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="50"/>
-        <rect x="150" y="94" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
-        <rect x="150" y="154" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
-        <rect x="150" y="214" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
-        <rect x="150" y="274" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="100"/>
-        <!-- Libre asociación (gold) -->
-        <rect x="150" y="50" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="250"/>
-        <rect x="150" y="110" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
-        <rect x="150" y="170" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
-        <rect x="150" y="230" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="300"/>
-        <rect x="150" y="290" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="200"/>
-        <!-- Separator lines -->
-        <line x1="148" y1="65" x2="680" y2="65" stroke="var(--line)" stroke-width=".5"/>
-        <line x1="148" y1="125" x2="680" y2="125" stroke="var(--line)" stroke-width=".5"/>
-        <line x1="148" y1="185" x2="680" y2="185" stroke="var(--line)" stroke-width=".5"/>
-        <line x1="148" y1="245" x2="680" y2="245" stroke="var(--line)" stroke-width=".5"/>
-      </svg>
-      <div class="viz-legend">
-        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--blue)"></span> Estadidad</div>
-        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--green)"></span> República</div>
-        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--gold)"></span> Libre asociación</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODELOS ECONÓMICOS -->
-  <section id="modelos">
-    <div class="sec-label reveal">02 · Modelos internacionales</div>
-    <h2 class="sec-title">¿Qué pueden enseñarnos otros países?</h2>
-    <p class="sec-intro reveal">Cuatro naciones pequeñas que enfrentaron desafíos similares — y encontraron caminos de transformación económica.</p>
-
-    <div class="card-grid2">
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇸🇬 Singapur</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">PIB per cápita: $500 (1965) → $65.000 (2024)</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Isla sin recursos naturales, 5,9M de habitantes. Claves: educación técnica masiva, anticorrupción radical (CPIB), estado desarrollista que dirige sin controlar, hub comercial global, fondo soberano (Temasek).</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Replicable en PR:</strong> Educación técnica, anticorrupción institucional, posición geográfica como hub Caribe-América. <strong>No replicable:</strong> Singapur tuvo soberanía total y gobierno autoritario.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇮🇪 Irlanda</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De emigración masiva (1980s) a PIB per cápita más alto de la UE</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Impuesto corporativo del 12,5% atrajo a Apple, Google, Meta, Pfizer. Membresía en la UE (mercado de 450M). Inversión en educación. Agencia IDA Ireland — desarrollo industrial profesionalizado.</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> PR tiene Act 60 (4% corporativo) pero las ganancias se repatrían — falta el «ancla local». Necesita agencia de desarrollo con mandato profesional, no político.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇪🇪 Estonia</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">1,3M de habitantes. De la URSS a líder digital mundial.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independencia en 1991. Creó e-Residency (ciudadanía digital), 99% de servicios gubernamentales online. Epicentro de startups (Skype, Bolt, Wise).</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> Gobierno digital, transparencia radical, atracción de talento tech. PR como «Silicon Island» — con Act 60 y e-Residency tropical.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇧🇧 Barbados</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De colonia británica a república (2021) sin colapso económico.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Se independizó de la Corona Británica en noviembre 2021. Mantuvo estabilidad económica, turismo y servicios financieros durante la transición.</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
-      </div>
-    </div>
-
-    <!-- ── International Models Dot Plot ── -->
-    <div class="viz-chart reveal" id="viz-models" style="position:relative">
-      <h3>PR vs. modelos internacionales — indicadores clave</h3>
-      <p class="viz-subtitle">Comparación de PIB per cápita actual (USD). Todas empezaron con desafíos similares a los de Puerto Rico.</p>
-      <svg viewBox="0 0 720 220" style="width:100%;height:auto;display:block" role="img" aria-label="Dot plot: PIB per cápita de PR vs Singapur, Irlanda, Estonia, Barbados">
-        <!-- Grid -->
-        <line x1="110" y1="30" x2="110" y2="190" stroke="var(--line)" stroke-width="1"/>
-        <line x1="110" y1="190" x2="690" y2="190" stroke="var(--line)" stroke-width="1"/>
-        <!-- X axis labels ($0 - $80K) -->
-        <text x="110" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$0</text>
-        <text x="255" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$20K</text>
-        <text x="400" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$40K</text>
-        <text x="545" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$60K</text>
-        <text x="690" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$80K</text>
-        <!-- Grid lines vertical -->
-        <line x1="255" y1="30" x2="255" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="400" y1="30" x2="400" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="545" y1="30" x2="545" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="690" y1="30" x2="690" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <!-- Country labels -->
-        <text x="106" y="50" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Singapur</text>
-        <text x="106" y="82" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Irlanda</text>
-        <text x="106" y="114" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Estonia</text>
-        <text x="106" y="146" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Barbados</text>
-        <text x="106" y="178" font-size="11.5" fill="var(--red)" text-anchor="end" font-weight="700">Puerto Rico</text>
-        <!-- Connecting lines (lollipop style) -->
-        <line x1="112" y1="46" x2="581" y2="46" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="78" x2="680" y2="78" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="110" x2="290" y2="110" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="142" x2="228" y2="142" stroke="var(--gold)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="174" x2="254" y2="174" stroke="var(--red)" stroke-width="2" opacity=".3"/>
-        <!-- Dots: Singapore $65K, Ireland $77K (GNI*~$55K but nominal high), Estonia $28K, Barbados $16K, PR $21K -->
-        <!-- x = 110 + (value/80000)*580 -->
-        <circle cx="581" cy="46" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="596" y="50" font-size="11" fill="var(--ink)" font-weight="600">$65.000</text>
-        <circle cx="680" cy="78" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="642" y="72" font-size="11" fill="var(--ink)" font-weight="600">$78.700*</text>
-        <circle cx="290" cy="110" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="304" y="114" font-size="11" fill="var(--ink)" font-weight="600">$28.000</text>
-        <circle cx="228" cy="142" r="6" fill="var(--gold)" opacity=".85"/>
-        <text x="242" y="146" font-size="11" fill="var(--ink)" font-weight="600">$16.000</text>
-        <circle cx="254" cy="174" r="8" fill="var(--red)"/>
-        <text x="268" y="178" font-size="11" fill="var(--red)" font-weight="700">$21.000</text>
-        <text x="690" y="72" font-size="8.5" fill="var(--muted)" text-anchor="end">*PIB nominal; GNI* ≈$55K</text>
-      </svg>
-      <p style="font-size:12px;color:var(--muted);margin-top:8px">Fuentes: Banco Mundial, FMI, BEA. PR usa ingreso per cápita real (~$21K), no PIB ($37K) que está inflado por repatriación corporativa.</p>
-    </div>
-  </section>
-
-  <!-- REFORMA POLÍTICA -->
-  <section id="reforma">
-    <div class="sec-label reveal">03 · Reforma política</div>
-    <h2 class="sec-title">70+ años del mismo bipartidismo</h2>
-    <p class="sec-intro reveal">PNP y PPD han alternado el poder desde 1952. Bajo ambos, la deuda se triplicó, la corrupción floreció y la población emigró masivamente. El problema no es solo de personas — es de estructura. Pero en 2024, un tercio del electorado rompió con el bipartidismo.</p>
-
-    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
-      <strong>Responsabilidad compartida:</strong> PNP aprobó Ley 7 (75.000+ empleos destruidos), Leyes 20/22 (gentrificación) y la mayor emisión de deuda ($23.400M bajo Fortuño). PPD declaró la deuda impagable, subió el IVU al 11,5% y gobernó durante la creación de COFINA. Los mismos dos partidos gobernaron por más de 70 años — y entre ambos construyeron esta crisis.
-    </div>
-
-    <h3 style="margin:32px 0 16px;font-family:var(--serif);font-size:1.3rem">El terremoto electoral de 2024</h3>
-
-    <div class="card" style="border-left:4px solid var(--green);margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Juan Dalmau Ramírez — Alianza de País</h3>
-      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="391945" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">votos (30,81%)</div></div>
-      </div>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Candidato a gobernador por la coalición <strong>Alianza de País</strong> (PIP + Movimiento Victoria Ciudadana). <strong>Segundo lugar</strong> — primera vez en 55 años que un candidato fuera de PNP/PPD logra esa posición. El PPD cayó a tercer lugar.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Propuestas:</strong> Soberanía económica, energía 100% renovable, fin de la Junta Fiscal, reforma anticorrupción, inversión en educación y agricultura local.</p>
-    </div>
-
-    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Eliezer Molina Pérez — Primer senador por write-in</h3>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Hazaña histórica:</strong> Elegido Senador por Acumulación el 5 de noviembre de 2024 mediante <strong>campaña de write-in</strong> — los votantes escribieron su nombre manualmente en la papeleta. <strong>Primer legislador electo por nominación directa en la historia de Puerto Rico.</strong></p>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Trayectoria:</strong> Ingeniero civil (Politécnica de PR). Tras el huracán María estudió ciencias económicas. Lideró la recuperación de la Playa Los Almendros en Rincón — precedente replicado en Aguadilla, Salinas, Río Grande y Lajas.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Enfoque legislativo:</strong> Protección de recursos naturales, dominio marítimo-terrestre, desarrollo económico sostenible.</p>
-    </div>
-
-    <div class="card" style="border-left:4px solid #9C27B0;margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Movimiento Victoria Ciudadana (MVC)</h3>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Partido fundado en 2019 como respuesta al Telegramgate y las protestas de <strong>#RickyRenuncia</strong>. Posiciones: anticorrupción, justicia social, soberanía económica, energía renovable.</p>
-      <p style="font-size:14px;color:var(--ink-soft)">En alianza con PIP formaron Alianza de País para 2024. Eligieron legisladores en ambas cámaras. La coalición demostró que existe un bloque electoral real fuera del bipartidismo.</p>
-    </div>
-
-    <div class="note-box" style="background:var(--green-bg);border-color:var(--green)">
-      <strong>La señal de 2024:</strong> Un tercio del electorado votó fuera del bipartidismo tradicional. El PPD perdió el segundo lugar por primera vez en más de medio siglo. Esto indica que el cambio político no es utopía — ya está en marcha.
-    </div>
-  </section>
-
-  <!-- ESTRATEGIAS ECONÓMICAS -->
-  <section id="estrategias">
-    <div class="sec-label reveal">04 · Estrategias económicas</div>
-    <h2 class="sec-title">¿Cómo salir de la crisis?</h2>
-    <p class="sec-intro reveal">Independientemente del estatus político, Puerto Rico tiene recursos reales que no ha explotado. Aquí se presentan seis ejes de desarrollo concretos.</p>
-
-    <div class="card" style="margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">☀️ Energía renovable — La revolución solar</h3>
-      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="300" data-suffix=" días" style="font-size:1.8rem;font-weight:700;color:var(--gold)">0</div><div style="font-size:12px;color:var(--muted)">de sol al año</div></div>
-        <div style="text-align:center"><div class="counter-num" data-target="24" data-suffix=" TWh" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">potencial solar (4× consumo)</div></div>
-      </div>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">El potencial solar residencial de PR es de <strong>24,6 TWh/año</strong> — cuatro veces el consumo eléctrico residencial. Meta oficial: 100% renovable para 2050, pero el avance ha sido glacial.</p>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Agrivoltaica:</strong> Proyecto piloto NREL de café bajo paneles solares resistentes a huracanes — combina producción agrícola con generación eléctrica sin competir por tierra.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Solar en techos vs. centralizado:</strong> El solar en techos no compite con tierras agrícolas; el centralizado sí y ha desplazado agricultores. La prioridad debe ser descentralización energética comunitaria.</p>
-    </div>
-
-    <div class="card" style="margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🌾 Soberanía alimentaria</h3>
-      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="85" data-suffix="%" style="font-size:1.8rem;font-weight:700;color:var(--red)">0</div><div style="font-size:12px;color:var(--muted)">de alimentos importados</div></div>
-      </div>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR importa el 85% de sus alimentos — vulnerabilidad extrema demostrada durante María. El Jones Act encarece cada producto importado.</p>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Potencial:</strong> Agroindustria tropical, acuaponía, agricultura urbana. Modelo Cuba: tras el colapso soviético, desarrolló agricultura urbana que hoy produce 50%+ de vegetales de La Habana.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Modelo Israel:</strong> Tecnología agrícola avanzada en condiciones limitadas — replicable en PR para optimizar producción con menos tierra y agua.</p>
-    </div>
-
-    <div class="card" style="margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">💻 Economía del conocimiento</h3>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR tiene legado farmacéutico/biotech de la era 936 — infraestructura y talento existente. Act 60 ya atrae empresas tech y nómadas digitales.</p>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Estonia (e-Residency):</strong> PR podría crear ciudadanía digital tropical — atrayendo emprendedores globales a un hub tech con incentivos fiscales y clima caribeño.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Hub biotech:</strong> La infraestructura de manufactura farmacéutica sigue existiendo. Con inversión en I+D y educación universitaria (UPR), PR podría pasar de manufactura a innovación.</p>
-    </div>
-
-    <div class="card-grid2" style="margin-bottom:20px">
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🏝️ Turismo diversificado</h3>
-        <p style="font-size:14px;color:var(--ink-soft)">Más allá de playas: turismo médico, ecoturismo, agroturismo, turismo cultural. Bioluminiscencia (Mosquito Bay), El Yunque, patrimonio histórico, gastronomía. PR recibe ~5M visitantes/año — potencial de duplicar con diversificación.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🌎 La diáspora como motor</h3>
-        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
-          <div style="text-align:center"><div class="counter-num" data-target="5800000" style="font-size:1.5rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:11px;color:var(--muted)">boricuas en el continente</div></div>
-        </div>
-        <p style="font-size:14px;color:var(--ink-soft)">5,8 millones en EE.UU. vs. 3,2 millones en la isla. Potencial de inversión diasporiana, retorno de talento profesional (médicos, ingenieros, educadores), redes de negocios en NYC, Orlando, Chicago.</p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🔒 Reforma anticorrupción</h3>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Correlación directa entre corrupción y estancamiento económico (documentada por Banco Mundial). PR tiene un historial de gobernadores, senadores, representantes y alcaldes convictos — como se documenta en la pestaña anterior.</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Receta Singapur (CPIB):</strong> Fiscalía independiente con dientes. Transparencia presupuestaria digital en tiempo real. Salarios competitivos para funcionarios públicos con castigos severos por corrupción. Auditorías obligatorias de todo contrato gubernamental.</p>
-    </div>
-
-    <div class="card" style="margin-bottom:20px">
-      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🤝 Economía cooperativa</h3>
-      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Mondragón (País Vasco):</strong> Cooperativas de trabajadores que generan €12.000M anuales con 80.000 empleados. PR ya tiene tradición cooperativista (cooperativas de ahorro y crédito).</p>
-      <p style="font-size:14px;color:var(--ink-soft)"><strong>Fideicomisos comunitarios de tierra (CLTs):</strong> Para combatir la gentrificación de Act 60 — la comunidad es dueña de la tierra, los residentes son dueños de las estructuras. Modelo exitoso en Burlington (Vermont) y Londres.</p>
-    </div>
-  </section>
-
-  <!-- NOTA EDITORIAL -->
-  <section id="editorial-futuro">
-    <div class="sec-label reveal">05 · Nota editorial</div>
-    <h2 class="sec-title">El futuro no se hereda — se construye</h2>
-
-    <div class="note-box" style="border-width:2px">
-      <p><strong>Los datos de esta investigación cuentan una historia de tres capas.</strong></p>
-
-      <p>En la primera pestaña documentamos que Puerto Rico genera más de <strong>$35.000 millones anuales</strong> en ganancias corporativas que se repatrian al continente — suficiente para pagar la deuda total cuatro veces en una década. En la segunda, mostramos que los mismos dos partidos que gobernaron por más de <strong>70 años</strong> acumularon esa deuda, aprobaron leyes devastadoras y permitieron que la corrupción desviara miles de millones.</p>
-
-      <p>En esta tercera pestaña, la pregunta ya no es quién nos trajo aquí, sino <strong>cómo salimos</strong>.</p>
-
-      <p>Los modelos internacionales son claros: Singapur, Irlanda, Estonia y Barbados demuestran que naciones pequeñas, insulares y sin recursos naturales pueden transformarse en una generación. Pero todas tuvieron algo que PR no tiene hoy: <strong>soberanía real sobre sus decisiones económicas</strong>.</p>
-
-      <p>Lo más significativo de 2024 no fue quién ganó — fue que <strong>391.945 puertorriqueños</strong> votaron fuera del bipartidismo tradicional, y un ciudadano sin partido logró llegar al Senado escribiendo su nombre en una papeleta. Eso no es una anomalía estadística — es una señal.</p>
-
-      <p>Puerto Rico tiene 300 días de sol, potencial solar cuatro veces mayor que su consumo, una diáspora de 5,8 millones, infraestructura farmacéutica existente, posición geográfica privilegiada y una generación que ya demostró — en las calles de 2019 y las urnas de 2024 — que no acepta el statu quo.</p>
-
-      <p>La pregunta no es si PR <em>puede</em> cambiar. <strong>La pregunta es si quienes llegan al poder van a permitirlo — o si el ciclo de 70 años se repite.</strong></p>
-    </div>
-  </section>
-
-  <!-- FUENTES TAB 3 -->
-  <section id="fuentes-futuro">
-    <div class="sec-label reveal">Fuentes</div>
-    <h2 class="sec-title" style="font-size:1.5rem">Bibliografía — Fase III</h2>
-    <ul style="font-size:14px;color:var(--ink-soft);line-height:2">
-      <li>Congressional Budget Office (CBO). <em>Potential Economic Impacts of Changes in Puerto Rico's Status</em>.</li>
-      <li>Government Accountability Office (GAO-14-31). <em>Puerto Rico: How Statehood Would Affect Federal Programs</em>.</li>
-      <li>Centro de Estudios Puertorriqueños (Hunter/CUNY). <em>Federal Tax Policy in Puerto Rico</em>, 2024.</li>
-      <li>Pasquines. <em>New independence plan outlines economic vision for Puerto Rico</em>, mayo 2025.</li>
-      <li>Current Affairs. <em>The Case for Puerto Rican Independence</em>, 2024.</li>
-      <li>Puerto Rico Report. <em>Three Examples of Free Association</em>.</li>
-      <li>LA Progressive. <em>A Compact of Free Association as Puerto Rico's Path</em>.</li>
-      <li>Fraser Institute. <em>Lessons from Singapore's Growth Miracle</em>.</li>
-      <li>ResearchGate. <em>Singapore's Development Model and Its Limits</em>.</li>
-      <li>Emerging Europe. <em>The Singapore Model</em>.</li>
-      <li>Earthjustice. <em>Powering an Energy Revolution in Puerto Rico</em>.</li>
-      <li>Princeton JPIA. <em>Renewing Growth: Distributed Solar Energy in Puerto Rico</em>.</li>
-      <li>Canary Media. <em>Puerto Rico's energy future</em>.</li>
-      <li>NREL. <em>Puerto Rico Solar and Agrivoltaic Potential Study</em>.</li>
-      <li>Wikipedia / Ballotpedia. <em>2024 Puerto Rico gubernatorial election</em>.</li>
-      <li>Senado de PR. <em>Hon. Eliezer Molina Pérez</em> — perfil oficial.</li>
-      <li>Fenix Puerto Rico. <em>Senator Molina: A Voice for Environmental Justice</em>.</li>
-    </ul>
-  </section>
-
-  <footer class="page-foot">
-    <p><strong>Nota metodológica.</strong> Los datos de estatus provienen de proyecciones del CBO y GAO. Los modelos económicos se basan en literatura académica revisada. Los datos electorales son oficiales. Las estrategias de desarrollo se fundamentan en estudios del NREL, Fraser Institute y Banco Mundial. Investigación compilada el 30 de septiembre de 2026.</p>
-  </footer>
-
-  </div><!-- /tab-futuro -->
-
   <!-- ═══════════════════════════════════════════ -->
-  <!-- TAB 4 — LA CRISIS ENERGÉTICA               -->
+  <!-- TAB 3 — LA CRISIS ENERGÉTICA               -->
   <!-- ═══════════════════════════════════════════ -->
   <div id="tab-energia" hidden>
 
@@ -3179,6 +2825,358 @@ section { padding-top: 72px }
 
   </div><!-- /tab-energia -->
 
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 4: FUTURO (placeholder - will be filled with research) -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-futuro" hidden>
+    <header class="hero-cinematic" id="hero3" style="min-height:380px">
+      <!-- Geometric: rising bars + sun/horizon -->
+      <svg class="hero-island-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:.07;right:2%;width:48%">
+        <!-- Rising bars — growth metaphor -->
+        <rect x="100" y="300" width="50" height="60" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="170" y="260" width="50" height="100" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="240" y="210" width="50" height="150" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="310" y="150" width="50" height="210" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="380" y="100" width="50" height="260" stroke="#00E676" stroke-width="2" fill="none"/>
+        <rect x="450" y="60" width="50" height="300" stroke="#00E676" stroke-width="2" fill="none"/>
+        <!-- Horizon line -->
+        <line x1="60" y1="360" x2="740" y2="360" stroke="#00E676" stroke-width="1.5" opacity=".5"/>
+        <!-- Sun arc -->
+        <path d="M550,360 A120,120 0 0,1 670,240" stroke="#00E676" stroke-width="1.5" fill="none" opacity=".4"/>
+        <circle cx="670" cy="240" r="4" fill="#00E676" opacity=".6"/>
+        <!-- Radiating lines from sun -->
+        <line x1="670" y1="240" x2="720" y2="200" stroke="#00E676" stroke-width="1" opacity=".3"/>
+        <line x1="670" y1="240" x2="730" y2="230" stroke="#00E676" stroke-width="1" opacity=".3"/>
+        <line x1="670" y1="240" x2="720" y2="260" stroke="#00E676" stroke-width="1" opacity=".3"/>
+      </svg>
+      <div class="hero-inner">
+        <div class="hero-kicker" style="color:#66FFA6"><span style="display:inline-block;width:32px;height:2px;background:#66FFA6;margin-right:8px;vertical-align:middle"></span>Investigación &middot; Fase III</div>
+        <h1>¿Cuáles son nuestras opciones de futuro?</h1>
+        <p class="hero-lede" style="color:rgba(255,255,255,.88)">Tres opciones de estatus político. Cuatro modelos económicos internacionales. Un movimiento político que rompió 55 años de bipartidismo. Y estrategias concretas para energía, agricultura, tecnología y anticorrupción. Esta investigación examina las vías reales que Puerto Rico tiene para salir de la crisis — con datos, no con promesas.</p>
+        <p class="hero-meta">Basado en proyecciones del <strong>CBO</strong>, <strong>GAO</strong>, <strong>Centro de Estudios Puertorriqueños (CUNY)</strong>, <strong>NREL</strong>, <strong>Fraser Institute</strong>, y datos electorales oficiales de 2024.</p>
+      </div>
+    </header>
+
+  <!-- ESTATUS POLÍTICO -->
+  <section id="estatus">
+    <div class="sec-label reveal">01 · Opciones de estatus</div>
+    <h2 class="sec-title">Tres caminos, tres futuros</h2>
+    <p class="sec-intro reveal">Puerto Rico lleva más de 125 años como territorio no incorporado. El Congreso ha legislado sobre la isla sin darle voto. Aquí se examinan las tres opciones reales de estatus político — con sus proyecciones económicas documentadas.</p>
+
+    <div class="card-grid2">
+      <div class="card" style="border-top:4px solid var(--blue)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--blue)">🗳️ Estadidad (Estado 51)</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+          <div style="text-align:center"><div class="counter-num" data-target="4500" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">Medicaid adicional/año</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="5" data-suffix=" representantes" style="font-size:1.8rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:12px;color:var(--muted)">en el Congreso</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Acceso pleno a Medicaid, SSI, EITC, SNAP. 2 senadores + 4-5 representantes con voto. Estabilidad jurídica. CBO proyecta superávit de ~$4.000M por década.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Impuestos federales reducirían inversión manufacturera. Pérdida de Act 60 y autonomía fiscal. Requiere aprobación del Congreso — políticamente improbable.</p>
+        <p style="font-size:13px;color:var(--muted)">En 2020 el «sí» ganó con 52,5%. En 2024 se repitió plebiscito con múltiples opciones.</p>
+      </div>
+
+      <div class="card" style="border-top:4px solid var(--green)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--green)">🏛️ República independiente</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+          <div style="text-align:center"><div class="counter-num" data-target="1400" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">ahorro/año sin Jones Act</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="51000" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--gold)">$0</div><div style="font-size:12px;color:var(--muted)">ingresos propios año 20</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Eliminación del Jones Act ($1.400M/año). Soberanía fiscal total. Tratados comerciales independientes. Acceso pleno a ONU, FMI, Banco Mundial.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Pérdida de ~$21.000M anuales en transferencias federales. Pérdida de ciudadanía automática para nuevas generaciones. Riesgo de fuga de capital.</p>
+        <p style="font-size:13px;color:var(--muted)">Plan de transición (2025): $36.000M anuales por 20 años o pago único de $489.000M. Proyección de ingresos propios: $32.000–51.000M/año para año 20.</p>
+      </div>
+
+      <div class="card" style="border-top:4px solid var(--gold)">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--gold)">🤝 Libre asociación (Compact)</h3>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Relación entre dos naciones soberanas con acuerdos negociados. EE.UU. tiene este arreglo con Palau, Micronesia e Islas Marshall.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Soberanía con red de seguridad. Posibilidad de negociar fin del Jones Act. Acceso a organismos internacionales sin ruptura total.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Los compactos son temporales y renegociables. EE.UU. puede terminar el acuerdo unilateralmente. Palau recibe solo ~$18M/año. El Congreso ha rechazado el concepto de «ELA mejorado».</p>
+        <p style="font-size:13px;color:var(--muted)">En 2024 apareció como «Estado Libre Asociado Soberano» en el plebiscito.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Cualquier opción requiere acción del Congreso</strong> — donde PR no tiene voto. Las tres opciones tienen costos y beneficios reales. Lo que no es opción es seguir en el limbo colonial actual: un territorio sin representación, sin soberanía fiscal, sin acceso pleno a programas federales y bajo control de una Junta no electa.
+    </div>
+
+    <!-- ── Status Options Comparison Chart ── -->
+    <div class="viz-chart reveal" id="viz-status" style="position:relative">
+      <h3>Comparación de las tres opciones</h3>
+      <p class="viz-subtitle">Cada opción tiene fortalezas y sacrificios diferentes. Barras más largas = mayor beneficio en esa dimensión.</p>
+      <svg viewBox="0 0 720 340" style="width:100%;height:auto;display:block" role="img" aria-label="Gráfico comparativo: estadidad vs república vs libre asociación">
+        <!-- Dimension labels -->
+        <text x="136" y="32" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Fondos federales</text>
+        <text x="136" y="92" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Soberanía fiscal</text>
+        <text x="136" y="152" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Comercio libre</text>
+        <text x="136" y="212" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Representación</text>
+        <text x="136" y="272" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Viabilidad política</text>
+        <!-- Grid -->
+        <line x1="148" y1="15" x2="148" y2="290" stroke="var(--line)" stroke-width="1"/>
+        <!-- Estadidad (blue) -->
+        <rect x="150" y="18" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="78" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="80"/>
+        <rect x="150" y="138" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="100"/>
+        <rect x="150" y="198" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="258" width="0" height="12" rx="2" fill="var(--blue)" class="viz-bar" data-w="150"/>
+        <!-- República (green) -->
+        <rect x="150" y="34" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="50"/>
+        <rect x="150" y="94" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="154" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="214" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="500"/>
+        <rect x="150" y="274" width="0" height="12" rx="2" fill="var(--green)" class="viz-bar" data-w="100"/>
+        <!-- Libre asociación (gold) -->
+        <rect x="150" y="50" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="250"/>
+        <rect x="150" y="110" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
+        <rect x="150" y="170" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="350"/>
+        <rect x="150" y="230" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="300"/>
+        <rect x="150" y="290" width="0" height="12" rx="2" fill="var(--gold)" class="viz-bar" data-w="200"/>
+        <!-- Separator lines -->
+        <line x1="148" y1="65" x2="680" y2="65" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="125" x2="680" y2="125" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="185" x2="680" y2="185" stroke="var(--line)" stroke-width=".5"/>
+        <line x1="148" y1="245" x2="680" y2="245" stroke="var(--line)" stroke-width=".5"/>
+      </svg>
+      <div class="viz-legend">
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--blue)"></span> Estadidad</div>
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--green)"></span> República</div>
+        <div class="viz-legend-item"><span class="viz-legend-swatch" style="background:var(--gold)"></span> Libre asociación</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELOS ECONÓMICOS -->
+  <section id="modelos">
+    <div class="sec-label reveal">02 · Modelos internacionales</div>
+    <h2 class="sec-title">¿Qué pueden enseñarnos otros países?</h2>
+    <p class="sec-intro reveal">Cuatro naciones pequeñas que enfrentaron desafíos similares — y encontraron caminos de transformación económica.</p>
+
+    <div class="card-grid2">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇸🇬 Singapur</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">PIB per cápita: $500 (1965) → $65.000 (2024)</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Isla sin recursos naturales, 5,9M de habitantes. Claves: educación técnica masiva, anticorrupción radical (CPIB), estado desarrollista que dirige sin controlar, hub comercial global, fondo soberano (Temasek).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Replicable en PR:</strong> Educación técnica, anticorrupción institucional, posición geográfica como hub Caribe-América. <strong>No replicable:</strong> Singapur tuvo soberanía total y gobierno autoritario.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇮🇪 Irlanda</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De emigración masiva (1980s) a PIB per cápita más alto de la UE</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Impuesto corporativo del 12,5% atrajo a Apple, Google, Meta, Pfizer. Membresía en la UE (mercado de 450M). Inversión en educación. Agencia IDA Ireland — desarrollo industrial profesionalizado.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> PR tiene Act 60 (4% corporativo) pero las ganancias se repatrían — falta el «ancla local». Necesita agencia de desarrollo con mandato profesional, no político.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇪🇪 Estonia</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">1,3M de habitantes. De la URSS a líder digital mundial.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independencia en 1991. Creó e-Residency (ciudadanía digital), 99% de servicios gubernamentales online. Epicentro de startups (Skype, Bolt, Wise).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> Gobierno digital, transparencia radical, atracción de talento tech. PR como «Silicon Island» — con Act 60 y e-Residency tropical.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇧🇧 Barbados</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De colonia británica a república (2021) sin colapso económico.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Se independizó de la Corona Británica en noviembre 2021. Mantuvo estabilidad económica, turismo y servicios financieros durante la transición.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
+      </div>
+    </div>
+
+    <!-- ── International Models Dot Plot ── -->
+    <div class="viz-chart reveal" id="viz-models" style="position:relative">
+      <h3>PR vs. modelos internacionales — indicadores clave</h3>
+      <p class="viz-subtitle">Comparación de PIB per cápita actual (USD). Todas empezaron con desafíos similares a los de Puerto Rico.</p>
+      <svg viewBox="0 0 720 220" style="width:100%;height:auto;display:block" role="img" aria-label="Dot plot: PIB per cápita de PR vs Singapur, Irlanda, Estonia, Barbados">
+        <!-- Grid -->
+        <line x1="110" y1="30" x2="110" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <line x1="110" y1="190" x2="690" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <!-- X axis labels ($0 - $80K) -->
+        <text x="110" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$0</text>
+        <text x="255" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$20K</text>
+        <text x="400" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$40K</text>
+        <text x="545" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$60K</text>
+        <text x="690" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$80K</text>
+        <!-- Grid lines vertical -->
+        <line x1="255" y1="30" x2="255" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="400" y1="30" x2="400" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="545" y1="30" x2="545" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="690" y1="30" x2="690" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <!-- Country labels -->
+        <text x="106" y="50" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Singapur</text>
+        <text x="106" y="82" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Irlanda</text>
+        <text x="106" y="114" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Estonia</text>
+        <text x="106" y="146" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Barbados</text>
+        <text x="106" y="178" font-size="11.5" fill="var(--red)" text-anchor="end" font-weight="700">Puerto Rico</text>
+        <!-- Connecting lines (lollipop style) -->
+        <line x1="112" y1="46" x2="581" y2="46" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="78" x2="680" y2="78" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="110" x2="290" y2="110" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="142" x2="228" y2="142" stroke="var(--gold)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="174" x2="254" y2="174" stroke="var(--red)" stroke-width="2" opacity=".3"/>
+        <!-- Dots: Singapore $65K, Ireland $77K (GNI*~$55K but nominal high), Estonia $28K, Barbados $16K, PR $21K -->
+        <!-- x = 110 + (value/80000)*580 -->
+        <circle cx="581" cy="46" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="596" y="50" font-size="11" fill="var(--ink)" font-weight="600">$65.000</text>
+        <circle cx="680" cy="78" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="642" y="72" font-size="11" fill="var(--ink)" font-weight="600">$78.700*</text>
+        <circle cx="290" cy="110" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="304" y="114" font-size="11" fill="var(--ink)" font-weight="600">$28.000</text>
+        <circle cx="228" cy="142" r="6" fill="var(--gold)" opacity=".85"/>
+        <text x="242" y="146" font-size="11" fill="var(--ink)" font-weight="600">$16.000</text>
+        <circle cx="254" cy="174" r="8" fill="var(--red)"/>
+        <text x="268" y="178" font-size="11" fill="var(--red)" font-weight="700">$21.000</text>
+        <text x="690" y="72" font-size="8.5" fill="var(--muted)" text-anchor="end">*PIB nominal; GNI* ≈$55K</text>
+      </svg>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px">Fuentes: Banco Mundial, FMI, BEA. PR usa ingreso per cápita real (~$21K), no PIB ($37K) que está inflado por repatriación corporativa.</p>
+    </div>
+  </section>
+
+  <!-- REFORMA POLÍTICA -->
+  <section id="reforma">
+    <div class="sec-label reveal">03 · Reforma política</div>
+    <h2 class="sec-title">70+ años del mismo bipartidismo</h2>
+    <p class="sec-intro reveal">PNP y PPD han alternado el poder desde 1952. Bajo ambos, la deuda se triplicó, la corrupción floreció y la población emigró masivamente. El problema no es solo de personas — es de estructura. Pero en 2024, un tercio del electorado rompió con el bipartidismo.</p>
+
+    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
+      <strong>Responsabilidad compartida:</strong> PNP aprobó Ley 7 (75.000+ empleos destruidos), Leyes 20/22 (gentrificación) y la mayor emisión de deuda ($23.400M bajo Fortuño). PPD declaró la deuda impagable, subió el IVU al 11,5% y gobernó durante la creación de COFINA. Los mismos dos partidos gobernaron por más de 70 años — y entre ambos construyeron esta crisis.
+    </div>
+
+    <h3 style="margin:32px 0 16px;font-family:var(--serif);font-size:1.3rem">El terremoto electoral de 2024</h3>
+
+    <div class="card" style="border-left:4px solid var(--green);margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Juan Dalmau Ramírez — Alianza de País</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="391945" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">votos (30,81%)</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Candidato a gobernador por la coalición <strong>Alianza de País</strong> (PIP + Movimiento Victoria Ciudadana). <strong>Segundo lugar</strong> — primera vez en 55 años que un candidato fuera de PNP/PPD logra esa posición. El PPD cayó a tercer lugar.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Propuestas:</strong> Soberanía económica, energía 100% renovable, fin de la Junta Fiscal, reforma anticorrupción, inversión en educación y agricultura local.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Eliezer Molina Pérez — Primer senador por write-in</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Hazaña histórica:</strong> Elegido Senador por Acumulación el 5 de noviembre de 2024 mediante <strong>campaña de write-in</strong> — los votantes escribieron su nombre manualmente en la papeleta. <strong>Primer legislador electo por nominación directa en la historia de Puerto Rico.</strong></p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Trayectoria:</strong> Ingeniero civil (Politécnica de PR). Tras el huracán María estudió ciencias económicas. Lideró la recuperación de la Playa Los Almendros en Rincón — precedente replicado en Aguadilla, Salinas, Río Grande y Lajas.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Enfoque legislativo:</strong> Protección de recursos naturales, dominio marítimo-terrestre, desarrollo económico sostenible.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid #9C27B0;margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Movimiento Victoria Ciudadana (MVC)</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Partido fundado en 2019 como respuesta al Telegramgate y las protestas de <strong>#RickyRenuncia</strong>. Posiciones: anticorrupción, justicia social, soberanía económica, energía renovable.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">En alianza con PIP formaron Alianza de País para 2024. Eligieron legisladores en ambas cámaras. La coalición demostró que existe un bloque electoral real fuera del bipartidismo.</p>
+    </div>
+
+    <div class="note-box" style="background:var(--green-bg);border-color:var(--green)">
+      <strong>La señal de 2024:</strong> Un tercio del electorado votó fuera del bipartidismo tradicional. El PPD perdió el segundo lugar por primera vez en más de medio siglo. Esto indica que el cambio político no es utopía — ya está en marcha.
+    </div>
+  </section>
+
+  <!-- ESTRATEGIAS ECONÓMICAS -->
+  <section id="estrategias">
+    <div class="sec-label reveal">04 · Estrategias económicas</div>
+    <h2 class="sec-title">¿Cómo salir de la crisis?</h2>
+    <p class="sec-intro reveal">Independientemente del estatus político, Puerto Rico tiene recursos reales que no ha explotado. Aquí se presentan seis ejes de desarrollo concretos.</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">☀️ Energía renovable — La revolución solar</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="300" data-suffix=" días" style="font-size:1.8rem;font-weight:700;color:var(--gold)">0</div><div style="font-size:12px;color:var(--muted)">de sol al año</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="24" data-suffix=" TWh" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">potencial solar (4× consumo)</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">El potencial solar residencial de PR es de <strong>24,6 TWh/año</strong> — cuatro veces el consumo eléctrico residencial. Meta oficial: 100% renovable para 2050, pero el avance ha sido glacial.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Agrivoltaica:</strong> Proyecto piloto NREL de café bajo paneles solares resistentes a huracanes — combina producción agrícola con generación eléctrica sin competir por tierra.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Solar en techos vs. centralizado:</strong> El solar en techos no compite con tierras agrícolas; el centralizado sí y ha desplazado agricultores. La prioridad debe ser descentralización energética comunitaria.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🌾 Soberanía alimentaria</h3>
+      <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
+        <div style="text-align:center"><div class="counter-num" data-target="85" data-suffix="%" style="font-size:1.8rem;font-weight:700;color:var(--red)">0</div><div style="font-size:12px;color:var(--muted)">de alimentos importados</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR importa el 85% de sus alimentos — vulnerabilidad extrema demostrada durante María. El Jones Act encarece cada producto importado.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Potencial:</strong> Agroindustria tropical, acuaponía, agricultura urbana. Modelo Cuba: tras el colapso soviético, desarrolló agricultura urbana que hoy produce 50%+ de vegetales de La Habana.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Modelo Israel:</strong> Tecnología agrícola avanzada en condiciones limitadas — replicable en PR para optimizar producción con menos tierra y agua.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">💻 Economía del conocimiento</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR tiene legado farmacéutico/biotech de la era 936 — infraestructura y talento existente. Act 60 ya atrae empresas tech y nómadas digitales.</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Estonia (e-Residency):</strong> PR podría crear ciudadanía digital tropical — atrayendo emprendedores globales a un hub tech con incentivos fiscales y clima caribeño.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Hub biotech:</strong> La infraestructura de manufactura farmacéutica sigue existiendo. Con inversión en I+D y educación universitaria (UPR), PR podría pasar de manufactura a innovación.</p>
+    </div>
+
+    <div class="card-grid2" style="margin-bottom:20px">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🏝️ Turismo diversificado</h3>
+        <p style="font-size:14px;color:var(--ink-soft)">Más allá de playas: turismo médico, ecoturismo, agroturismo, turismo cultural. Bioluminiscencia (Mosquito Bay), El Yunque, patrimonio histórico, gastronomía. PR recibe ~5M visitantes/año — potencial de duplicar con diversificación.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🌎 La diáspora como motor</h3>
+        <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+          <div style="text-align:center"><div class="counter-num" data-target="5800000" style="font-size:1.5rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:11px;color:var(--muted)">boricuas en el continente</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-soft)">5,8 millones en EE.UU. vs. 3,2 millones en la isla. Potencial de inversión diasporiana, retorno de talento profesional (médicos, ingenieros, educadores), redes de negocios en NYC, Orlando, Chicago.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🔒 Reforma anticorrupción</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Correlación directa entre corrupción y estancamiento económico (documentada por Banco Mundial). PR tiene un historial de gobernadores, senadores, representantes y alcaldes convictos — como se documenta en la pestaña anterior.</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Receta Singapur (CPIB):</strong> Fiscalía independiente con dientes. Transparencia presupuestaria digital en tiempo real. Salarios competitivos para funcionarios públicos con castigos severos por corrupción. Auditorías obligatorias de todo contrato gubernamental.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🤝 Economía cooperativa</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Modelo Mondragón (País Vasco):</strong> Cooperativas de trabajadores que generan €12.000M anuales con 80.000 empleados. PR ya tiene tradición cooperativista (cooperativas de ahorro y crédito).</p>
+      <p style="font-size:14px;color:var(--ink-soft)"><strong>Fideicomisos comunitarios de tierra (CLTs):</strong> Para combatir la gentrificación de Act 60 — la comunidad es dueña de la tierra, los residentes son dueños de las estructuras. Modelo exitoso en Burlington (Vermont) y Londres.</p>
+    </div>
+  </section>
+
+  <!-- NOTA EDITORIAL -->
+  <section id="editorial-futuro">
+    <div class="sec-label reveal">05 · Nota editorial</div>
+    <h2 class="sec-title">Cuatro crisis, un sistema — y una pregunta</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p><strong>Esta investigación documenta, a lo largo de cuatro pestañas, lo que no es una colección de problemas aislados sino un sistema que se retroalimenta.</strong></p>
+
+      <p>En la primera pestaña establecimos la ecuación fundamental: Puerto Rico genera más de <strong>$35.000 millones anuales</strong> en ganancias corporativas que se repatrian al continente, mientras recibe transferencias federales que no compensan lo extraído. El Jones Act le cuesta <strong>$1.400 millones cada año</strong> en sobrecostos sobre una isla que importa el 85% de sus alimentos. Entre 2008 y 2017, salieron <strong>$334.000 millones</strong> en ganancias repatriadas — más de cuatro veces la deuda pública total. La estructura fiscal y comercial de la relación territorial extrae más valor del que transfiere.</p>
+
+      <p>En la segunda, mostramos quiénes administraron ese sistema localmente — y cómo lo empeoraron. Más de <strong>70 años de bipartidismo</strong> entre PNP y PPD acumularon $72.000 millones en deuda, aprobaron instrumentos tóxicos como COFINA ($17.000M en bonos), y generaron docenas de convicciones federales por corrupción — más de <strong>40 funcionarios</strong> de una sola administración. La Ley 7 destruyó 75.000+ empleos. Y el resultado demográfico fue devastador: <strong>más de 500.000 residentes</strong> emigraron desde 2010, dejando una isla con edad mediana de 45,6 años, tasa de fertilidad de 1,0, y <strong>$50.000 millones</strong> en pensiones sin fondear que dependen de una base contributiva que se encoge cada año. Los médicos pasaron de 14.000 a 9.500. Se cerraron más de 600 escuelas.</p>
+
+      <p>En la tercera, documentamos cómo la crisis energética es simultáneamente síntoma y acelerante de todo lo anterior. Puerto Rico paga <strong>33,86¢/kWh</strong> — casi el triple del promedio estadounidense — por un servicio que registra <strong>73 horas de apagón al año</strong> contra 2 horas en el continente. LUMA Energy cobra $1.500 millones por un contrato cuyo indicador de fiabilidad es <strong>14 veces peor</strong> que su propia meta. Sin electricidad no hay agua para 200.000+ residentes. Las empresas pierden entre <strong>$500 millones y $1.000 millones anuales</strong> en productividad. Y de los $16.300 millones que FEMA asignó para reconstruir la red, solo el <strong>8% se ha desembolsado</strong>. Mientras tanto, una isla con 300 días de sol y potencial solar de 40 GW solo genera el 12% de su energía con fuentes renovables. La crisis energética no es un problema técnico — es la manifestación física de las mismas fallas de gobernanza, dependencia estructural y extracción que documentamos en las pestañas anteriores.</p>
+
+      <p>Estas cuatro dimensiones — extracción económica, mala gobernanza, colapso energético y éxodo demográfico — no son crisis paralelas. Son engranajes de un mismo mecanismo: la extracción erosiona la base económica; la corrupción y la incompetencia política impiden respuestas efectivas; el deterioro de servicios básicos como la electricidad y el agua expulsa a la población; y cada persona que emigra reduce la capacidad fiscal para financiar los servicios cuyo deterioro causó su partida. Romper ese ciclo requiere intervenir en todas las dimensiones simultáneamente — y los modelos de Singapur, Irlanda, Estonia y Barbados demuestran que es posible, pero todas esas transformaciones requirieron <strong>soberanía real sobre las decisiones económicas propias</strong>.</p>
+
+      <p>Lo más significativo de 2024 no fue quién ganó — fue que <strong>391.945 puertorriqueños</strong> votaron fuera del bipartidismo tradicional, y un ciudadano sin partido logró llegar al Senado escribiendo su nombre en una papeleta. Puerto Rico tiene 300 días de sol, potencial renovable cuatro veces mayor que su consumo, una diáspora de 5,8 millones, infraestructura farmacéutica existente, posición geográfica privilegiada, y una generación que ya demostró — en las calles de 2019 y las urnas de 2024 — que no acepta el statu quo. La pregunta no es si Puerto Rico <em>puede</em> cambiar. <strong>La pregunta es si quienes llegan al poder van a desmontar el sistema que documentamos aquí — o si el ciclo de 70 años se repite con nuevos nombres.</strong></p>
+    </div>
+  </section>
+
+  <!-- FUENTES TAB 3 -->
+  <section id="fuentes-futuro">
+    <div class="sec-label reveal">Fuentes</div>
+    <h2 class="sec-title" style="font-size:1.5rem">Bibliografía — Fase III</h2>
+    <ul style="font-size:14px;color:var(--ink-soft);line-height:2">
+      <li>Congressional Budget Office (CBO). <em>Potential Economic Impacts of Changes in Puerto Rico's Status</em>.</li>
+      <li>Government Accountability Office (GAO-14-31). <em>Puerto Rico: How Statehood Would Affect Federal Programs</em>.</li>
+      <li>Centro de Estudios Puertorriqueños (Hunter/CUNY). <em>Federal Tax Policy in Puerto Rico</em>, 2024.</li>
+      <li>Pasquines. <em>New independence plan outlines economic vision for Puerto Rico</em>, mayo 2025.</li>
+      <li>Current Affairs. <em>The Case for Puerto Rican Independence</em>, 2024.</li>
+      <li>Puerto Rico Report. <em>Three Examples of Free Association</em>.</li>
+      <li>LA Progressive. <em>A Compact of Free Association as Puerto Rico's Path</em>.</li>
+      <li>Fraser Institute. <em>Lessons from Singapore's Growth Miracle</em>.</li>
+      <li>ResearchGate. <em>Singapore's Development Model and Its Limits</em>.</li>
+      <li>Emerging Europe. <em>The Singapore Model</em>.</li>
+      <li>Earthjustice. <em>Powering an Energy Revolution in Puerto Rico</em>.</li>
+      <li>Princeton JPIA. <em>Renewing Growth: Distributed Solar Energy in Puerto Rico</em>.</li>
+      <li>Canary Media. <em>Puerto Rico's energy future</em>.</li>
+      <li>NREL. <em>Puerto Rico Solar and Agrivoltaic Potential Study</em>.</li>
+      <li>Wikipedia / Ballotpedia. <em>2024 Puerto Rico gubernatorial election</em>.</li>
+      <li>Senado de PR. <em>Hon. Eliezer Molina Pérez</em> — perfil oficial.</li>
+      <li>Fenix Puerto Rico. <em>Senator Molina: A Voice for Environmental Justice</em>.</li>
+    </ul>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Los datos de estatus provienen de proyecciones del CBO y GAO. Los modelos económicos se basan en literatura académica revisada. Los datos electorales son oficiales. Las estrategias de desarrollo se fundamentan en estudios del NREL, Fraser Institute y Banco Mundial. Investigación compilada el 30 de septiembre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-futuro -->
+
 </div>
 
 <script>
@@ -3395,7 +3393,7 @@ section { padding-top: 72px }
 
   // ── Tab switching ──
   var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-futuro'), document.getElementById('tab-energia')];
+  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-energia'), document.getElementById('tab-futuro')];
   var sideNav = document.getElementById('side-nav');
 
   tabBtns.forEach(function(btn){
@@ -3468,58 +3466,6 @@ section { padding-top: 72px }
           }, { threshold: 0.3 });
           cObs2.observe(block);
         });
-      } else if(target === 'tab-futuro'){
-        sideNav.innerHTML = [
-          ['#estatus','Opciones de estatus'],['#modelos','Modelos internacionales'],['#reforma','Reforma política'],
-          ['#estrategias','Estrategias económicas'],['#editorial-futuro','Editorial'],['#fuentes-futuro','Fuentes']
-        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
-        initSideNavObs();
-        var fadeEls3 = document.querySelectorAll('#tab-futuro .card, #tab-futuro .note-box');
-        fadeEls3.forEach(function(el){ el.classList.add('fade-in'); el.classList.remove('hidden'); });
-        // Re-init bar charts for phase 3
-        ['viz-status'].forEach(function(id){
-          var el = document.getElementById(id);
-          if(!el) return;
-          el.querySelectorAll('.viz-bar').forEach(function(b){ b.setAttribute('width', '0') });
-          var obs = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-              if(e.isIntersecting){
-                e.target.querySelectorAll('.viz-bar').forEach(function(b, i){
-                  setTimeout(function(){
-                    animateValue(0, parseFloat(b.dataset.w), 800, function(v){ b.setAttribute('width', v) });
-                  }, i * 60);
-                });
-                obs.unobserve(e.target);
-              }
-            });
-          }, { threshold: 0.2 });
-          obs.observe(el);
-        });
-        document.querySelectorAll('#tab-futuro .counters').forEach(function(block){
-          var done3 = false;
-          var cObs3 = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-              if(e.isIntersecting && !done3){
-                done3 = true;
-                e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
-                  var tgt = parseInt(el.getAttribute('data-target'));
-                  var pfx = el.getAttribute('data-prefix') || '';
-                  var sfx = el.getAttribute('data-suffix') || '';
-                  var dur = 1500, st = performance.now();
-                  function tick(now){
-                    var p = Math.min((now - st) / dur, 1);
-                    var ease = 1 - Math.pow(1 - p, 3);
-                    el.textContent = pfx + Math.round(tgt * ease).toLocaleString('es') + sfx;
-                    if(p < 1) requestAnimationFrame(tick);
-                  }
-                  requestAnimationFrame(tick);
-                });
-                cObs3.disconnect();
-              }
-            });
-          }, { threshold: 0.3 });
-          cObs3.observe(block);
-        });
       } else if(target === 'tab-energia'){
         sideNav.innerHTML = [
           ['#prepa','Historia PREPA'],['#luma','LUMA Energy'],['#tarifas','Tarifas'],
@@ -3571,6 +3517,58 @@ section { padding-top: 72px }
             });
           }, { threshold: 0.3 });
           cObs4.observe(block);
+        });
+      } else if(target === 'tab-futuro'){
+        sideNav.innerHTML = [
+          ['#estatus','Opciones de estatus'],['#modelos','Modelos internacionales'],['#reforma','Reforma política'],
+          ['#estrategias','Estrategias económicas'],['#editorial-futuro','Editorial'],['#fuentes-futuro','Fuentes']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+        var fadeEls3 = document.querySelectorAll('#tab-futuro .card, #tab-futuro .note-box');
+        fadeEls3.forEach(function(el){ el.classList.add('fade-in'); el.classList.remove('hidden'); });
+        // Re-init bar charts for phase 3
+        ['viz-status'].forEach(function(id){
+          var el = document.getElementById(id);
+          if(!el) return;
+          el.querySelectorAll('.viz-bar').forEach(function(b){ b.setAttribute('width', '0') });
+          var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting){
+                e.target.querySelectorAll('.viz-bar').forEach(function(b, i){
+                  setTimeout(function(){
+                    animateValue(0, parseFloat(b.dataset.w), 800, function(v){ b.setAttribute('width', v) });
+                  }, i * 60);
+                });
+                obs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          obs.observe(el);
+        });
+        document.querySelectorAll('#tab-futuro .counters').forEach(function(block){
+          var done3 = false;
+          var cObs3 = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if(e.isIntersecting && !done3){
+                done3 = true;
+                e.target.querySelectorAll('.counter-num[data-target]').forEach(function(el){
+                  var tgt = parseInt(el.getAttribute('data-target'));
+                  var pfx = el.getAttribute('data-prefix') || '';
+                  var sfx = el.getAttribute('data-suffix') || '';
+                  var dur = 1500, st = performance.now();
+                  function tick(now){
+                    var p = Math.min((now - st) / dur, 1);
+                    var ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = pfx + Math.round(tgt * ease).toLocaleString('es') + sfx;
+                    if(p < 1) requestAnimationFrame(tick);
+                  }
+                  requestAnimationFrame(tick);
+                });
+                cObs3.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          cObs3.observe(block);
         });
       } else {
         sideNav.innerHTML = origNavHTML;
