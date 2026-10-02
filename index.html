@@ -641,7 +641,50 @@ section { padding-top: 72px }
   0%, 100% { box-shadow: 0 0 8px rgba(229,57,53,.3) }
   50% { box-shadow: 0 0 20px rgba(229,57,53,.6) }
 }
+.tab-btn.btn-purple {
+  background: linear-gradient(135deg, #9C27B0, #BA68C8);
+  color: #fff !important; border-bottom-color: #9C27B0;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  animation: pulse-purple 2s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.tab-btn.btn-purple:hover { background: linear-gradient(135deg, #8E24AA, #AB47BC) }
+.tab-btn.btn-purple.active { animation: none; box-shadow: 0 2px 12px rgba(156,39,176,.4) }
+@keyframes pulse-purple {
+  0%, 100% { box-shadow: 0 0 8px rgba(156,39,176,.3) }
+  50% { box-shadow: 0 0 20px rgba(156,39,176,.6) }
+}
+.tab-btn.btn-teal {
+  background: linear-gradient(135deg, #009688, #26A69A);
+  color: #fff !important; border-bottom-color: #009688;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  animation: pulse-teal 2s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.tab-btn.btn-teal:hover { background: linear-gradient(135deg, #00897B, #009688) }
+.tab-btn.btn-teal.active { animation: none; box-shadow: 0 2px 12px rgba(0,150,136,.4) }
+@keyframes pulse-teal {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,150,136,.3) }
+  50% { box-shadow: 0 0 20px rgba(0,150,136,.6) }
+}
+.tab-btn.btn-gray {
+  background: linear-gradient(135deg, #607D8B, #78909C);
+  color: #fff !important; border-bottom-color: #607D8B;
+  border-radius: 8px 8px 0 0; font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.tab-btn.btn-gray:hover { background: linear-gradient(135deg, #546E7A, #607D8B) }
+.tab-btn.btn-gray.active { box-shadow: 0 2px 12px rgba(96,125,139,.4) }
 @media (max-width: 500px) { .tab-btn { padding: 10px 14px; font-size: 13px } }
+.tab-bar { flex-wrap: wrap }
+.bp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0 }
+.bp-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--line); white-space: nowrap }
+.bp-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; font-variant-numeric: tabular-nums }
+.bp-table tr:hover td { background: var(--bg-deep) }
+.bp-table .dir-entra { color: var(--green); font-weight: 600 }
+.bp-table .dir-sale { color: var(--gold); font-weight: 600 }
+.bp-table .dir-saldo { color: var(--ink); font-weight: 700 }
+.bp-table td:nth-child(3), .bp-table td:nth-child(4), .bp-table th:nth-child(3), .bp-table th:nth-child(4) { text-align: right }
 .tab-hint {
   display: flex; align-items: center; gap: 6px;
   padding: 7px 14px; margin: 0;
@@ -751,12 +794,15 @@ section { padding-top: 72px }
 <div class="container">
 
   <!-- ═══ TAB BAR ═══ -->
-  <div class="tab-hint" id="tabHint"><span class="hint-icon">i</span> Pulsa los botones de colores para navegar entre las cuatro investigaciones</div>
+  <div class="tab-hint" id="tabHint"><span class="hint-icon">i</span> Pulsa los botones de colores para navegar entre las siete investigaciones</div>
   <nav class="tab-bar" id="tabBar">
-    <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 Flujos Económicos</button>
-    <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 ¿Qué Nos Trajo Aquí?</button>
-    <button class="tab-btn btn-red" data-tab="tab-energia">⚡ La Crisis Energética</button>
-    <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 ¿Cuáles Son Nuestras Opciones?</button>
+    <button class="tab-btn btn-blue active" data-tab="tab-flujos">📊 El Libro Contable</button>
+    <button class="tab-btn btn-orange" data-tab="tab-historia">🔥 Deuda e Instituciones</button>
+    <button class="tab-btn btn-red" data-tab="tab-energia">⚡ Energía</button>
+    <button class="tab-btn btn-purple" data-tab="tab-bienestar">🏠 Bienestar</button>
+    <button class="tab-btn btn-teal" data-tab="tab-comparaciones">🌐 Comparaciones</button>
+    <button class="tab-btn btn-green" data-tab="tab-futuro">🌱 Propuestas</button>
+    <button class="tab-btn btn-gray" data-tab="tab-metodologia">📋 Metodología</button>
   </nav>
 
   <div id="tab-flujos">
@@ -785,22 +831,22 @@ section { padding-top: 72px }
     <div class="hero-inner">
       <div class="hero-kicker">Investigación documentada &middot; Septiembre 2026</div>
       <h1>El libro contable del dinero entre Puerto Rico y EE.&thinsp;UU.</h1>
-      <p class="hero-lede">¿Cuánto recibe Puerto Rico del gobierno federal? ¿Cuánto sale en ganancias corporativas, impuestos y costos de cabotaje? ¿Y cómo se compara con lo que pasa en los estados — o en otras economías coloniales del mundo?</p>
+      <p class="hero-lede">Sin fondos de desastre ni pandemia, la renta de inversión directa (unos $42.500M en el AF2024) supera a los flujos federales recurrentes netos (unos $33.900M) por cerca de $8.700M. Contando todos los flujos, incluidos desastres, turismo y exportaciones, la cuenta corriente es positiva. La renta de inversión directa incluye utilidades reinvertidas y contabilizadas en la isla por razones fiscales, por lo que no todo es efectivo que sale.</p>
       <p class="hero-meta">Compilado a partir de <strong>28 académicos</strong> (sistema UPR, diáspora universitaria de CUNY, Centro para una Nueva Economía, economistas independientes) más informes oficiales de la <strong>GAO</strong>, <strong>CBO</strong>, <strong>BEA</strong>, <strong>FEMA</strong>, <strong>IRS</strong> y la <strong>Junta de Supervisión Fiscal</strong>. Incluye análisis del <strong>Premio Nobel Joseph Stiglitz</strong> y comparaciones con Irlanda, Singapur, Hawái y los estados más pobres de EE.UU.</p>
     </div>
   </div>
 
     <div class="counters reveal">
       <div class="counter-cell">
-        <div class="counter-num green" data-target="28">0</div>
+        <div class="counter-num green" data-target="28">28</div>
         <div class="counter-label">Académicos documentados</div>
       </div>
       <div class="counter-cell">
-        <div class="counter-num gold" data-target="334" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="counter-num gold" data-target="334" data-prefix="$" data-suffix="B">$334B</div>
         <div class="counter-label">Ganancias repatriadas 2008–17</div>
       </div>
       <div class="counter-cell">
-        <div class="counter-num red" data-target="37" data-suffix=",3%">0%</div>
+        <div class="counter-num red" data-target="37" data-suffix=",3%">37,3%</div>
         <div class="counter-label">Tasa de pobreza — 3× la nacional</div>
       </div>
     </div>
@@ -983,7 +1029,50 @@ section { padding-top: 72px }
 
     <div class="incomparable reveal" role="note">
       <span class="badge">No comparable</span>
-      <span>Estos libros son un índice de afirmaciones, no un balance neto. Los $334.000 millones abarcan 2008–2017; los $15.475 millones son del año fiscal 2004; los $537 millones son una estimación de 2012. Concluir «PR debe / se le debe X» sería comparar años, definiciones y métodos distintos.</span>
+      <span>Los libros anteriores son un índice de afirmaciones de estudios distintos. Para una comparación homogénea, la Balanza de Pagos de la Junta de Planificación presenta todos los flujos de un mismo año fiscal con la misma metodología.</span>
+    </div>
+
+    <!-- Balanza de Pagos AF2023 / AF2024 -->
+    <div class="viz-chart reveal" style="margin-top:40px">
+      <h3>Balanza de Pagos: AF2023 y AF2024</h3>
+      <p class="viz-subtitle">Junta de Planificación de PR, tablas 1, 4, 5, S.5, S.6 y S.7. Millones de dólares. AF2023 revisado, AF2024 preliminar.</p>
+      <div style="overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line)">
+        <table class="bp-table">
+          <thead>
+            <tr><th>Dirección</th><th>Partida</th><th>AF2023</th><th>AF2024</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="dir-entra">Entra</td><td>Beneficios federales ganados (Seguro Social, Medicare, veteranos, retiro)</td><td>19.944,8</td><td>20.741,8</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Asistencia federal a individuos, sin desastres</td><td>7.669,7</td><td>8.269,1</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Fondos de desastre y pandemia a individuos</td><td>10.687,2</td><td>9.613,1</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Aportaciones federales al gobierno de PR</td><td>11.986,0</td><td>11.956,2</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Gasto de turistas</td><td>5.381,3</td><td>6.011,4</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Remesas privadas recibidas</td><td>605,5</td><td>689,4</td></tr>
+            <tr><td class="dir-entra">Entra</td><td>Exportaciones de bienes</td><td>61.618,0</td><td>61.823,6</td></tr>
+            <tr style="border-top:2px solid var(--line)"><td class="dir-sale">Sale</td><td>Renta de inversión directa</td><td>39.092,0</td><td>42.530,6</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Intereses de bonos (cartera)</td><td>2.524,4</td><td>2.596,5</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Regalías por propiedad intelectual</td><td>6.068,5</td><td>6.109,9</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Fletes marítimos y aéreos</td><td>3.937,5</td><td>3.404,4</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Aportaciones de residentes a sistemas federales</td><td>5.853,5</td><td>6.231,2</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Remesas privadas enviadas</td><td>83,8</td><td>89,2</td></tr>
+            <tr><td class="dir-sale">Sale</td><td>Importaciones de bienes</td><td>55.928,5</td><td>55.896,1</td></tr>
+            <tr style="border-top:3px double var(--line);background:var(--bg-deep)"><td class="dir-saldo">Saldo</td><td><strong>Transferencias federales netas, total</strong></td><td><strong>44.752,8</strong></td><td><strong>44.644,4</strong></td></tr>
+            <tr style="background:var(--bg-deep)"><td class="dir-saldo">Saldo</td><td>Ídem, sin desastres ni COVID (cálculo propio)</td><td>32.310,4</td><td>33.879,9</td></tr>
+            <tr style="background:var(--bg-deep)"><td class="dir-saldo">Saldo</td><td>Ingreso primario</td><td>−41.689,1</td><td>−45.949,3</td></tr>
+            <tr style="background:var(--bg-deep)"><td class="dir-saldo">Saldo</td><td><strong>Cuenta corriente</strong></td><td><strong>8.645,9</strong></td><td><strong>6.175,5</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="notice reveal" style="margin-top:20px;border-left-color:var(--blue)">
+        <h3>Cómo leer esta tabla</h3>
+        <ul>
+          <li><strong>Con todo incluido</strong>, los flujos federales netos ($44.644,4M) igualan o superan la renta de inversión directa. Los fondos de desastre inflan esa cifra.</li>
+          <li><strong>Sin desastres</strong>, la renta de inversión directa supera al flujo federal por ~$8.700M, o por ~$14.700M si se suman las regalías.</li>
+          <li><strong>Llamarla "renta de inversión directa", no "ganancias repatriadas"</strong>: incluye utilidades reinvertidas, y parte son utilidades que las multinacionales contabilizan en PR por razones fiscales.</li>
+          <li><strong>Las aportaciones a sistemas federales</strong> son lo que hace "ganados" a los beneficios; restarlas es la forma correcta de presentarlos.</li>
+          <li><strong>Remesas:</strong> existen y la Junta las mide, pero son ~0,5% del PIB. No son un amortiguador vital.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -2826,6 +2915,305 @@ section { padding-top: 72px }
   </div><!-- /tab-energia -->
 
   <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 5: BIENESTAR SOCIAL -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-bienestar" hidden>
+    <header class="hero-cinematic" style="min-height:340px;background:linear-gradient(135deg,#0C1B2A 0%,#2A1040 100%)">
+      <div class="hero-content">
+        <p class="hero-kicker" style="color:#BA68C8">Fase IV · Investigación independiente</p>
+        <h1 class="hero-title">Bienestar Social</h1>
+        <p class="hero-sub">Pobreza, salud, vivienda, demografía y educación:<br>el costo humano de 70 años de extracción.</p>
+      </div>
+    </header>
+
+  <!-- POBREZA -->
+  <section id="pobreza">
+    <div class="sec-label reveal">01 · Pobreza</div>
+    <h2 class="sec-title">37,3% bajo el umbral federal</h2>
+    <p class="sec-intro reveal">Puerto Rico tiene la tasa de pobreza más alta de cualquier jurisdicción de EE.UU. — más del doble del promedio nacional (11,5%). La pobreza infantil supera el 55%.</p>
+
+    <div class="counters" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin:32px 0">
+      <div style="text-align:center"><div class="counter-num" data-target="37" data-suffix="%" style="font-size:2.2rem;font-weight:700;color:var(--red)">37%</div><div style="font-size:12px;color:var(--muted)">tasa de pobreza (Census 2023)</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="55" data-suffix="%" style="font-size:2.2rem;font-weight:700;color:var(--red)">55%</div><div style="font-size:12px;color:var(--muted)">pobreza infantil</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="21" data-prefix="$" data-suffix="K" style="font-size:2.2rem;font-weight:700;color:var(--gold)">$21K</div><div style="font-size:12px;color:var(--muted)">ingreso per cápita real</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">Contexto comparativo</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Si PR fuera un estado, sería <strong>el más pobre por un margen enorme</strong>. Mississippi, el estado más pobre, tiene una tasa de pobreza de 18,7% — la mitad de Puerto Rico. El ingreso mediano de hogares en PR es ~$22.000, contra ~$75.000 nacional.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">El PIB per cápita nominal de PR (~$37.000) es engañoso — está inflado por ganancias corporativas que se repatrian. El ingreso per cápita real de los residentes es ~$21.000, por debajo de cualquier estado.</p>
+    </div>
+
+    <div class="note-box" style="background:var(--red-bg);border-color:var(--red)">
+      <strong>NAP vs. SNAP:</strong> PR recibe un bloque fijo de nutrición (NAP) en lugar del programa SNAP que reciben los estados. El NAP tiene un techo de ~$3.000M anuales; bajo SNAP, PR recibiría entre $4.000M–$5.000M. El beneficio máximo por persona es ~30% menor que en estados. Más de 1,3 millones de puertorriqueños dependen de esta asistencia.
+    </div>
+  </section>
+
+  <!-- SALUD Y MEDICAID -->
+  <section id="salud">
+    <div class="sec-label reveal">02 · Salud</div>
+    <h2 class="sec-title">Medicaid con techo — médicos sin isla</h2>
+    <p class="sec-intro reveal">PR recibe Medicaid como un bloque fijo (~$400M/año base federal) en lugar del matching abierto de los estados. Si fuera estado, recibiría ~$12.000M. La diferencia mata.</p>
+
+    <div class="counters" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin:32px 0">
+      <div style="text-align:center"><div class="counter-num" data-target="9500" style="font-size:2.2rem;font-weight:700;color:var(--red)">9.500</div><div style="font-size:12px;color:var(--muted)">médicos activos (de 14.000)</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="400" data-prefix="$" data-suffix="M" style="font-size:2.2rem;font-weight:700;color:var(--gold)">$400M</div><div style="font-size:12px;color:var(--muted)">techo federal Medicaid base</div></div>
+    </div>
+
+    <div class="card-grid2">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Éxodo médico</h3>
+        <p style="font-size:14px;color:var(--ink-soft)">De ~14.000 médicos activos antes de María, quedan ~9.500. Los especialistas emigran porque Medicare/Medicaid paga menos en PR que en estados, los apagones interrumpen cirugías, y los seguros privados pagan menos. Resultado: listas de espera de meses para especialistas.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Salud mental</h3>
+        <p style="font-size:14px;color:var(--ink-soft)">Después de María (2017), los terremotos (2020) y la pandemia, la crisis de salud mental se disparó. PR tiene una de las tasas más altas de depresión y PTSD del Caribe. Los psiquiatras disponibles por 100K habitantes son una fracción del promedio de EE.UU.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Disparidad de Medicare:</strong> Los beneficiarios de Medicare en PR pagan las mismas primas pero reciben menos beneficios. Medicare Advantage en PR tiene reembolsos ~40% menores que en estados. Esto acelera la fuga de proveedores médicos.
+    </div>
+  </section>
+
+  <!-- VIVIENDA -->
+  <section id="vivienda">
+    <div class="sec-label reveal">03 · Vivienda</div>
+    <h2 class="sec-title">Act 60 y la gentrificación</h2>
+    <p class="sec-intro reveal">Los incentivos fiscales de Act 60 (antes Leyes 20/22) atrajeron compradores con alto poder adquisitivo que inflaron precios de vivienda en zonas costeras. Mientras tanto, 250.000+ unidades necesitan reparaciones post-María.</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">El efecto Act 60</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Municipios como Dorado, Rincón y Condado vieron incrementos de precios de vivienda de <strong>40–80%</strong> desde 2017. Los residentes locales — con ingreso mediano de $22.000 — no pueden competir con compradores que pagan impuestos de 4% sobre ganancias de capital.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">Ironía: los beneficiarios de Act 60 no están obligados a crear empleos locales. El incentivo genera demanda de vivienda de lujo sin generar la actividad económica que permitiría a los locales competir.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">Vivienda post-María</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">FEMA aprobó ~$2.600M en asistencia individual post-María, pero miles de solicitudes fueron denegadas por problemas de titularidad (herencias informales, terrenos sin escritura). Los techos azules (blue tarps) permanecieron hasta 3+ años después del huracán. El programa R3 del HUD asignó $8.200M en fondos CDBG-DR, pero el desembolso ha sido extremadamente lento.</p>
+    </div>
+  </section>
+
+  <!-- DEMOGRAFÍA -->
+  <section id="demografia-bienestar">
+    <div class="sec-label reveal">04 · Demografía</div>
+    <h2 class="sec-title">La espiral demográfica</h2>
+    <p class="sec-intro reveal">Puerto Rico pierde población desde 2004. Lo que empezó como emigración económica se convirtió en crisis existencial: la isla se vacía de jóvenes y envejece sin capacidad fiscal para sostener a su población mayor.</p>
+
+    <div class="counters" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin:32px 0">
+      <div style="text-align:center"><div class="counter-num" data-target="500000" style="font-size:2.2rem;font-weight:700;color:var(--red)">500.000</div><div style="font-size:12px;color:var(--muted)">emigrados desde 2010</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="45" data-suffix=" años" style="font-size:2.2rem;font-weight:700;color:var(--gold)">45 años</div><div style="font-size:12px;color:var(--muted)">edad mediana (EE.UU.: 38,5)</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="1" data-suffix=".0" style="font-size:2.2rem;font-weight:700;color:var(--red)">1.0</div><div style="font-size:12px;color:var(--muted)">tasa de fertilidad</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">La crisis de pensiones</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">El sistema de retiro de empleados públicos tiene un déficit actuarial de <strong>~$50.000 millones</strong>. Con cada persona que emigra, hay un contribuyente menos sosteniendo el sistema. La tasa de dependencia (personas fuera de la fuerza laboral por cada trabajador) es una de las más altas del hemisferio.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">La población de 65+ años ya supera el 22% del total — y crece. PR se encamina a ser una de las sociedades más envejecidas del Caribe para 2035, sin la infraestructura fiscal ni de servicios para sostenerlo.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">¿Quién se va?</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Los que emigran son desproporcionadamente jóvenes, profesionales y educados. Médicos (4.500+ se fueron), maestros, ingenieros, enfermeros. Orlando, FL se convirtió en la segunda mayor concentración de puertorriqueños después de Nueva York.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">Los eventos que aceleraron la emigración: Ley 7 (2009, 75.000+ empleos), Huracán María (2017, 130.000+ en un año), pandemia COVID-19, terremotos de 2020, apagones crónicos.</p>
+    </div>
+
+    <div class="note-box" style="background:var(--gold-bg);border-color:var(--gold)">
+      <strong>Círculo vicioso:</strong> Menos gente → menos recaudos → peores servicios → más emigración → menos gente. Cada escuela cerrada (600+), cada hospital que reduce servicios, cada apagón que dura días — es un empujón más hacia el aeropuerto.
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section id="educacion">
+    <div class="sec-label reveal">05 · Educación</div>
+    <h2 class="sec-title">600+ escuelas cerradas</h2>
+    <p class="sec-intro reveal">El Departamento de Educación de PR ha cerrado más de 600 escuelas desde 2010 — una combinación de emigración, austeridad fiscal y corrupción documentada ($15,5M desviados bajo Julia Keleher).</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">La matrícula escolar cayó de ~480.000 (2010) a ~270.000 (2025). Las escuelas cerradas dejaron comunidades rurales sin centros educativos accesibles. Muchas de las escuelas cerradas estaban en buenas condiciones estructurales.</p>
+      <p style="font-size:14px;color:var(--ink-soft)">La UPR (Universidad de Puerto Rico) perdió ~$300M en presupuesto desde 2017 bajo directivas de la Junta Fiscal. Esto resultó en programas eliminados, profesores emigrados y matrícula reducida — justo cuando la isla más necesita capital humano educado.</p>
+    </div>
+  </section>
+
+  <!-- EDITORIAL BIENESTAR -->
+  <section id="editorial-bienestar">
+    <div class="sec-label reveal">06 · Reflexión</div>
+    <h2 class="sec-title">El costo humano del sistema</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p>Los números de esta pestaña no son estadísticas abstractas — son vidas. Cada punto porcentual de pobreza son miles de familias sin suficiente comida. Cada médico que emigra son pacientes sin atención. Cada escuela cerrada son niños viajando más lejos, o abandonando sus estudios.</p>
+      <p>La pobreza, la emigración y el deterioro de servicios en Puerto Rico no son accidentes ni fracasos culturales. Son el resultado predecible de la extracción económica documentada en la Fase I, la mala gobernanza de la Fase II, y la crisis energética de la Fase III. Un territorio donde las ganancias se repatrian, los servicios se financian a una fracción de lo que reciben los estados, y la respuesta política es austeridad — produce exactamente lo que vemos aquí.</p>
+      <p><strong>La pregunta que estas cifras plantean:</strong> ¿Cuántos profesionales más tienen que emigrar, cuántas escuelas más tienen que cerrar, cuántos niños más tienen que crecer en pobreza — antes de que el sistema que lo produce sea reemplazado?</p>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Los datos de pobreza provienen del American Community Survey (Census Bureau). Las cifras de Medicaid del CMS y CBO. Los datos demográficos del Census Bureau y Pew Research. Las cifras de educación del Departamento de Educación de PR y la Junta de Control Fiscal. Investigación compilada el 2 de octubre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-bienestar -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 6: COMPARACIONES INTERNACIONALES -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-comparaciones" hidden>
+    <header class="hero-cinematic" style="min-height:340px;background:linear-gradient(135deg,#0C1B2A 0%,#0A3030 100%)">
+      <div class="hero-content">
+        <p class="hero-kicker" style="color:#26A69A">Fase V · Investigación independiente</p>
+        <h1 class="hero-title">Comparaciones</h1>
+        <p class="hero-sub">¿Cómo se compara Puerto Rico con otros países y estados?<br>Modelos internacionales que enfrentaron desafíos similares.</p>
+      </div>
+    </header>
+
+  <!-- PR VS ESTADOS -->
+  <section id="vs-estados">
+    <div class="sec-label reveal">01 · PR vs. Estados de EE.UU.</div>
+    <h2 class="sec-title">La brecha territorial</h2>
+    <p class="sec-intro reveal">Puerto Rico está fuera de rango de cualquier estado en métricas clave de bienestar económico. La compensación de empleados representa aproximadamente el 29% del PIB — reflejando el beneficio local limitado de la actividad económica en la isla.</p>
+
+    <div class="counters" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin:32px 0">
+      <div style="text-align:center"><div class="counter-num" data-target="37" data-suffix="%" style="font-size:2.2rem;font-weight:700;color:var(--red)">37%</div><div style="font-size:12px;color:var(--muted)">pobreza PR (Mississippi: 18,7%)</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="34" data-prefix="$" data-suffix="¢" style="font-size:2.2rem;font-weight:700;color:var(--gold)">$34¢</div><div style="font-size:12px;color:var(--muted)">electricidad/kWh (EE.UU.: 18¢)</div></div>
+      <div style="text-align:center"><div class="counter-num" data-target="29" data-suffix="%" style="font-size:2.2rem;font-weight:700;color:var(--blue)">29%</div><div style="font-size:12px;color:var(--muted)">compensación/PIB</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">Indicadores clave: PR vs. el estado más pobre</h3>
+      <table style="width:100%;font-size:14px;border-collapse:collapse;color:var(--ink-soft)">
+        <thead><tr style="border-bottom:2px solid var(--line)">
+          <th style="text-align:left;padding:8px;font-weight:600;color:var(--ink)">Indicador</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:var(--red)">Puerto Rico</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:var(--gold)">Mississippi</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:var(--green)">EE.UU.</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Pobreza</td><td style="text-align:center;padding:8px;color:var(--red);font-weight:600">37,3%</td><td style="text-align:center;padding:8px">18,7%</td><td style="text-align:center;padding:8px">11,5%</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Ingreso mediano hogar</td><td style="text-align:center;padding:8px;color:var(--red);font-weight:600">$22.000</td><td style="text-align:center;padding:8px">$49.000</td><td style="text-align:center;padding:8px">$75.000</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Electricidad (¢/kWh)</td><td style="text-align:center;padding:8px;color:var(--red);font-weight:600">33,86¢</td><td style="text-align:center;padding:8px">12,5¢</td><td style="text-align:center;padding:8px">18,3¢</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Apagones (SAIDI hrs/año)</td><td style="text-align:center;padding:8px;color:var(--red);font-weight:600">~27h</td><td style="text-align:center;padding:8px">~4h</td><td style="text-align:center;padding:8px">~2h</td></tr>
+          <tr><td style="padding:8px">Representación en Congreso</td><td style="text-align:center;padding:8px;color:var(--red);font-weight:600">0 votos</td><td style="text-align:center;padding:8px">6</td><td style="text-align:center;padding:8px">535</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Compensación vs. PIB:</strong> En EE.UU. continental, la compensación de empleados representa ~53% del PIB. En PR es ~29% — eso significa que por cada dólar de actividad económica, los residentes de PR capturan apenas la mitad de lo que capturarían en un estado. La diferencia se repatria como ganancias corporativas.
+    </div>
+  </section>
+
+  <!-- MODELOS INTERNACIONALES — moved from tab-futuro -->
+  <section id="modelos">
+    <div class="sec-label reveal">02 · Modelos internacionales</div>
+    <h2 class="sec-title">¿Qué pueden enseñarnos otros países?</h2>
+    <p class="sec-intro reveal">Cuatro naciones pequeñas que enfrentaron desafíos similares — y encontraron caminos de transformación económica.</p>
+
+    <div class="card-grid2">
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇸🇬 Singapur</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">PIB per cápita: $500 (1965) → $65.000 (2024)</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Isla sin recursos naturales, 5,9M de habitantes. Claves: educación técnica masiva, anticorrupción radical (CPIB), estado desarrollista que dirige sin controlar, hub comercial global, fondo soberano (Temasek).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Replicable en PR:</strong> Educación técnica, anticorrupción institucional, posición geográfica como hub Caribe-América. <strong>No replicable:</strong> Singapur tuvo soberanía total y gobierno autoritario.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇮🇪 Irlanda</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De emigración masiva (1980s) a PIB per cápita más alto de la UE</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Impuesto corporativo del 12,5% atrajo a Apple, Google, Meta, Pfizer. Membresía en la UE (mercado de 450M). Inversión en educación. Agencia IDA Ireland — desarrollo industrial profesionalizado.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> PR tiene Act 60 (4% corporativo) pero las ganancias se repatrían — falta el «ancla local». Necesita agencia de desarrollo con mandato profesional, no político.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇪🇪 Estonia</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">1,3M de habitantes. De la URSS a líder digital mundial.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independencia en 1991. Creó e-Residency (identidad digital de negocios, no ciudadanía), 99% de servicios gubernamentales online. Epicentro de startups (Skype, Bolt, Wise).</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> Gobierno digital, transparencia radical, atracción de talento tech. PR como «Silicon Island» — con Act 60 y una identidad digital de negocios al estilo de Estonia.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇧🇧 Barbados</h3>
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">Independencia en 1966, república en 2021 — sin colapso económico.</p>
+        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independiente del Reino Unido desde 1966. Se convirtió en república en noviembre 2021, removiendo a la Corona como jefa de estado. Mantuvo estabilidad económica, turismo y servicios financieros a lo largo de ambas transiciones.</p>
+        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
+      </div>
+    </div>
+
+    <!-- ── International Models Dot Plot ── -->
+    <div class="viz-chart reveal" id="viz-models" style="position:relative">
+      <h3>PR vs. modelos internacionales — indicadores clave</h3>
+      <p class="viz-subtitle">Comparación de PIB per cápita actual (USD). Todas empezaron con desafíos similares a los de Puerto Rico.</p>
+      <svg viewBox="0 0 720 220" style="width:100%;height:auto;display:block" role="img" aria-label="Dot plot: PIB per cápita de PR vs Singapur, Irlanda, Estonia, Barbados">
+        <line x1="110" y1="30" x2="110" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <line x1="110" y1="190" x2="690" y2="190" stroke="var(--line)" stroke-width="1"/>
+        <text x="110" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$0</text>
+        <text x="255" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$20K</text>
+        <text x="400" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$40K</text>
+        <text x="545" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$60K</text>
+        <text x="690" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$80K</text>
+        <line x1="255" y1="30" x2="255" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="400" y1="30" x2="400" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="545" y1="30" x2="545" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <line x1="690" y1="30" x2="690" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
+        <text x="106" y="50" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Singapur</text>
+        <text x="106" y="82" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Irlanda</text>
+        <text x="106" y="114" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Estonia</text>
+        <text x="106" y="146" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Barbados</text>
+        <text x="106" y="178" font-size="11.5" fill="var(--red)" text-anchor="end" font-weight="700">Puerto Rico</text>
+        <line x1="112" y1="46" x2="581" y2="46" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="78" x2="680" y2="78" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="110" x2="290" y2="110" stroke="var(--green)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="142" x2="228" y2="142" stroke="var(--gold)" stroke-width="2" opacity=".3"/>
+        <line x1="112" y1="174" x2="254" y2="174" stroke="var(--red)" stroke-width="2" opacity=".3"/>
+        <circle cx="581" cy="46" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="596" y="50" font-size="11" fill="var(--ink)" font-weight="600">$65.000</text>
+        <circle cx="680" cy="78" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="642" y="72" font-size="11" fill="var(--ink)" font-weight="600">$78.700*</text>
+        <circle cx="290" cy="110" r="7" fill="var(--green)" opacity=".85"/>
+        <text x="304" y="114" font-size="11" fill="var(--ink)" font-weight="600">$28.000</text>
+        <circle cx="228" cy="142" r="6" fill="var(--gold)" opacity=".85"/>
+        <text x="242" y="146" font-size="11" fill="var(--ink)" font-weight="600">$16.000</text>
+        <circle cx="254" cy="174" r="8" fill="var(--red)"/>
+        <text x="268" y="178" font-size="11" fill="var(--red)" font-weight="700">$21.000</text>
+        <text x="690" y="72" font-size="8.5" fill="var(--muted)" text-anchor="end">*PIB nominal; GNI* ≈$55K</text>
+      </svg>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px">Fuentes: Banco Mundial, FMI, BEA. PR usa ingreso per cápita real (~$21K), no PIB ($37K) que está inflado por repatriación corporativa.</p>
+    </div>
+  </section>
+
+  <!-- EDITORIAL COMPARACIONES -->
+  <section id="editorial-comparaciones">
+    <div class="sec-label reveal">03 · Reflexión</div>
+    <h2 class="sec-title">Lo que las comparaciones revelan</h2>
+
+    <div class="note-box" style="border-width:2px">
+      <p>La brecha entre Puerto Rico y los 50 estados no es sutil — es abismal. PR está fuera de rango en pobreza, en costo energético, en representación política. Y la brecha entre PR y las naciones que se transformaron (Singapur, Irlanda, Estonia, Barbados) revela algo más profundo: <strong>todas esas transformaciones requirieron soberanía real sobre las decisiones económicas propias.</strong></p>
+      <p>Singapur pudo dirigir inversión estatal. Irlanda pudo negociar acceso al mercado europeo. Estonia pudo reinventar su gobierno digital. Barbados pudo transitar de colonia a república. Puerto Rico no tiene soberanía fiscal, no puede negociar tratados comerciales, no tiene voto en el Congreso que controla su destino, y paga un arancel encubierto (Jones Act) sobre todo lo que importa.</p>
+      <p>La comparación no dice qué estatus debe elegir Puerto Rico. Dice que <strong>el statu quo territorial es incompatible con los modelos que funcionaron</strong>.</p>
+    </div>
+  </section>
+
+  <!-- FUENTES -->
+  <section id="fuentes-comparaciones">
+    <div class="sec-label reveal">Fuentes</div>
+    <h2 class="sec-title" style="font-size:1.5rem">Bibliografía — Fase V</h2>
+    <ul style="font-size:14px;color:var(--ink-soft);line-height:2">
+      <li>U.S. Census Bureau. American Community Survey — Puerto Rico data (2023).</li>
+      <li>Bureau of Economic Analysis (BEA). GDP by territory, compensation data.</li>
+      <li>Banco Mundial. World Development Indicators — GDP per capita.</li>
+      <li>FMI. World Economic Outlook Database.</li>
+      <li>Fraser Institute. <em>Lessons from Singapore's Growth Miracle</em>.</li>
+      <li>IDA Ireland. Annual Reports — FDI data.</li>
+      <li>Emerging Europe / ResearchGate. Estonia digital transformation studies.</li>
+      <li>EIA. <em>Electric Power Monthly</em> — state/territory rates.</li>
+      <li>CBO. <em>The Effects on Puerto Rico's Economy of Potential Changes in Its Status</em>.</li>
+    </ul>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Nota metodológica.</strong> Las comparaciones usan datos del Banco Mundial, FMI, BEA y Census Bureau. Los indicadores de estados provienen de la EIA y ACS. Los modelos internacionales se basan en literatura académica revisada. Investigación compilada el 2 de octubre de 2026.</p>
+  </footer>
+
+  </div><!-- /tab-comparaciones -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
   <!-- TAB 4: FUTURO (placeholder - will be filled with research) -->
   <!-- ═══════════════════════════════════════════════════════════════════ -->
   <div id="tab-futuro" hidden>
@@ -2867,8 +3255,8 @@ section { padding-top: 72px }
       <div class="card" style="border-top:4px solid var(--blue)">
         <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--blue)">🗳️ Estadidad (Estado 51)</h3>
         <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-          <div style="text-align:center"><div class="counter-num" data-target="4500" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">Medicaid adicional/año</div></div>
-          <div style="text-align:center"><div class="counter-num" data-target="5" data-suffix=" representantes" style="font-size:1.8rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:12px;color:var(--muted)">en el Congreso</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="4500" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$4.500M</div><div style="font-size:12px;color:var(--muted)">Medicaid adicional/año</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="5" data-suffix=" representantes" style="font-size:1.8rem;font-weight:700;color:var(--blue)">5 representantes</div><div style="font-size:12px;color:var(--muted)">en el Congreso</div></div>
         </div>
         <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Acceso pleno a Medicaid, SSI, EITC, SNAP. 2 senadores + 4-5 representantes con voto. Estabilidad jurídica. CBO proyecta superávit de ~$4.000M por década.</p>
         <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Impuestos federales reducirían inversión manufacturera. Pérdida de Act 60 y autonomía fiscal. Requiere aprobación del Congreso — políticamente improbable.</p>
@@ -2878,8 +3266,8 @@ section { padding-top: 72px }
       <div class="card" style="border-top:4px solid var(--green)">
         <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px;color:var(--green)">🏛️ República independiente</h3>
         <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-          <div style="text-align:center"><div class="counter-num" data-target="1400" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$0</div><div style="font-size:12px;color:var(--muted)">ahorro/año sin Jones Act</div></div>
-          <div style="text-align:center"><div class="counter-num" data-target="51000" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--gold)">$0</div><div style="font-size:12px;color:var(--muted)">ingresos propios año 20</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="1400" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--green)">$1.400M</div><div style="font-size:12px;color:var(--muted)">ahorro/año sin Jones Act</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="51000" data-prefix="$" data-suffix="M" style="font-size:1.8rem;font-weight:700;color:var(--gold)">$51.000M</div><div style="font-size:12px;color:var(--muted)">ingresos propios año 20</div></div>
         </div>
         <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Pros:</strong> Eliminación del Jones Act ($1.400M/año). Soberanía fiscal total. Tratados comerciales independientes. Acceso pleno a ONU, FMI, Banco Mundial.</p>
         <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Contras:</strong> Pérdida de ~$21.000M anuales en transferencias federales. Pérdida de ciudadanía automática para nuevas generaciones. Riesgo de fuga de capital.</p>
@@ -2944,91 +3332,10 @@ section { padding-top: 72px }
     </div>
   </section>
 
-  <!-- MODELOS ECONÓMICOS -->
-  <section id="modelos">
-    <div class="sec-label reveal">02 · Modelos internacionales</div>
-    <h2 class="sec-title">¿Qué pueden enseñarnos otros países?</h2>
-    <p class="sec-intro reveal">Cuatro naciones pequeñas que enfrentaron desafíos similares — y encontraron caminos de transformación económica.</p>
-
-    <div class="card-grid2">
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇸🇬 Singapur</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">PIB per cápita: $500 (1965) → $65.000 (2024)</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Isla sin recursos naturales, 5,9M de habitantes. Claves: educación técnica masiva, anticorrupción radical (CPIB), estado desarrollista que dirige sin controlar, hub comercial global, fondo soberano (Temasek).</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Replicable en PR:</strong> Educación técnica, anticorrupción institucional, posición geográfica como hub Caribe-América. <strong>No replicable:</strong> Singapur tuvo soberanía total y gobierno autoritario.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇮🇪 Irlanda</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">De emigración masiva (1980s) a PIB per cápita más alto de la UE</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Impuesto corporativo del 12,5% atrajo a Apple, Google, Meta, Pfizer. Membresía en la UE (mercado de 450M). Inversión en educación. Agencia IDA Ireland — desarrollo industrial profesionalizado.</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> PR tiene Act 60 (4% corporativo) pero las ganancias se repatrían — falta el «ancla local». Necesita agencia de desarrollo con mandato profesional, no político.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇪🇪 Estonia</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">1,3M de habitantes. De la URSS a líder digital mundial.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independencia en 1991. Creó e-Residency (identidad digital de negocios, no ciudadanía), 99% de servicios gubernamentales online. Epicentro de startups (Skype, Bolt, Wise).</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> Gobierno digital, transparencia radical, atracción de talento tech. PR como «Silicon Island» — con Act 60 y una identidad digital de negocios al estilo de Estonia.</p>
-      </div>
-      <div class="card">
-        <h3 style="font-family:var(--serif);font-size:1.15rem;margin-bottom:6px">🇧🇧 Barbados</h3>
-        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px">Independencia en 1966, república en 2021 — sin colapso económico.</p>
-        <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Independiente del Reino Unido desde 1966. Se convirtió en república en noviembre 2021, removiendo a la Corona como jefa de estado. Mantuvo estabilidad económica, turismo y servicios financieros a lo largo de ambas transiciones.</p>
-        <p style="font-size:14px;color:var(--ink-soft)"><strong>Lección para PR:</strong> La transición de colonia a república es posible sin catástrofe. La clave es planificación y diversificación económica previa.</p>
-      </div>
-    </div>
-
-    <!-- ── International Models Dot Plot ── -->
-    <div class="viz-chart reveal" id="viz-models" style="position:relative">
-      <h3>PR vs. modelos internacionales — indicadores clave</h3>
-      <p class="viz-subtitle">Comparación de PIB per cápita actual (USD). Todas empezaron con desafíos similares a los de Puerto Rico.</p>
-      <svg viewBox="0 0 720 220" style="width:100%;height:auto;display:block" role="img" aria-label="Dot plot: PIB per cápita de PR vs Singapur, Irlanda, Estonia, Barbados">
-        <!-- Grid -->
-        <line x1="110" y1="30" x2="110" y2="190" stroke="var(--line)" stroke-width="1"/>
-        <line x1="110" y1="190" x2="690" y2="190" stroke="var(--line)" stroke-width="1"/>
-        <!-- X axis labels ($0 - $80K) -->
-        <text x="110" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$0</text>
-        <text x="255" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$20K</text>
-        <text x="400" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$40K</text>
-        <text x="545" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$60K</text>
-        <text x="690" y="208" font-size="10" fill="var(--muted)" text-anchor="middle">$80K</text>
-        <!-- Grid lines vertical -->
-        <line x1="255" y1="30" x2="255" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="400" y1="30" x2="400" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="545" y1="30" x2="545" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <line x1="690" y1="30" x2="690" y2="190" stroke="var(--line)" stroke-width=".5" stroke-dasharray="4,4"/>
-        <!-- Country labels -->
-        <text x="106" y="50" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Singapur</text>
-        <text x="106" y="82" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Irlanda</text>
-        <text x="106" y="114" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Estonia</text>
-        <text x="106" y="146" font-size="11.5" fill="var(--ink)" text-anchor="end" font-weight="600">Barbados</text>
-        <text x="106" y="178" font-size="11.5" fill="var(--red)" text-anchor="end" font-weight="700">Puerto Rico</text>
-        <!-- Connecting lines (lollipop style) -->
-        <line x1="112" y1="46" x2="581" y2="46" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="78" x2="680" y2="78" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="110" x2="290" y2="110" stroke="var(--green)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="142" x2="228" y2="142" stroke="var(--gold)" stroke-width="2" opacity=".3"/>
-        <line x1="112" y1="174" x2="254" y2="174" stroke="var(--red)" stroke-width="2" opacity=".3"/>
-        <!-- Dots: Singapore $65K, Ireland $77K (GNI*~$55K but nominal high), Estonia $28K, Barbados $16K, PR $21K -->
-        <!-- x = 110 + (value/80000)*580 -->
-        <circle cx="581" cy="46" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="596" y="50" font-size="11" fill="var(--ink)" font-weight="600">$65.000</text>
-        <circle cx="680" cy="78" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="642" y="72" font-size="11" fill="var(--ink)" font-weight="600">$78.700*</text>
-        <circle cx="290" cy="110" r="7" fill="var(--green)" opacity=".85"/>
-        <text x="304" y="114" font-size="11" fill="var(--ink)" font-weight="600">$28.000</text>
-        <circle cx="228" cy="142" r="6" fill="var(--gold)" opacity=".85"/>
-        <text x="242" y="146" font-size="11" fill="var(--ink)" font-weight="600">$16.000</text>
-        <circle cx="254" cy="174" r="8" fill="var(--red)"/>
-        <text x="268" y="178" font-size="11" fill="var(--red)" font-weight="700">$21.000</text>
-        <text x="690" y="72" font-size="8.5" fill="var(--muted)" text-anchor="end">*PIB nominal; GNI* ≈$55K</text>
-      </svg>
-      <p style="font-size:12px;color:var(--muted);margin-top:8px">Fuentes: Banco Mundial, FMI, BEA. PR usa ingreso per cápita real (~$21K), no PIB ($37K) que está inflado por repatriación corporativa.</p>
-    </div>
-  </section>
 
   <!-- REFORMA POLÍTICA -->
   <section id="reforma">
-    <div class="sec-label reveal">03 · Reforma política</div>
+    <div class="sec-label reveal">02 · Reforma política</div>
     <h2 class="sec-title">70+ años del mismo bipartidismo</h2>
     <p class="sec-intro reveal">PNP y PPD han alternado el poder desde 1952. Bajo ambos, la deuda se triplicó, la corrupción floreció y la población emigró masivamente. El problema no es solo de personas — es de estructura. Pero en 2024, un tercio del electorado rompió con el bipartidismo.</p>
 
@@ -3041,7 +3348,7 @@ section { padding-top: 72px }
     <div class="card" style="border-left:4px solid var(--green);margin-bottom:20px">
       <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">Juan Dalmau Ramírez — Alianza de País</h3>
       <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="391945" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">votos (30,81%)</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="391945" style="font-size:1.8rem;font-weight:700;color:var(--green)">391.945</div><div style="font-size:12px;color:var(--muted)">votos (30,81%)</div></div>
       </div>
       <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">Candidato a gobernador por la coalición <strong>Alianza de País</strong> (PIP + Movimiento Victoria Ciudadana). <strong>Segundo lugar</strong> — primera vez en 55 años que un candidato fuera de PNP/PPD logra esa posición. El PPD cayó a tercer lugar.</p>
       <p style="font-size:14px;color:var(--ink-soft)"><strong>Propuestas:</strong> Soberanía económica, energía 100% renovable, fin de la Junta Fiscal, reforma anticorrupción, inversión en educación y agricultura local.</p>
@@ -3067,15 +3374,15 @@ section { padding-top: 72px }
 
   <!-- ESTRATEGIAS ECONÓMICAS -->
   <section id="estrategias">
-    <div class="sec-label reveal">04 · Estrategias económicas</div>
+    <div class="sec-label reveal">03 · Estrategias económicas</div>
     <h2 class="sec-title">¿Cómo salir de la crisis?</h2>
     <p class="sec-intro reveal">Independientemente del estatus político, Puerto Rico tiene recursos reales que no ha explotado. Aquí se presentan seis ejes de desarrollo concretos.</p>
 
     <div class="card" style="margin-bottom:20px">
       <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">☀️ Energía renovable — La revolución solar</h3>
       <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="300" data-suffix=" días" style="font-size:1.8rem;font-weight:700;color:var(--gold)">0</div><div style="font-size:12px;color:var(--muted)">de sol al año</div></div>
-        <div style="text-align:center"><div class="counter-num" data-target="24" data-suffix=" TWh" style="font-size:1.8rem;font-weight:700;color:var(--green)">0</div><div style="font-size:12px;color:var(--muted)">potencial solar (4× consumo)</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="300" data-suffix=" días" style="font-size:1.8rem;font-weight:700;color:var(--gold)">300 días</div><div style="font-size:12px;color:var(--muted)">de sol al año</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="24" data-suffix=" TWh" style="font-size:1.8rem;font-weight:700;color:var(--green)">24 TWh</div><div style="font-size:12px;color:var(--muted)">potencial solar (4× consumo)</div></div>
       </div>
       <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">El potencial solar residencial de PR es de <strong>24,6 TWh/año</strong> — cuatro veces el consumo eléctrico residencial. Meta oficial: 100% renovable para 2050, pero el avance ha sido glacial.</p>
       <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Agrivoltaica:</strong> Proyecto piloto NREL de café bajo paneles solares resistentes a huracanes — combina producción agrícola con generación eléctrica sin competir por tierra.</p>
@@ -3085,7 +3392,7 @@ section { padding-top: 72px }
     <div class="card" style="margin-bottom:20px">
       <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">🌾 Soberanía alimentaria</h3>
       <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px">
-        <div style="text-align:center"><div class="counter-num" data-target="85" data-suffix="%" style="font-size:1.8rem;font-weight:700;color:var(--red)">0</div><div style="font-size:12px;color:var(--muted)">de alimentos importados</div></div>
+        <div style="text-align:center"><div class="counter-num" data-target="85" data-suffix="%" style="font-size:1.8rem;font-weight:700;color:var(--red)">85%</div><div style="font-size:12px;color:var(--muted)">de alimentos importados</div></div>
       </div>
       <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px">PR importa el 85% de sus alimentos — vulnerabilidad extrema demostrada durante María. El Jones Act encarece cada producto importado.</p>
       <p style="font-size:14px;color:var(--ink-soft);margin-bottom:8px"><strong>Potencial:</strong> Agroindustria tropical, acuaponía, agricultura urbana. Modelo Cuba: tras el colapso soviético, desarrolló agricultura urbana que hoy produce 50%+ de vegetales de La Habana.</p>
@@ -3107,7 +3414,7 @@ section { padding-top: 72px }
       <div class="card">
         <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">🌎 La diáspora como motor</h3>
         <div class="counters" style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
-          <div style="text-align:center"><div class="counter-num" data-target="5800000" style="font-size:1.5rem;font-weight:700;color:var(--blue)">0</div><div style="font-size:11px;color:var(--muted)">boricuas en el continente</div></div>
+          <div style="text-align:center"><div class="counter-num" data-target="5800000" style="font-size:1.5rem;font-weight:700;color:var(--blue)">5.800.000</div><div style="font-size:11px;color:var(--muted)">boricuas en el continente</div></div>
         </div>
         <p style="font-size:14px;color:var(--ink-soft)">6,1 millones en EE.UU. (Pew 2024, incluyendo descendientes) vs. 3,2 millones en la isla. Potencial de inversión diasporiana, retorno de talento profesional (médicos, ingenieros, educadores), redes de negocios en NYC, Orlando, Chicago.</p>
       </div>
@@ -3128,11 +3435,11 @@ section { padding-top: 72px }
 
   <!-- NOTA EDITORIAL -->
   <section id="editorial-futuro">
-    <div class="sec-label reveal">05 · Nota editorial</div>
+    <div class="sec-label reveal">04 · Nota editorial</div>
     <h2 class="sec-title">Cuatro crisis, un sistema — y una pregunta</h2>
 
     <div class="note-box" style="border-width:2px">
-      <p><strong>Esta investigación documenta, a lo largo de cuatro pestañas, lo que no es una colección de problemas aislados sino un sistema que se retroalimenta.</strong></p>
+      <p><strong>Esta investigación documenta, a lo largo de seis pestañas temáticas, lo que no es una colección de problemas aislados sino un sistema que se retroalimenta.</strong></p>
 
       <p>En la primera pestaña establecimos la ecuación fundamental: Puerto Rico genera más de <strong>$35.000 millones anuales</strong> en ganancias corporativas que se repatrian al continente, mientras recibe transferencias federales que no compensan lo extraído. El Jones Act le cuesta <strong>$1.400 millones cada año</strong> en sobrecostos sobre una isla que importa el 85% de sus alimentos. Entre 2008 y 2017, salieron <strong>$334.000 millones</strong> en ganancias repatriadas — más de cuatro veces la deuda pública total. La estructura fiscal y comercial de la relación territorial extrae más valor del que transfiere.</p>
 
@@ -3140,7 +3447,9 @@ section { padding-top: 72px }
 
       <p>En la tercera, documentamos cómo la crisis energética es simultáneamente síntoma y acelerante de todo lo anterior. Puerto Rico paga <strong>33,86¢/kWh</strong> — casi el doble del promedio estadounidense (18,3¢) — por un servicio que registra <strong>~27 horas de apagón al año</strong> (SAIDI 2025, excluyendo eventos mayores) contra ~2 horas en el continente. LUMA Energy cobra $1.500 millones por un contrato cuyo indicador de fiabilidad es <strong>14 veces peor</strong> que su propia meta. Sin electricidad no hay agua para 200.000+ residentes. Las empresas pierden entre <strong>$500 millones y $1.000 millones anuales</strong> en productividad. Y de los $13.200 millones que FEMA asignó para reconstruir la red (GAO, junio 2026), solo <strong>~20% se ha desembolsado</strong>. Mientras tanto, una isla con 300 días de sol y potencial solar de 40 GW solo genera el 12% de su energía con fuentes renovables. La crisis energética no es un problema técnico — es la manifestación física de las mismas fallas de gobernanza, dependencia estructural y extracción que documentamos en las pestañas anteriores.</p>
 
-      <p>Estas cuatro dimensiones — extracción económica, mala gobernanza, colapso energético y éxodo demográfico — no son crisis paralelas. Son engranajes de un mismo mecanismo: la extracción erosiona la base económica; la corrupción y la incompetencia política impiden respuestas efectivas; el deterioro de servicios básicos como la electricidad y el agua expulsa a la población; y cada persona que emigra reduce la capacidad fiscal para financiar los servicios cuyo deterioro causó su partida. Romper ese ciclo requiere intervenir en todas las dimensiones simultáneamente — y los modelos de Singapur, Irlanda, Estonia y Barbados demuestran que es posible, pero todas esas transformaciones requirieron <strong>soberanía real sobre las decisiones económicas propias</strong>.</p>
+      <p>En la cuarta, cuantificamos el costo humano: <strong>37,3%</strong> de pobreza, pobreza infantil de 55%, un sistema de Medicaid con techo que deja a millones subatendidos, 4.500+ médicos emigrados, 600+ escuelas cerradas, y una crisis de vivienda acelerada por Act 60. Cada indicador social está fuera de rango de cualquier estado — y cada uno es consecuencia directa de las tres crisis anteriores.</p>
+
+      <p>Estas cinco dimensiones — extracción económica, mala gobernanza, colapso energético, deterioro del bienestar social y éxodo demográfico — no son crisis paralelas. Son engranajes de un mismo mecanismo: la extracción erosiona la base económica; la corrupción y la incompetencia política impiden respuestas efectivas; el deterioro de servicios básicos como la electricidad y el agua expulsa a la población; y cada persona que emigra reduce la capacidad fiscal para financiar los servicios cuyo deterioro causó su partida. Romper ese ciclo requiere intervenir en todas las dimensiones simultáneamente — y los modelos de Singapur, Irlanda, Estonia y Barbados demuestran que es posible, pero todas esas transformaciones requirieron <strong>soberanía real sobre las decisiones económicas propias</strong>.</p>
 
       <p>Lo más significativo de 2024 no fue quién ganó — fue que <strong>391.945 puertorriqueños</strong> votaron fuera del bipartidismo tradicional, y un ciudadano sin partido logró llegar al Senado escribiendo su nombre en una papeleta. Puerto Rico tiene 300 días de sol, potencial renovable cuatro veces mayor que su consumo, una diáspora de 6,1 millones, infraestructura farmacéutica existente, posición geográfica privilegiada, y una generación que ya demostró — en las calles de 2019 y las urnas de 2024 — que no acepta el statu quo. La pregunta no es si Puerto Rico <em>puede</em> cambiar. <strong>La pregunta es si quienes llegan al poder van a desmontar el sistema que documentamos aquí — o si el ciclo de 70 años se repite con nuevos nombres.</strong></p>
     </div>
@@ -3176,6 +3485,142 @@ section { padding-top: 72px }
   </footer>
 
   </div><!-- /tab-futuro -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 7: METODOLOGÍA -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="tab-metodologia" hidden>
+    <header class="hero-cinematic" style="min-height:340px;background:linear-gradient(135deg,#0C1B2A 0%,#1A2A3A 100%)">
+      <div class="hero-content">
+        <p class="hero-kicker" style="color:#78909C">Transparencia · Investigación independiente</p>
+        <h1 class="hero-title">Metodología</h1>
+        <p class="hero-sub">Fuentes, limitaciones, preguntas abiertas y registro de cambios.<br>Toda afirmación en esta investigación es verificable.</p>
+      </div>
+    </header>
+
+  <!-- TABLA MAESTRA -->
+  <section id="tabla-maestra">
+    <div class="sec-label reveal">01 · Tabla maestra de referencia</div>
+    <h2 class="sec-title">Datos clave y sus fuentes</h2>
+    <p class="sec-intro reveal">Cada cifra citada en esta investigación tiene una fuente verificable. Esta tabla resume los datos más importantes.</p>
+
+    <div style="overflow-x:auto;margin:24px 0">
+      <table style="width:100%;min-width:600px;font-size:13px;border-collapse:collapse;color:var(--ink-soft)">
+        <thead><tr style="border-bottom:2px solid var(--line);background:var(--card-bg)">
+          <th style="text-align:left;padding:10px;font-weight:600;color:var(--ink)">Dato</th>
+          <th style="text-align:center;padding:10px;font-weight:600;color:var(--ink)">Valor</th>
+          <th style="text-align:left;padding:10px;font-weight:600;color:var(--ink)">Fuente</th>
+          <th style="text-align:center;padding:10px;font-weight:600;color:var(--ink)">Año</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Ganancias corporativas repatriadas</td><td style="text-align:center;padding:8px;font-weight:600">$34.000M/año</td><td style="padding:8px">BEA, promedio 2010–2022</td><td style="text-align:center;padding:8px">2022</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Transferencias federales</td><td style="text-align:center;padding:8px;font-weight:600">$15.500M/año</td><td style="padding:8px">MacEwan &amp; Ruíz Mercado</td><td style="text-align:center;padding:8px">2007</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Gasto federal total en PR</td><td style="text-align:center;padding:8px;font-weight:600">$22.000M/año</td><td style="padding:8px">GAO + Censo (AF 2020)</td><td style="text-align:center;padding:8px">2020</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Sobrecosto Jones Act</td><td style="text-align:center;padding:8px;font-weight:600">$537–$1.400M/año</td><td style="padding:8px">NBER/Cato Institute</td><td style="text-align:center;padding:8px">2019</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Deuda pública (pico)</td><td style="text-align:center;padding:8px;font-weight:600">$72.000M</td><td style="padding:8px">FOMB / Título III</td><td style="text-align:center;padding:8px">2016</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Deuda reestructurada</td><td style="text-align:center;padding:8px;font-weight:600">$28.100M</td><td style="padding:8px">FOMB (Título III)</td><td style="text-align:center;padding:8px">2022</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Tasa de pobreza</td><td style="text-align:center;padding:8px;font-weight:600">37,3%</td><td style="padding:8px">Census Bureau ACS</td><td style="text-align:center;padding:8px">2023</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Tarifa eléctrica</td><td style="text-align:center;padding:8px;font-weight:600">33,86¢/kWh</td><td style="padding:8px">EIA / NEPR</td><td style="text-align:center;padding:8px">2025</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Población emigrada (desde 2010)</td><td style="text-align:center;padding:8px;font-weight:600">500.000+</td><td style="padding:8px">Census Bureau / Pew</td><td style="text-align:center;padding:8px">2024</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Compensación/PIB</td><td style="text-align:center;padding:8px;font-weight:600">~29%</td><td style="padding:8px">BEA</td><td style="text-align:center;padding:8px">2022</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Fondos FEMA red eléctrica</td><td style="text-align:center;padding:8px;font-weight:600">$13.200M asignados</td><td style="padding:8px">GAO (junio 2026)</td><td style="text-align:center;padding:8px">2026</td></tr>
+          <tr><td style="padding:8px">Potencial solar residencial</td><td style="text-align:center;padding:8px;font-weight:600">24,6 TWh/año</td><td style="padding:8px">NREL/DOE (PR100)</td><td style="text-align:center;padding:8px">2024</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS ABIERTAS -->
+  <section id="preguntas">
+    <div class="sec-label reveal">02 · Preguntas abiertas</div>
+    <h2 class="sec-title">Lo que la evidencia no resuelve</h2>
+    <p class="sec-intro reveal">Una investigación responsable reconoce lo que no sabe. Estas son preguntas que requieren más datos o análisis.</p>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:16px">
+      <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">COBRA (Compact of Budget-Related Adjustments)</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">Los análisis del CBO sobre cambios de estatus incluyen estimados de ajustes presupuestarios (COBRA), pero las proyecciones varían significativamente según supuestos. No existe consenso sobre el costo fiscal neto exacto de la estadidad, la independencia o la libre asociación. Esta investigación presenta las opciones sin adjudicar qué COBRA es más favorable — eso requiere análisis dinámico que incorpore cambios de comportamiento económico.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:16px">
+      <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">GAO-14-31 y costos de estadidad</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">El informe GAO-14-31 (<em>Puerto Rico: How Statehood Would Affect Federal Programs</em>) existe y documenta impactos programáticos. Sin embargo, no existe un estimado reciente y comprehensivo del costo neto de la estadidad que incorpore las condiciones post-reestructuración. Las cifras de 2014 no reflejan la economía actual.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:16px">
+      <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Embudo FEMA → COR3 → PREPA/LUMA</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">Los $13.200M que FEMA asignó para la reconstrucción de la red eléctrica pasan por COR3 (Central Office for Recovery, Reconstruction and Resiliency) antes de llegar a PREPA/LUMA. El porcentaje exacto desembolsado vs. obligado vs. asignado depende de la fuente y la fecha del reporte. Esta investigación usa la cifra del GAO (junio 2026) pero reconoce que los datos de COR3 pueden diferir.</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold);margin-bottom:16px">
+      <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:8px">Costo real del Jones Act</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">El rango de $537M–$1.400M anuales refleja diferentes metodologías. La cifra de $1.400M proviene del Cato Institute; estimados del NBER y otros son más conservadores. El costo real depende de supuestos sobre elasticidad de precios y alternativas de envío.</p>
+    </div>
+  </section>
+
+  <!-- NOTAS METODOLÓGICAS -->
+  <section id="notas-metodo">
+    <div class="sec-label reveal">03 · Notas metodológicas</div>
+    <h2 class="sec-title">Cómo se compiló esta investigación</h2>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">Proceso</h3>
+      <ul style="font-size:14px;color:var(--ink-soft);line-height:1.8;padding-left:20px">
+        <li>Esta es una investigación independiente, no académica ni periodística. No está afiliada a ningún partido, organización o institución.</li>
+        <li>Los datos provienen de fuentes públicas: agencias federales (BEA, Census, GAO, CBO, EIA, FEMA), agencias locales (NEPR, FOMB), think tanks (Cato, NBER, Center for a New Economy), organizaciones académicas (Hunter/CUNY, Princeton JPIA) y medios verificados.</li>
+        <li>Las cifras se verificaron contra múltiples fuentes cuando fue posible. Donde hay discrepancia, se indica el rango.</li>
+        <li>Los modelos internacionales se presentan como referencia, no como receta. Cada país tiene contexto único.</li>
+        <li>La nota editorial en cada pestaña es interpretativa — las secciones de datos son descriptivas.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:12px">Limitaciones</h3>
+      <ul style="font-size:14px;color:var(--ink-soft);line-height:1.8;padding-left:20px">
+        <li>No es una investigación con acceso a datos primarios ni entrevistas.</li>
+        <li>Algunos datos tienen rezago (ej. Census ACS puede tardar 1–2 años).</li>
+        <li>Las proyecciones económicas (ej. costos de estadidad/independencia) son inherentemente especulativas.</li>
+        <li>La investigación se enfoca en la dimensión económica — no cubre exhaustivamente aspectos culturales, legales ni geopolíticos.</li>
+        <li>Los datos de corrupción reflejan casos federales documentados; la corrupción local no procesada federalmente queda fuera.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REGISTRO DE CAMBIOS -->
+  <section id="changelog">
+    <div class="sec-label reveal">04 · Registro de cambios</div>
+    <h2 class="sec-title">Correcciones aplicadas</h2>
+    <p class="sec-intro reveal">Transparencia total: cada corrección hecha a esta investigación queda documentada.</p>
+
+    <div style="overflow-x:auto">
+      <table style="width:100%;min-width:500px;font-size:13px;border-collapse:collapse;color:var(--ink-soft)">
+        <thead><tr style="border-bottom:2px solid var(--line);background:var(--card-bg)">
+          <th style="text-align:left;padding:10px;font-weight:600;color:var(--ink)">Fecha</th>
+          <th style="text-align:left;padding:10px;font-weight:600;color:var(--ink)">Corrección</th>
+          <th style="text-align:left;padding:10px;font-weight:600;color:var(--ink)">Antes → Después</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Tasa de pobreza corregida</td><td style="padding:8px">43% → 37,3% (Census ACS 2023)</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Tarifa eléctrica: lenguaje</td><td style="padding:8px">«el doble» → «casi el doble» (33,86¢ vs 18,3¢ = 1,85×)</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Irlanda: nota GNI*</td><td style="padding:8px">Añadida nota «GNI* ≈$55K» junto al PIB nominal de $78.700</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Barbados: fechas corregidas</td><td style="padding:8px">Independencia 1966, república 2021 (verificado)</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Compensación/PIB añadida</td><td style="padding:8px">Nuevo dato: ~29% (EE.UU. ~53%)</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Tesis: lenguaje suavizado</td><td style="padding:8px">«que la evidencia sugiere con fuerza» → «la evidencia sugiere con fuerza»</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">COBRA movido a preguntas abiertas</td><td style="padding:8px">No presentado como hecho sino como pregunta sin resolver</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">GAO-14-31: nota de actualidad</td><td style="padding:8px">Existe, pero «no hay estimado reciente»</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">FEMA/COR3: fuente aclarada</td><td style="padding:8px">Nota sobre embudo FEMA→COR3→PREPA/LUMA</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">2026-10-02</td><td style="padding:8px">Contadores HTML accesibles</td><td style="padding:8px">Valores reales en HTML (antes: «0» sin JS)</td></tr>
+          <tr><td style="padding:8px">2026-10-02</td><td style="padding:8px">Reestructuración 7 pestañas</td><td style="padding:8px">4 pestañas → 7 (bienestar, comparaciones, metodología añadidas)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <p><strong>Última actualización:</strong> 2 de octubre de 2026. Esta investigación es un documento vivo — se actualiza cuando se identifican errores o nueva información relevante. Todas las correcciones quedan registradas arriba.</p>
+  </footer>
+
+  </div><!-- /tab-metodologia -->
+
 
 </div>
 
@@ -3393,7 +3838,7 @@ section { padding-top: 72px }
 
   // ── Tab switching ──
   var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-energia'), document.getElementById('tab-futuro')];
+  var tabPanels = [document.getElementById('tab-flujos'), document.getElementById('tab-historia'), document.getElementById('tab-energia'), document.getElementById('tab-bienestar'), document.getElementById('tab-comparaciones'), document.getElementById('tab-futuro'), document.getElementById('tab-metodologia')];
   var sideNav = document.getElementById('side-nav');
 
   tabBtns.forEach(function(btn){
@@ -3570,6 +4015,22 @@ section { padding-top: 72px }
           }, { threshold: 0.3 });
           cObs3.observe(block);
         });
+      } else if(target === 'tab-bienestar'){
+        sideNav.innerHTML = [
+          ['#pobreza','Pobreza'],['#salud','Salud'],['#vivienda','Vivienda'],
+          ['#demografia-bienestar','Demografía'],['#educacion','Educación'],['#editorial-bienestar','Reflexión']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+      } else if(target === 'tab-comparaciones'){
+        sideNav.innerHTML = [
+          ['#vs-estados','PR vs. Estados'],['#modelos','Modelos internacionales'],['#editorial-comparaciones','Reflexión'],['#fuentes-comparaciones','Fuentes']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
+      } else if(target === 'tab-metodologia'){
+        sideNav.innerHTML = [
+          ['#tabla-maestra','Tabla maestra'],['#preguntas','Preguntas abiertas'],['#notas-metodo','Metodología'],['#changelog','Cambios']
+        ].map(function(a){ return '<a href="'+a[0]+'" data-sec="'+a[0].slice(1)+'"><span class="dot"></span><span class="label">'+a[1]+'</span></a>' }).join('');
+        initSideNavObs();
       } else {
         sideNav.innerHTML = origNavHTML;
         initSideNavObs();
@@ -3594,7 +4055,7 @@ section { padding-top: 72px }
         }
       });
     }, { rootMargin: '-30% 0px -70% 0px' });
-    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-futuro:not([hidden]), #tab-energia:not([hidden])');
+    var activePanel = document.querySelector('#tab-flujos:not([hidden]), #tab-historia:not([hidden]), #tab-energia:not([hidden]), #tab-bienestar:not([hidden]), #tab-comparaciones:not([hidden]), #tab-futuro:not([hidden]), #tab-metodologia:not([hidden])');
     if(activePanel) activePanel.querySelectorAll('section[id]').forEach(function(s){ window._sideObs.observe(s) });
   }
 
@@ -3733,7 +4194,7 @@ section { padding-top: 72px }
   // Restore saved tab
   try {
     var savedTab = localStorage.getItem('activeTab');
-    if(savedTab === 'tab-historia' || savedTab === 'tab-futuro' || savedTab === 'tab-energia'){
+    if(savedTab && savedTab !== 'tab-flujos'){
       var btn2 = document.querySelector('.tab-btn[data-tab="'+savedTab+'"]');
       if(btn2) btn2.click();
     }
